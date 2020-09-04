@@ -16,9 +16,9 @@ jobs:
       - name: Build
         uses: TartanLlama/actions-eleventy@v1.2
       - name: CNAME
-        run: echo 'doodles.patrickweaver.net' | sudo tee _site/CNAME
+        run: echo 'doodles.patrickweaver.net' | sudo tee dist/CNAME
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: _site
+          publish_dir: dist
