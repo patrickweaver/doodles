@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Keys:
+gh-pages
+gh-pages.pub
