@@ -1,0 +1,22 @@
+{
+  "name": "doodles",
+  "version": "1.0.0",
+  "description": "A personal website made with eleventy",
+  "main": "server.js",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "rm -rf dist && npx @11ty/eleventy --serve --port=3000"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "moment": "^2.24.0"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "repository": {
+    "url": "https://github.com/patrickweaver/doodles"
+  },
+  "license": "MIT"
+}
