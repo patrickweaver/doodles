@@ -106,3 +106,5 @@ dist
 # Keys:
 gh-pages
 gh-pages.pub
+
+.DS_Store
