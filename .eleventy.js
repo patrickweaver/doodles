@@ -10,6 +10,30 @@ module.exports = function(eleventyConfig) {
     strict_filters: true
   });
   
+  // Passthrough
+  eleventyConfig.addPassthroughCopy("build/drawing-parallel-lines-on-a-map");
+
+  // Collections:
+  eleventyConfig.addCollection("allTopLevel", function(collectionApi) {
+    const all = collectionApi.getAll();
+    const allTopLevel = all.filter(i => {
+      const slashes = i.url.split("").filter(j => j === "/")
+      if (slashes.length === 2) {
+        return true;
+      }
+      return false
+    });
+    const allTopLevelWithName = allTopLevel.map(i => {
+      const inputContent = i.template.inputContent;
+      const titleIndex = inputContent.indexOf("<title>") + 7;
+      const titleEndIndex = inputContent.indexOf("</title>");
+
+      i.data.name = inputContent.substring(titleIndex, titleEndIndex);
+      return i;
+    })
+    console.log(allTopLevelWithName[0].data)
+    return allTopLevelWithName;
+  });
   
   return {
     dir: {
@@ -17,9 +41,9 @@ module.exports = function(eleventyConfig) {
       output: "dist"
     },
     templateFormats: [
+      'html',
       'md',
       'css',
-      'js',
       'hbs',
       'njk',
       'gif',

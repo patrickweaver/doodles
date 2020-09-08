@@ -1,0 +1,14 @@
+---
+layout: layouts/main.hbs
+title: Doodles by Patrick Weaver
+---
+
+<h1>Doodles</h1>
+
+<ol class="doodles-list">
+{{#each collections.allTopLevel }}
+  <li>
+    <a href=".{{this.url}}">{{this.data.name}}</a>
+  </li>
+{{/each}}
+</ol>

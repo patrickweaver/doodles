@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slide 3: Drawing Parallel Lines on a Map</title>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Drawing Parallel Lines on a Map">
+    <link id="favicon" rel="icon" href="/images/map-emoji.png" type="image/png">
+    
+    <!-- Social -->
+    <meta property="og:title" content="Drawing Parallel Lines on a Map"/>
+    <meta property="og:description" content="Drawing Parallel Lines on a Map" />
+    <meta property="og:image" content="" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="Drawing Parallel Lines on a Map" />
+    <meta name="twitter:description" content="Drawing Parallel Lines on a Map" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:image:alt" content="" />
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <link rel="stylesheet" href="../../leaflet/leaflet.css">
+  <body>
+    <div class="slide">
+      <div id="card">
+      
+        <ul id="nav">
+          <li><a href="../2/">Previous</a></li>
+          <li><a href="../../">Slide List</a></li>
+          <li><a href="../4/">Next</a></li>
+        </ul>
+      
+        <h2>Drawing Subway Tracks</h2>
+        <p><p>At a small enough scale the Lat/Long grid is close enough to square and parallel-ish lines would be useful for drawing subway tracks on a map so that if we animate trains moving on the tracks. If we just connect each station it will look like the trains will collide!</p>
+      <ol class="button-list">
+        <li><button onClick="subwayTracks()">Draw G Line</button></li>
+        <li><button onClick="addTrains()">Add trains</button></li>
+        <li><button onClick="moveTrains()">Move trains</button></li>
+      </ol></p>
+      </div>
+      
+      <div id="map"></div>    </div>
+    <script src="../../leaflet/config.js"></script>
+    <script src="../../leaflet/victor.js"></script>
+    <script src="../../leaflet/leaflet-src.js"></script>
+    <script src="../../leaflet/leafletHelpers.js"></script>
+    <script src="../../leaflet/Leaflet.Marker.SlideTo.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

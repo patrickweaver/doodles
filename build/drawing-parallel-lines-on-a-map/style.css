@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ariel", sans-serif;
+  margin: 0;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+#card {
+  z-index: 2;
+  position: fixed;
+  top: 10px;
+  left: 5vw;
+  width: 90vw;
+  padding: .5em 1em;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#card p {
+  text-align: left;
+}
+
+#nav {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.slides-list li {
+  padding: .125em 0;
+}
+
+.slides-list {
+  text-align: left;
+}
+
+.image-container {
+  text-align: center;
+}
+
+img {
+  max-height: 60vh;
+  margin: 0 auto;
+}
+
+button {
+  font-size: 16px;
+  margin: 20px 5px 20px 0;
+}
+
+.button-list {
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+.button-list li {
+  margin-right: 30px;
+}
