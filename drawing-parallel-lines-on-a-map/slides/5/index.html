@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slide 5: Drawing Parallel Lines on a Map</title>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Drawing Parallel Lines on a Map">
+    <link id="favicon" rel="icon" href="/images/map-emoji.png" type="image/png">
+    
+    <!-- Social -->
+    <meta property="og:title" content="Drawing Parallel Lines on a Map"/>
+    <meta property="og:description" content="Drawing Parallel Lines on a Map" />
+    <meta property="og:image" content="" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="Drawing Parallel Lines on a Map" />
+    <meta name="twitter:description" content="Drawing Parallel Lines on a Map" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:image:alt" content="" />
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <link rel="stylesheet" href="../../leaflet/leaflet.css">
+  <body>
+    <div class="slide">
+      <div id="card">
+      
+        <ul id="nav">
+          <li><a href="../4/">Previous</a></li>
+          <li><a href="../../">Slide List</a></li>
+          <li><a href="../6/">Next</a></li>
+        </ul>
+      
+        <h2>Lots of Math</h2>
+        <p><p>I realized that what I actually wanted were lines began and ended at points that were on a line that bisected the angle created by a station, the previous station, and the next station. This led to lots of math.</p>
+      <p>Beyond just calculating the bisector angles I had to worry about Latitude and Longitude to meter constants to adjust for the skew.</p>
+      <div class="image-container">
+        <img src="notes.jpeg" />
+      </div></p>
+      </div>
+      
+      <div id="map"></div>    </div>
+    <script src="../../leaflet/config.js"></script>
+    <script src="../../leaflet/victor.js"></script>
+    <script src="../../leaflet/leaflet-src.js"></script>
+    <script src="../../leaflet/leafletHelpers.js"></script>
+    <script src="../../leaflet/Leaflet.Marker.SlideTo.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
