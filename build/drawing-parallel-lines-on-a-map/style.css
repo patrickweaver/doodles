@@ -70,3 +70,43 @@ button {
 .button-list li {
   margin-right: 30px;
 }
+
+#responsive {
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+#responsive button {
+  margin: 5px;
+}
+
+#show-card {
+  display: none;
+}
+
+#responsive-disclaimer {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+  #responsive {
+    display: block;
+  }
+
+  #responsive-disclaimer {
+    display: inline;
+  }
+
+  #card {
+    padding: 5px;
+    left: 2vw;
+    width: 96vw;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+}
