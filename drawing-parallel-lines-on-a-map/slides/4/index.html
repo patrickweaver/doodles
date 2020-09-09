@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="description" content="Drawing Parallel Lines on a Map">
-    <link id="favicon" rel="icon" href="./images/map-emoji.png" type="image/png">
+    <link id="favicon" rel="icon" href="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png" type="image/png">
     
     <!-- Social -->
     <meta property="og:title" content="Drawing Parallel Lines on a Map"/>
@@ -36,10 +36,18 @@
           <li><a href="../5/">Next</a></li>
         </ul>
       
+        
         <h2>The Problem with Actually Parallel Lines</h2>
-        <p><p>I first tried drawing lines that were actually parallel to the lines between the stations, which was not too difficult, but it didn't look good because the ends of the parallel lines don't meet.</p>
+        <div id="card-content">
+          <p><p>I first tried drawing lines that were actually parallel to the lines between the stations, which was not too difficult, but it didn't look good because the ends of the parallel lines don't meet.</p>
       <p><button onClick="parallelStationLines()">Draw parallel lines for each pair of stations</button></p>
       </p>
+        </div>
+      
+        <div id="responsive">
+          <button id="hide-card" onclick="hideCard()">Hide Card</button>
+          <button id="show-card" onclick="showCard()">Show Card</button>
+        </div>
       </div>
       
       <div id="map"></div>    </div>
@@ -48,6 +56,7 @@
     <script src="../../leaflet/leaflet-src.js"></script>
     <script src="../../leaflet/leafletHelpers.js"></script>
     <script src="../../leaflet/Leaflet.Marker.SlideTo.js"></script>
+    <script src="../../responsive.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="description" content="Drawing Parallel Lines on a Map">
-    <link id="favicon" rel="icon" href="./images/map-emoji.png" type="image/png">
+    <link id="favicon" rel="icon" href="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png" type="image/png">
     
     <!-- Social -->
     <meta property="og:title" content="Drawing Parallel Lines on a Map"/>
@@ -36,13 +36,21 @@
           <li><a href="../4/">Next</a></li>
         </ul>
       
+        
         <h2>Drawing Subway Tracks</h2>
-        <p><p>At a small enough scale the Lat/Long grid is close enough to square and parallel-ish lines would be useful for drawing subway tracks on a map so that if we animate trains moving on the tracks. If we just connect each station it will look like the trains will collide!</p>
+        <div id="card-content">
+          <p><p>At a small enough scale the Lat/Long grid is close enough to square and parallel-ish lines would be useful for drawing subway tracks on a map so that if we animate trains moving on the tracks. If we just connect each station it will look like the trains will collide!</p>
       <ol class="button-list">
         <li><button onClick="subwayTracks()">Draw G Line</button></li>
         <li><button onClick="addTrains()">Add trains</button></li>
         <li><button onClick="moveTrains()">Move trains</button></li>
       </ol></p>
+        </div>
+      
+        <div id="responsive">
+          <button id="hide-card" onclick="hideCard()">Hide Card</button>
+          <button id="show-card" onclick="showCard()">Show Card</button>
+        </div>
       </div>
       
       <div id="map"></div>    </div>
@@ -51,6 +59,7 @@
     <script src="../../leaflet/leaflet-src.js"></script>
     <script src="../../leaflet/leafletHelpers.js"></script>
     <script src="../../leaflet/Leaflet.Marker.SlideTo.js"></script>
+    <script src="../../responsive.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
