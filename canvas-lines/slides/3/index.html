@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slide 3: Drawing Pixel Perfect Lines on the JS Canvas</title>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <link id="favicon" rel="icon" href="" type="image/png">
+    
+    <!-- Social -->
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:image:alt" content="" />
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <body>
+    <div class="slide">
+      <div id="slide-content">
+      
+        <ul id="nav">
+          <li><a href="../2/">Previous</a></li>
+          <li><a href="../../">Slide List</a></li>
+          <li><a href="../4/">Next</a></li>
+        </ul>
+      
+        <h1>Canvas Lines</h1>
+        
+        <h2 class="card-title">What About Close, Evenly Spaced Lines?</h2>
+        
+        <div id="card-content">
+          
+      <p>
+        Let's try an experiment with drawing evenly spaced lines. Using a for loop we should be able to draw a line from the top of the canvas to the bottom every other pixel. But what we get is a solid pink square, with a thin white stripe on the right side.
+      </p>
+      <p>
+        This is because the 1px wide lines are drawn on the canvas so that they slightly overlap with the pixel next to them. If we draw a line every other pixel they both overlap the middle pixel. Try raising and lowering the line spacing and line width to see the stripes emerge. Notice that lines with odd widths are blurry, but <a href="http://zetcode.com/gfx/html5canvas/lines/">lines with even widths are not!</a>
+      </p>
+      
+      <pre><code>
+        ctx.clearRect(0, 0, 100, 100);
+        ctx.lineWidth = parseInt(lineWidth);
+        ctx.beginPath();
+        for (var i = 0; i < 100; i += parseInt(spacing) + 1) {
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i, 100);
+        }
+        ctx.stroke();
+        ctx.closePath();
+        ctx.lineWidth = 1;
+      </code></pre>
+      
+      <canvas id="canvas"></canvas><br/>
+      <ul class="canvas-controls">
+        <li>
+          <label>Line Spacing:</label>
+          <input type="range" id="c2-line-spacing" min="0" max="25" value="1">
+          <label class="slider-label" id="c2-line-spacing-label" for="c2-line-spacing"></label>
+        </li>
+        <li>
+          <label>Line Width:</label>
+          <input type="range" id="c2-line-width" min="0.25" step="0.25" max="10" value="1">
+          <label class="slider-label" id="c2-line-width-label" for="c2-line-width"></label>
+        </li>
+      </ul>
+        </div>
+      
+        <div id="controls">
+          <ul>
+            <li>Canvases are <span id="scale-status" class="status"></span>scaled 4x. <button id="scale-button" onclick="disableScaling()">Disable</button></li>
+          </ul>
+        </div></div>
+      
+    </div>
+    <script src="../../responsive.js"></script>
+    <script src="../../script.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
