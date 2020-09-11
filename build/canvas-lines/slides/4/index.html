@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Slide 4: Drawing Pixel Perfect Lines on the JS Canvas</title>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <link id="favicon" rel="icon" href="" type="image/png">
+    
+    <!-- Social -->
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:image:alt" content="" />
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <body>
+    <div class="slide">
+      <div id="slide-content">
+      
+        <ul id="nav">
+          <li><a href="../3/">Previous</a></li>
+          <li><a href="../../">Slide List</a></li>
+          <li><a href="../5/">Next</a></li>
+        </ul>
+      
+        <h1>Canvas Lines</h1>
+        
+        <h2 class="card-title">Offsetting the Whole Canvas</h2>
+        
+        <div id="card-content">
+          
+      <p>
+        A frequently used trick for dealing with lines that are blurry because they are drawn on the border between two pixels is to offset the canvas by -0.5 pixels.
+      </p>
+      <p>
+        This allows us to see the space between the 1px wide, 1px evenly spaced lines on the bottom half of the canvas, but the white space between still looks smaller than the red stripes. But, we can't see Line 1 from our code which is a 1px wide line from (0, 0) to (0, 40). Only by making the lines wider can we see the line.
+      </p>
+      
+      <p>
+        Also, our vertical stripes now don't extend to the bottom of the canvas, there is a ligher colored section of pixels at the bottom of each line. We've also just traded odd-width blurry lines for even-width blurry lines.
+      </p>
+      
+      <pre><code>
+        ctx.clearRect(0, 0, 100, 100);
+        ctx.translate(-0.5, -0.5);
+        ctx.lineWidth = parseInt(lineWidth);
+        
+        // Line 1
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, 40);
+        ctx.stroke();
+        
+        // Line 2
+        ctx.beginPath();
+        ctx.moveTo(25, 0);
+        ctx.lineTo(60, 40);
+        ctx.stroke();
+        
+        // Stripes
+        for (var i = 0; i < 100; i += parseInt(spacing) + 1) {
+          ctx.beginPath();
+          ctx.moveTo(i, 50);
+          ctx.lineTo(i, 100);
+          ctx.stroke();
+        }
+        ctx.resetTransform();
+      </code></pre>
+      
+      <canvas id="canvas"></canvas><br/>
+      <ul class="canvas-controls">
+        <li>
+          <label>Line Spacing:</label>
+          <input type="range" id="c3-line-spacing" min="0" max="25" value="1">
+          <label class="slider-label" id="c3-line-spacing-label" for="c3-line-spacing"></label>
+        </li>
+        <li>
+          <label>Line Width:</label>
+          <input type="range" id="c3-line-width" min="0.25" max="10" step="0.25" value="1">
+          <label class="slider-label" id="c3-line-width-label" for="c3-line-width"></label>
+        </li>
+      </ul>
+        </div>
+      
+        <div id="controls">
+          <ul>
+            <li>Canvases are <span id="scale-status" class="status"></span>scaled 4x. <button id="scale-button" onclick="disableScaling()">Disable</button></li>
+          </ul>
+        </div></div>
+      
+    </div>
+    <script src="../../responsive.js"></script>
+    <script src="../../script.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
