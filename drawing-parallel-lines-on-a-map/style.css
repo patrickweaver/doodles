@@ -71,10 +71,15 @@ button {
   margin-right: 30px;
 }
 
-#responsive {
-  text-align: center;
+#view-source {
+  text-align :center !important;
+}
+
+#responsive-disclaimer {
+  text-align: left;
   display: none;
   margin-top: 10px;
+  padding: 0 10px;
 }
 
 #responsive button {
@@ -85,7 +90,7 @@ button {
   display: none;
 }
 
-#responsive-disclaimer {
+#responsive {
   display: none;
 }
 
@@ -96,7 +101,7 @@ button {
   }
 
   #responsive-disclaimer {
-    display: inline;
+    display: block;
   }
 
   #card {
@@ -106,7 +111,7 @@ button {
   }
 
   h1 {
-    font-size: 18px;
+    font-size: 17px;
     margin: 5px 0;
   }
 }
