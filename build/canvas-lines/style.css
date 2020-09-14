@@ -13,7 +13,7 @@ ul {
   padding: 0;
 }
 
-li {
+ul > li {
   list-style-type: none;
   padding: 0;
 }
@@ -47,6 +47,10 @@ pre {
 #card-content p, #card-content blockquote {
   text-align: left;
   padding: 5px 10px;
+}
+
+.slides-list {
+  text-align: left;
 }
 
 blockquote {

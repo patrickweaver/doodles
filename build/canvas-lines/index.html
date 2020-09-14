@@ -1,26 +1,88 @@
-<h2>Slides</h2>
-<ol class="slides-list">
-  <li>
-    <a href="./slides/1/">Drawing Lines Should be Easy, Right?</a>
-  </li>
-  <li>
-    <a href="./slides/2/">Where Exactly is a Line Drawn?</a>
-  </li>
-  <li>
-    <a href="./slides/3/">What About Close, Evenly Spaced Lines?</a>
-  </li>
-  <li>
-    <a href="./slides/4/">Offsetting the Whole Canvas</a>
-  </li>
-  <li>
-    <a href="./slides/5/">Device Pixel Ratio</a>
-  </li>
-  <li>
-    <a href="./slides/6/">Always Be Scaling</a>
-  </li>
-  <li>
-    <a href="./slides/7/">Maybe just use rectangles?</a>
-  </li>
-</ol>
-
-<p><a href="https://github.com/patrickweaver/canvas-lines">View Source</a></p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drawing Pixel Perfect Lines on the JS Canvas</title>
+      
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="">
+    <link id="favicon" rel="icon" href="https://doodles.patrickweaver.net/canvas-lines/images/canvas400.png" type="image/png">
+    
+    <!-- Social -->
+    <meta property="og:title" content="JS Canvas Lines"/>
+    <meta property="og:description" content="An exploration of drawing lines on the JavaScript Canvas" />
+    <meta property="og:image" content="https://doodles.patrickweaver.net/canvas-lines/images/canvas400.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="JS Canvas Lines" />
+    <meta name="twitter:description" content="An exploration of drawing lines on the JavaScript Canvas" />
+    <meta name="twitter:image" content="https://doodles.patrickweaver.net/canvas-lines/images/canvas400.png" />
+    <meta name="twitter:image:alt" content="A screenshot of a canvas with red lines on it." />
+    <link rel="stylesheet" href="../../style.css">
+  </head>
+  <body>
+    <div class="slide">
+      <div id="slide-content">
+      
+        <ul id="nav">
+          <li></li>
+          <li><a href="../../">Slide List</a></li>
+          <li></li>
+        </ul>
+      
+        <h1>JS Canvas Lines</h1>
+        
+        <h2 class="card-title">Drawing Pixel Perfect Lines on the JS Canvas</h2>
+        
+        <div id="card-content">
+          
+      <p>While working on a generative art idea using the JavaScript canvas API I noticed that the lines I was drawing were blurry. While researching a solution I found a few different fixes for this issue, some of which worked better than others so I documented them in the slides below.</p>
+      
+      <h2>Slides</h2>
+      <ol class="slides-list">
+        <li>
+          <a href="./slides/1/">Drawing Lines Should be Easy, Right?</a>
+        </li>
+        <li>
+          <a href="./">Drawing Pixel Perfect Lines on the JS Canvas</a>
+        </li>
+        <li>
+          <a href="./slides/2/">Where Exactly is a Line Drawn?</a>
+        </li>
+        <li>
+          <a href="./slides/3/">What About Close, Evenly Spaced Lines?</a>
+        </li>
+        <li>
+          <a href="./slides/4/">Offsetting the Whole Canvas</a>
+        </li>
+        <li>
+          <a href="./slides/5/">Device Pixel Ratio</a>
+        </li>
+        <li>
+          <a href="./slides/6/">Always Be Scaling</a>
+        </li>
+        <li>
+          <a href="./slides/7/">Maybe just use rectangles?</a>
+        </li>
+      </ol>
+      
+      <p><a href="https://github.com/patrickweaver/canvas-lines">View Source</a></p>
+        </div>
+      
+        <div id="controls">
+          <ul>
+            <li>Canvases are <span id="scale-status" class="status"></span>scaled 4x. <button id="scale-button" onclick="disableScaling()">Disable</button></li>
+          </ul>
+        </div></div>
+      
+    </div>
+    <script src="../../responsive.js"></script>
+    <script src="../../script.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
