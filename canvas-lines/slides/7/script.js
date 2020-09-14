@@ -20,29 +20,6 @@ function drawCanvas(spacing, lineWidth) {
   for (var i = 0; i < 100; i += parseInt(spacing) + 1) {
     ctx.fillRect(i, 50, lineWidth, 50);
   }
-  /*
-  
-  // Line 1
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(0, 40);
-  ctx.stroke();
-  
-  // Line 2
-  ctx.beginPath();
-  ctx.moveTo(25, 0);
-  ctx.lineTo(60, 40);
-  ctx.stroke();
-  
-  // Stripes
-  for (var i = 0; i < 100; i += parseInt(spacing) + 1) {
-    ctx.beginPath();
-    ctx.moveTo(i, 50);
-    ctx.lineTo(i, 100);
-    ctx.stroke();
-  }
-  ctx.resetTransform();
-  */
 }
 ctx.fillStyle = "#FF0000";
 // line Spacing
