@@ -29,7 +29,6 @@ pre {
 }
 
 #nav {
-  list-style-type: none;
   display: flex;
   justify-content: space-between;
   margin: 0;
