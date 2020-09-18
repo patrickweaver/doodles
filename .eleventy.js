@@ -13,6 +13,7 @@ module.exports = function(eleventyConfig) {
   // Passthrough
   eleventyConfig.addPassthroughCopy("build/drawing-parallel-lines-on-a-map");
   eleventyConfig.addPassthroughCopy("build/canvas-lines")
+  eleventyConfig.addPassthroughCopy("build/interactive-slides-website")
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", function(collectionApi) {
