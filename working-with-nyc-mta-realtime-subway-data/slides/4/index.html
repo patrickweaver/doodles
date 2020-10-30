@@ -32,54 +32,78 @@
         <ul id="nav">
           <li><a href="../3/">Previous</a></li>
           <li><a href="../../">Slide List</a></li>
-          <li></li>
+          <li><a href="../5/">Next</a></li>
         </ul>
       
-        <h1>🚸 TITLE OF YOUR PRESENTATION 🚸</h1>
+        <h1>Working with NYC MTA Real-Time Subway Data</h1>
         
-          <h2 class="card-title">Putting it online</h2>
+          <h2 class="card-title">What the GTFS Data means</h2>
         
         <div id="card-content">
-          <p>Eleventy will generate a site that expects to be deployed in the root directory, but I've been careful to use exclusively relative links in the boilerplate (and image links) here. I use the copy.sh file to copy the /dist folder to another Eleventy site so I don't have to put up a new website for each set of slides.</p>
-      <p>Serve your site locally with &quot;npm start&quot; and build the full static site to the /dist directory with &quot;npm run build&quot;</p>
-      <p>I deploy my Eleventy sites on GitHub pages with this GitHub Action:</p>
+          <p>The useful data is all in the <code>Entity</code> array. This array is made up of two kinds of objects, <code>tripUpdate</code>s and <code>vehicle</code>s. These objects come in pairs, which are probably in sequence in the array. Each has an <code>id</code> property, which will not refer always to the same train between API responses.</p>
+      <p>Each <code>vehicle</code> or <code>tripUpdate</code> item will have a <code>trip</code> property that will be the same between the pairs. This has a <code>tripId</code> property which can be used to identify the train in future API responses, and shows the train's line designation, and direction (all trains in the system are classified as either <code>N</code> or <code>S</code>). It also has a frustratingly HH:MM:SS formatted timestamp for when the train started (or will start) its journey.</p>
       <pre><code>
-      name: github pages
-      on:
-        push:
-          branches:
-            - master
       
-      jobs:
-        build_deploy:
-          runs-on: ubuntu-latest
-          steps:
-            - uses: actions/checkout@v1
-            - uses: actions/setup-node@v1
-              with:
-                node-version: '14.x'
-            - run: npm install
-            - name: Build
-              uses: TartanLlama/actions-eleventy@v1.2
-            - name: CNAME
-              run: echo '🚸 YOUR WEBSITE URL INCLUDING SUBDOMAIN' | sudo tee dist/CNAME
-            - name: Deploy
-              uses: peaceiris/actions-gh-pages@v3
-              with:
-                deploy_key: $
-                publish_dir: dist
-      </code></pre>
-      <p><a href="https://medium.com/@cmichel/how-to-deploy-a-create-react-app-with-github-actions-5e01f7a7b6b">Instructions for setting up GitHub Actions deploy keys</a></p>
+      "trip": {
+        "tripId": "081600_A..N",
+        "startTime": "13:36:00",
+        "startDate": "20200902",
+        "routeId": "A"
+      }
       
+      </pre></code>
+      <h3>vehicle Objects</h3>
+      <p>A <code>vehicle</code> object has information about the current status of the train. The <code>trip</code> property will stay consistent throughout the train's journey in future API responses. <code>tripUpdate</code> objects have a matching <code>trip</code> property. The <code>currentStopSequence</code> counts the number of stops the train has made on the current journey. This may refer to a different stop depending on things like if the train is local or express. <code>stopId</code> refers to the last station the train stopped at. The MTA mantains <a href="http://web.mta.info/developers/data/nyct/subway/Stations.csv">a list of all the stations in the system</a> where this <code>stopId</code> is called the <code>GTFS StopId</code>.</p>
+      <pre><code>
+      
+      "vehicle": {
+        "trip": {
+          "tripId": "081600_A..N",
+          "startTime": "13:36:00",
+          "startDate": "20200902",
+          "routeId": "A"
+        },
+        "currentStopSequence": 35,
+        "stopId": "A05"
+      }
+      
+      </pre></code>
+      <h3>tripUpdate Objects</h3>
+      <p>A <code>tripUpdate</code> object has information about where the train will be in the future. The <code>stopTimeUpdate</code> property is an array of future stops with arrival/departure timestamps (from what I've seen these timestamps are always the same), and a <code>stopId</code>. The example below shows a train near the end of its journey with only 2 stops to go.</p>
+      <pre><code>
+      
+      "tripUpdate": {
+        "trip": {
+          "tripId": "081600_A..N",
+          "startTime": "13:36:00",
+          "startDate": "20200902",
+          "routeId": "A"
+        },
+        "stopTimeUpdate": [
+      
+          {
+            "arrival": { "time": "1599074067" },
+            "departure": { "time": "1599074067" },
+            "stopId": "A03N"
+          },
+          
+          {
+            "arrival": { "time": "1599074262" },
+            "departure": { "time": "1599074262" },
+            "stopId": "A02N"
+          }
+      
+        ]
+      }
+      
+      </pre></code>
         </div>
       
         <hr/>
-        
-        <div id="footer">
-          <p>A footer could go here.</p>
-        </div></div>
+      </div>
       
     </div>
+    <script src="../../gStationData.js"></script>
     <script src="../../script.js"></script>
     <script src="script.js"></script>
   </body>
