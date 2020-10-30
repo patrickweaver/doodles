@@ -35,42 +35,73 @@
           <li><a href="../4/">Next</a></li>
         </ul>
       
-        <h1>🚸 TITLE OF YOUR PRESENTATION 🚸</h1>
+        <h1>Working with NYC MTA Real-Time Subway Data</h1>
         
-          <h2 class="card-title">What About Client Side JavaScript?</h2>
+          <h2 class="card-title">API Feed Responses</h2>
         
         <div id="card-content">
-          
-      <p>
-        Each page is statically generated so it can have it's own .js files linked. We can put a button on this page that calls a function "whatPageAmIOn()":
-      </p>
-      
-      <button onclick="whatPageAmIOn()">What Page Am I On?</button>
-      
-      <br/><br/><br/>
-      
-      <label>
-        /build/slides/3/script.js
-      </label>
-      
+          <p>The API Responses are based on the <a href="https://developers.google.com/transit/gtfs-realtime">GTFS Realtime specification</a>, which is based on Protocol Buffers, or “Google's language-neutral, platform-neutral, extensible mechanism for serializing structured data”.</p>
+      <p>If you're working with the subway data on the web, you may want to easily convert it to JSON. I use the <a href="https://www.npmjs.com/package/gtfs-realtime-bindings">gtfs-realtime-bindings npm module</a>. This may or may not be an efficient or smart thing to do, but you probably want to get straight to exploring the real-time data and not a mechanism for serializing structured data.</p>
+      <p>Converted to JSON, it looks like this:</p>
       <pre><code>
-        console.log("Slide 3");
+      {
+        "header": {
+          "gtfsRealtimeVersion": "1.0",
+          "timestamp": "1599073154"
+        },
+        "entity": [
       
-        function whatPageAmIOn() {
-          alert("Page 3");
-        }
-      </code></pre>
+          {
+            "id": "000001A",
+            "tripUpdate": {
+              "trip": {
+                "tripId": "081600_A..N",
+                "startTime": "13:36:00",
+                "startDate": "20200902",
+                "routeId": "A"
+              },
+              "stopTimeUpdate": [
       
+                {
+                  "arrival": { "time": "1599074067" },
+                  "departure": { "time": "1599074067" },
+                  "stopId": "A03N"
+                },
+                
+                {
+                  "arrival": { "time": "1599074262" },
+                  "departure": { "time": "1599074262" },
+                  "stopId": "A02N"
+                }
       
+              ]
+            }
+          },
+      
+          {
+            "id": "000002A",
+            "vehicle": {
+              "trip": {
+                "tripId": "081600_A..N",
+                "startTime": "13:36:00",
+                "startDate": "20200902",
+                "routeId": "A"
+              },
+              "currentStopSequence": 35,
+              "stopId": "A05"
+            }
+          }
+      
+        ]
+      }
+      </pre></code>
         </div>
       
         <hr/>
-        
-        <div id="footer">
-          <p>A footer could go here.</p>
-        </div></div>
+      </div>
       
     </div>
+    <script src="../../gStationData.js"></script>
     <script src="../../script.js"></script>
     <script src="script.js"></script>
   </body>

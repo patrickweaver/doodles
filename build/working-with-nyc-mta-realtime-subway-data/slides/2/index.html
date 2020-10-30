@@ -35,26 +35,67 @@
           <li><a href="../3/">Next</a></li>
         </ul>
       
-        <h1>🚸 TITLE OF YOUR PRESENTATION 🚸</h1>
+        <h1>Working with NYC MTA Real-Time Subway Data</h1>
         
-          <h2 class="card-title">Really, mix and match!</h2>
+          <h2 class="card-title">Subway Feed API Endpoints</h2>
         
         <div id="card-content">
-          <h3>This is a markdown file</h3>
-      <p>I don't need any complex html in this slide so I'm just using a .md file.</p>
-      <h3>What about images?</h3>
-      <p>There is a /build/images folder that I put most images into.</p>
-      <p><img src="../../images/floppy.gif" alt="A spinning floppy disk"></p>
+          <p>There are 9 Realtime Subway feeds, which are listed <a href="https://api.mta.info/#/subwayRealTimeFeeds">here</a>. They are all the same except for the last 1 - 4 characters (except the 123456 feed which is just the base url).</p>
+      <p><img src="/images/feeds-page.png" alt="A screenshot of the RealTime Subway feeds page"></p>
+      <table>
+      <thead>
+      <tr>
+      <th>Lines</th>
+      <th>Endpoint</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td>ACE:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-ace</a></td>
+      </tr>
+      <tr>
+      <td>BDFM:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-bdfm</a></td>
+      </tr>
+      <tr>
+      <td>G:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-g</a></td>
+      </tr>
+      <tr>
+      <td>JZ:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-jz</a></td>
+      </tr>
+      <tr>
+      <td>NQRW:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-nqrw</a></td>
+      </tr>
+      <tr>
+      <td>L:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-l</a></td>
+      </tr>
+      <tr>
+      <td>123456:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs</a></td>
+      </tr>
+      <tr>
+      <td>7:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-7">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-7</a></td>
+      </tr>
+      <tr>
+      <td>SIR:</td>
+      <td><a href="https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si">https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/nyct%2Fgtfs-si</a></td>
+      </tr>
+      </tbody>
+      </table>
       
         </div>
       
         <hr/>
-        
-        <div id="footer">
-          <p>A footer could go here.</p>
-        </div></div>
+      </div>
       
     </div>
+    <script src="../../gStationData.js"></script>
     <script src="../../script.js"></script>
     <script src="script.js"></script>
   </body>
