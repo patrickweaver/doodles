@@ -4,4 +4,8 @@
 
 body {
   font-family: "Ariel", sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 22px;
 }
