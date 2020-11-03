@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("build/canvas-lines");
   eleventyConfig.addPassthroughCopy("build/interactive-slides-website");
   eleventyConfig.addPassthroughCopy("build/working-with-nyc-mta-realtime-subway-data");
+  eleventyConfig.addPassthroughCopy("build/crossword");
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", function(collectionApi) {
