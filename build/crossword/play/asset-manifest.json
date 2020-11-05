@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/crossword/static/css/main.90cf6796.chunk.css",
-    "main.js": "/crossword/static/js/main.79408199.chunk.js",
-    "main.js.map": "/crossword/static/js/main.79408199.chunk.js.map",
+    "main.js": "/crossword/static/js/main.80f4d948.chunk.js",
+    "main.js.map": "/crossword/static/js/main.80f4d948.chunk.js.map",
     "runtime-main.js": "/crossword/static/js/runtime-main.4c3f6f8d.js",
     "runtime-main.js.map": "/crossword/static/js/runtime-main.4c3f6f8d.js.map",
     "static/js/2.229e763e.chunk.js": "/crossword/static/js/2.229e763e.chunk.js",
     "static/js/2.229e763e.chunk.js.map": "/crossword/static/js/2.229e763e.chunk.js.map",
     "index.html": "/crossword/index.html",
-    "precache-manifest.b522e0c406decac2147fa3bbc7073228.js": "/crossword/precache-manifest.b522e0c406decac2147fa3bbc7073228.js",
+    "precache-manifest.444b0f6f44d773848ddfd76804bde8c3.js": "/crossword/precache-manifest.444b0f6f44d773848ddfd76804bde8c3.js",
     "service-worker.js": "/crossword/service-worker.js",
     "static/css/main.90cf6796.chunk.css.map": "/crossword/static/css/main.90cf6796.chunk.css.map",
     "static/js/2.229e763e.chunk.js.LICENSE.txt": "/crossword/static/js/2.229e763e.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4c3f6f8d.js",
     "static/js/2.229e763e.chunk.js",
     "static/css/main.90cf6796.chunk.css",
-    "static/js/main.79408199.chunk.js"
+    "static/js/main.80f4d948.chunk.js"
   ]
 }
