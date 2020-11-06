@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3ab18cbb50a2fbd5fa88b8723571e04a",
+    "revision": "5ad7d2dc0ca20b87438b8096c3e94afa",
     "url": "/crossword/index.html"
   },
   {
-    "revision": "a3aec1478589cd25be7a",
+    "revision": "555f1c1d297ed9b3b063",
     "url": "/crossword/static/css/main.90cf6796.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/crossword/static/js/2.229e763e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a3aec1478589cd25be7a",
-    "url": "/crossword/static/js/main.773b4758.chunk.js"
+    "revision": "555f1c1d297ed9b3b063",
+    "url": "/crossword/static/js/main.bffeda7e.chunk.js"
   },
   {
     "revision": "e7212ad0492691aaf7c8",
