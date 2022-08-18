@@ -2,28 +2,45 @@
 <html lang="en">
   <head>
     <title>Alphabetic Internet Time</title>
-      
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="description" content="">
-    <link id="favicon" rel="icon" href="https://doodles.patrickweaver.net/ait/watch.png" type="image/png">
-    
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://doodles.patrickweaver.net/ait/watch.png"
+      type="image/png"
+    />
+
     <!-- Social -->
-    <meta property="og:title" content="Alphabetic Internet Time"/>
-    <meta property="og:description" content="A clock that displays Alphabetic Internet Time" />
-    <meta property="og:image" content="https://doodles.patrickweaver.net/ait/watch.png" />
-    
+    <meta property="og:title" content="Alphabetic Internet Time" />
+    <meta
+      property="og:description"
+      content="A clock that displays Alphabetic Internet Time"
+    />
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/ait/watch.png"
+    />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@patrickweave_r" />
     <meta name="twitter:creator" content="@patrickweave_r" />
     <meta name="twitter:title" content="Alphabetic Internet Time" />
-    <meta name="twitter:description" content="A clock that displays Alphabetic Internet Time" />
-    <meta name="twitter:image" content="https://doodles.patrickweaver.net/ait/watch.png" />
+    <meta
+      name="twitter:description"
+      content="A clock that displays Alphabetic Internet Time"
+    />
+    <meta
+      name="twitter:image"
+      content="https://doodles.patrickweaver.net/ait/watch.png"
+    />
     <meta name="twitter:image:alt" content="A icon of a watch" />
-    
+
     <style>
       body {
         font-family: Ariel, sans-serif;
@@ -31,8 +48,13 @@
         margin: 0 auto;
         padding: 2rem 1rem;
         text-align: center;
-        background: rgb(255,252,201);
-        background: linear-gradient(47deg, rgba(255,252,201,1) 0%, rgba(255,243,168,1) 33%, rgba(255,217,199,1) 100%);
+        background: rgb(255, 252, 201);
+        background: linear-gradient(
+          47deg,
+          rgba(255, 252, 201, 1) 0%,
+          rgba(255, 243, 168, 1) 33%,
+          rgba(255, 217, 199, 1) 100%
+        );
         height: 100vh;
       }
 
@@ -72,34 +94,31 @@
         }
 
         #current-time > .colon {
-        padding-right: 3px;
-      }
+          padding-right: 3px;
+        }
       }
     </style>
-
   </head>
   <body>
-
     <h1>Alphabetic Internet Time</h1>
 
     <h2>The time in AIT is: <br /><span id="current-time">loading</span></h2>
     <h3>Local Time: <span id="local-time">loading</span></h3>
 
-
     <p id="warning">This website requries JavaScript to be enabled.</p>
 
     <script>
       document.getElementById("warning").style.display = "none";
-      const letters = 'ABCDEFGHIJKLMNOPQRSTUVWX'.split("");
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWX".split("");
       let lastUpdate = Math.round(new Date().getTime() / 1000) - 1;
 
       function setTime() {
         const now = new Date();
         const nowSeconds = Math.round(now.getTime() / 1000);
-        if (nowSeconds <= lastUpdate) return;
-        lastUpdate = nowSeconds;
-        document.getElementById("current-time").innerHTML = 
-          `
+
+        if (nowSeconds > lastUpdate) {
+          lastUpdate = nowSeconds;
+          document.getElementById("current-time").innerHTML = `
             <span>
               ${letters[now.getUTCHours()]}
             </span>
@@ -112,13 +131,15 @@
               ${("0" + now.getSeconds()).slice(-2)}
             </span>
           `;
-        document.getElementById("local-time").innerHTML =
-          `${now.toLocaleTimeString('en-US', { timeZoneName: 'short' })}`;
-          requestAnimationFrame(setTime);
+          document.getElementById(
+            "local-time"
+          ).innerHTML = `${now.toLocaleTimeString("en-US", {
+            timeZoneName: "short",
+          })}`;
+        }
+        requestAnimationFrame(setTime);
       }
       setTime();
-      
     </script>
-
   </body>
 </html>
