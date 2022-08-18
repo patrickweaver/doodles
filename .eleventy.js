@@ -18,6 +18,7 @@ module.exports = function (eleventyConfig) {
     "build/working-with-nyc-mta-realtime-subway-data"
   );
   eleventyConfig.addPassthroughCopy("build/crossword");
+  eleventyConfig.addPassthroughCopy("build/ait");
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", function (collectionApi) {
