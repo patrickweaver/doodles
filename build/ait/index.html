@@ -114,7 +114,7 @@
           `;
         document.getElementById("local-time").innerHTML =
           `${now.toLocaleTimeString('en-US', { timeZoneName: 'short' })}`;
-          setInterval(setTime, 1000);
+          requestAnimationFrame(setTime);
       }
       setTime();
       
