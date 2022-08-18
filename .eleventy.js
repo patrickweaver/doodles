@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
     templateFormats: [
       "html",
       "md",
-      "css",
+      // "css",
       "hbs",
       "njk",
       // 'gif',
