@@ -83,7 +83,7 @@
           `${letters[now.getUTCHours()]}:${("0" + now.getMinutes()).slice(-2)}:${("0" + now.getSeconds()).slice(-2)}`;
         document.getElementById("local-time").innerHTML =
           `${now.toLocaleTimeString('en-US', { timeZoneName: 'short' })}`;
-          setInterval(setTime, 1000);
+          requestAnimationFrame(setTime);
       }
       setTime();
       
