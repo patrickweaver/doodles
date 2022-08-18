@@ -8,12 +8,12 @@
     "start": "rm -rf dist && npx @11ty/eleventy --serve --port=3000"
   },
   "dependencies": {
-    "@11ty/eleventy": "^0.10.0",
-    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
     "moment": "^2.24.0"
   },
   "engines": {
-    "node": "14.x"
+    "node": "18.x"
   },
   "repository": {
     "url": "https://github.com/patrickweaver/doodles"
