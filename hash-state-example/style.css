@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 3rem;
+}
+
+#board {
+  margin: 1rem 0;
+}
+
+.color-square {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 20px;
+  display: inline-block;
+}
+
+.controls {
+  border: 1px solid black;
+  width: 50%;
+  margin: 1rem Calc(25% - 4px);
+  padding: 5px;
+}
+
+.controls > label,
+.controls > input {
+  display: block;
+  width: Calc(100% - 6px);
+}
+
+#state {
+  margin: 1rem 0;
+}
+
+#current-state,
+#current-url {
+  display: inline-block;
+  min-width: 300px;
+  max-width: 600px;
+  overflow-x: scroll;
+  margin: 20px 0;
+  padding: 1rem;
+  background-color: #efefef;
+  border: 2px solid black;
+}
