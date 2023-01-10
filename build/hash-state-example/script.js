@@ -1,4 +1,4 @@
-const ROOT_URL = "https://doodles.patrickweaver.net/";
+const ROOT_URL = "https://doodles.patrickweaver.net/hash-state-example/";
 const state = {};
 
 function app() {
