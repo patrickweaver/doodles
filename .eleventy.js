@@ -19,6 +19,7 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addPassthroughCopy("build/crossword");
   eleventyConfig.addPassthroughCopy("build/ait");
+  eleventyConfig.addPassthroughCopy("build/hash-state-example");
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", function (collectionApi) {

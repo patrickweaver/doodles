@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Example State Hash App</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Example State Hash App" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://doodles.patrickweaver.net/hash-state-example/icon.png"
+      type="image/png"
+    />
+
+    <!-- Social -->
+    <meta property="og:title" content="Example State Hash App" />
+    <meta
+      property="og:description"
+      content="An app that stores 3 colors in the URL"
+    />
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/hash-state-example/preview.png"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:creator" content="@patrickweave_r" />
+    <meta name="twitter:title" content="Example State Hash App" />
+    <meta
+      name="twitter:description"
+      content="An app that stores 3 colors in the URL"
+    />
+    <meta
+      name="twitter:image"
+      content="https://doodles.patrickweaver.net/hash-state-example/preview.png"
+    />
+    <meta name="twitter:image:alt" content="An screenshot of the app" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Color Palette Tool</h1>
+
+      <p>
+        Change the colors below, the selected colors will be stored in the URL
+        for a sharable link.
+      </p>
+
+      <div id="board">
+        <div id="color-1" class="color-square">
+          <div class="controls">
+            <label for="color-1-r-slider">
+              <strong>R:</strong><span id="color-1-r-label"></span>
+            </label>
+            <input id="color-1-r-slider" type="range" min="0" max="255" />
+            <label for="color-1-g-slider">
+              <strong>G:</strong><span id="color-1-g-label"></span>
+            </label>
+            <input id="color-1-g-slider" type="range" min="0" max="255" />
+            <label for="color-1-b-slider">
+              <strong>B:</strong><span id="color-1-b-label"></span>
+            </label>
+            <input id="color-1-b-slider" type="range" min="0" max="255" />
+          </div>
+        </div>
+
+        <div id="color-2" class="color-square">
+          <div class="controls">
+            <label for="color-2-r-slider">
+              <strong>R:</strong><span id="color-2-r-label"></span>
+            </label>
+            <input id="color-2-r-slider" type="range" min="0" max="255" />
+            <label for="color-2-g-slider">
+              <strong>G:</strong><span id="color-2-g-label"></span>
+            </label>
+            <input id="color-2-g-slider" type="range" min="0" max="255" />
+            <label for="color-2-b-slider">
+              <strong>B:</strong><span id="color-2-b-label"></span>
+            </label>
+            <input id="color-2-b-slider" type="range" min="0" max="255" />
+          </div>
+        </div>
+
+        <div id="color-3" class="color-square">
+          <div class="controls">
+            <label for="color-3-r-slider">
+              <strong>R:</strong><span id="color-3-r-label"></span>
+            </label>
+            <input id="color-3-r-slider" type="range" min="0" max="255" />
+            <label for="color-3-g-slider">
+              <strong>G:</strong><span id="color-3-g-label"></span>
+            </label>
+            <input id="color-3-g-slider" type="range" min="0" max="255" />
+            <label for="color-3-b-slider">
+              <strong>B:</strong><span id="color-3-b-label"></span>
+            </label>
+            <input id="color-3-b-slider" type="range" min="0" max="255" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="state">
+      <h2>
+        Current State
+      </h2>
+      <pre><code id="current-state"></code></pre>
+      
+      <h2>
+        Current URL
+      </h2>
+      <div id="current-url">
+        <pre><code id="current-url-code"></code></pre>
+        <p>
+          <a href="#" id="current-url-link" target="_blank">#</a>
+        </p>
+      </div>
+    </div>
+    <footer class="footer">
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>
