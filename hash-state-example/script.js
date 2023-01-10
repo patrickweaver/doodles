@@ -1,9 +1,10 @@
 const ROOT_URL = "https://doodles.patrickweaver.net/hash-state-example/";
-const state = {};
+const state = { 1: {}, 2: {}, 3: {} };
+const boxes = [1, 2, 3];
+const colors = ["r", "g", "b"];
 
 function app() {
   initialize();
-  const boxes = [1, 2, 3];
   boxes.forEach((boxNumber) => {
     getInputs(boxNumber).forEach((i) => i.addEventListener("input", update));
   });
@@ -14,23 +15,30 @@ function initialize() {
   const _hash = window.location.hash;
   const hash = _hash.slice(1, _hash.length);
   const _hashState = atob(hash);
-  console.log({ _hashState });
   const hashState = JSON.parse(_hashState || "{}");
+  const board = document.getElementById("board");
+  Object.keys(state).forEach((boxNumber) => {
+    board.insertAdjacentElement("beforeend", getColorSquare(boxNumber));
+  });
   Object.keys(hashState).forEach((boxNumber) => {
     setInputs(boxNumber, hashState[boxNumber]);
   });
 }
 
 function update() {
-  const boxes = [1, 2, 3];
   boxes.forEach((boxNumber) => {
     const [colorR, colorG, colorB] = getInputs(boxNumber);
+    const values = [colorR.value, colorG.value, colorB.value];
     const colorBox = document.getElementById(`color-${boxNumber}`);
-    colorBox.style.backgroundColor = `rgba(${colorR.value}, ${colorG.value}, ${colorB.value})`;
+    colorBox.style.backgroundColor = `rgba(${values[0]}, ${values[1]}, ${values[2]})`;
+    colors.forEach((color, index) => {
+      document.getElementById(`color-${boxNumber}-${color}-label`).innerHTML =
+        values[index];
+    });
     state[boxNumber] = {
-      red: colorR.value,
-      green: colorG.value,
-      blue: colorB.value,
+      red: values[0],
+      green: values[1],
+      blue: values[2],
     };
   });
 
@@ -59,6 +67,30 @@ function setInputs(boxNumber, boxState) {
     boxState.green ?? 255 / 2;
   document.getElementById(`color-${boxNumber}-b-slider`).value =
     boxState.blue ?? 255 / 2;
+}
+
+function getColorSquare(boxNumber) {
+  const colorSquare = document.createElement("div");
+  colorSquare.id = `color-${boxNumber}`;
+  colorSquare.classList.add("color-square");
+  const controls = document.createElement("div");
+  controls.classList.add("controls");
+  colors.forEach((color) => {
+    const label = document.createElement("label");
+    const input = document.createElement("input");
+    const id = `color-${boxNumber}-${color}-slider`;
+    input.id = id;
+    label.htmlFor = id;
+    input.type = "range";
+    input.min = 0;
+    input.max = 255;
+    input.value = 255 / 2;
+    label.innerHTML = `<strong>${color.toUpperCase()}: </strong><span id="color-${boxNumber}-${color}-label"></span>`;
+    controls.insertAdjacentElement("beforeend", label);
+    controls.insertAdjacentElement("beforeend", input);
+  });
+  colorSquare.insertAdjacentElement("beforeend", controls);
+  return colorSquare;
 }
 
 app();
