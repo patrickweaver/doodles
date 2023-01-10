@@ -36,11 +36,13 @@ function update() {
 
   const stateJSON = JSON.stringify(state);
   document.getElementById("current-state").innerHTML = stateJSON;
-  const newURL = `${ROOT_URL}#${btoa(stateJSON)}`;
+  const newHash = btoa(stateJSON);
+  const newURL = `${ROOT_URL}#${newHash}`;
   document.getElementById("current-url-code").innerHTML = newURL;
   const urlLink = document.getElementById("current-url-link");
   urlLink.innerHTML = newURL;
   urlLink.href = newURL;
+  window.location.hash = newHash;
 }
 
 function getInputs(boxNumber) {
