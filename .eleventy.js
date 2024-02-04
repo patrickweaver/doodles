@@ -10,6 +10,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Passthrough
+  eleventyConfig.addPassthroughCopy("build/libs");
   eleventyConfig.addPassthroughCopy("build/style.css");
   eleventyConfig.addPassthroughCopy("build/drawing-parallel-lines-on-a-map");
   eleventyConfig.addPassthroughCopy("build/canvas-lines");
@@ -20,6 +21,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("build/crossword");
   eleventyConfig.addPassthroughCopy("build/ait");
   eleventyConfig.addPassthroughCopy("build/hash-state-example");
+  eleventyConfig.addPassthroughCopy("build/imessage-url-state-example");
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", function (collectionApi) {

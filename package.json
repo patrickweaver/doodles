@@ -13,7 +13,7 @@
     "moment": "^2.24.0"
   },
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "repository": {
     "url": "https://github.com/patrickweaver/doodles"

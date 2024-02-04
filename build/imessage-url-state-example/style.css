@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 3rem;
+}
+
+#loading {
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#loading h1 {
+  margin-top: 30vh;
+  font-size: 5rem;
+  font-family: "Brush Script MT", cursive;
+  color: rgba(255, 210, 65);
+}
+
+#loading h2 {
+  font-size: 4rem;
+  font-family: "Brush Script MT", cursive;
+  color: rgba(35, 250, 55);
+}
+
+#loading h3 {
+  font-size: 3rem;
+  font-family: "Brush Script MT", cursive;
+  color: rgba(15, 130, 225);
+}
+
+#sharable-url h2 {
+  margin-bottom: 0.25rem;
+}
+
+#sharable-url textarea {
+  display: inline-block;
+  width: 100%;
+  height: 5rem;
+  font-family: Helvetica, Arial, sans-serif;
+  word-break: break-all;
+  color: #3f3f3f;
+}
+
+#color-list {
+  margin: 1rem 0;
+  padding: 0;
+}
+
+#template-color-picker {
+  display: none;
+}
+
+.color-input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid black;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid black;
+  width: 90%;
+  margin: 10px Calc(5% - 4px);
+  padding: 1px;
+  background-color: white;
+}
+
+.controls > div {
+  display: inline-block;
+  margin: 2px;
+}
+
+.controls label {
+  width: 65px;
+}
+
+.controls input {
+  width: 80px;
+  position: relative;
+  top: 2px;
+}
+
+.controls label,
+.controls input {
+  display: inline-block;
+  margin: 1px 0;
+}
+
+#state {
+  margin: 1rem 0;
+}
+
+#current-state,
+#current-url {
+  display: inline-block;
+  width: 100%;
+  min-width: 300px;
+  max-width: 600px;
+  overflow-x: scroll;
+  margin: 20px 0;
+  padding: 1rem;
+  background-color: #efefef;
+  border: 2px solid black;
+}
+
+@media (max-width: 800px) {
+  body {
+    margin: 1.5rem 1rem;
+  }
+  .color-input {
+    width: 100%;
+    height: 70px;
+    border: 2px solid black;
+    margin: 20px 0;
+    display: inline-block;
+  }
+
+  .controls {
+    flex-direction: column;
+    margin: 10px Calc(15% - 4px);
+    width: 70%;
+  }
+
+  .controls > div {
+    width: 100%;
+    margin: 0;
+  }
+
+  .controls label {
+    width: 65px;
+  }
+
+  .controls input {
+    width: Calc(100% - 85px);
+    margin-right: 20px;
+  }
+
+  .controls label,
+  .controls input {
+    display: inline-block;
+    margin: 0;
+  }
+}
