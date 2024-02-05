@@ -2,7 +2,7 @@
 console.log("✨ iMessage Compatible URL State App ✨");
 
 // Because this is deployed without a bundler React and ReactDOM are global
-const { useState, useEffect, useMemo } = React;
+const { useState } = React;
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(<App />);
 
