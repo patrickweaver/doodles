@@ -10,3 +10,11 @@ body {
   font-size: 18px;
   line-height: 22px;
 }
+
+.index-item {
+  margin-bottom: 0.5rem;
+}
+
+.index-item .date {
+  font-size: 0.9rem;
+}
