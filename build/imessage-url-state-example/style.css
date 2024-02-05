@@ -49,6 +49,25 @@ body {
   color: #3f3f3f;
 }
 
+#exp-toggle {
+  margin-bottom: 0.5rem;
+}
+
+#experiment-separator {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+#experiments > label,
+#experiments > input {
+  display: block;
+}
+
+#distance-warning {
+  font-size: 0.85rem;
+}
+
 #color-list {
   margin: 1rem 0;
   padding: 0;
