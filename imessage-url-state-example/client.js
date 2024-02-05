@@ -6,8 +6,8 @@ const { useState } = React;
 const root = ReactDOM.createRoot(document.getElementById("app"));
 root.render(<App />);
 
-const ROOT_URL = "http://localhost:3000/imessage-url-state-example";
-// const ROOT_URL = "https://doodles.patrickweaver.net/imessage-url-state-example";
+// const ROOT_URL = "http://localhost:3000/imessage-url-state-example";
+const ROOT_URL = "https://doodles.patrickweaver.net/imessage-url-state-example";
 const COLORS = ["r", "g", "b"];
 const BOX_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const URL_SAFE_CHARS = ["-", "_", ".", "+", "!", "*", "'", ",", "%E2%9C%A8"];
