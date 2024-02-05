@@ -24,7 +24,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("build/imessage-url-state-example");
 
   // Collections:
-  eleventyConfig.addCollection("allTopLevel", function (collectionApi) {
+  eleventyConfig.addCollection("allTopLevel", async function (collectionApi) {
     const all = collectionApi.getAll();
     const allTopLevel = all.filter((i) => {
       const slashes = i.url.split("").filter((j) => j === "/");
@@ -33,23 +33,20 @@ module.exports = function (eleventyConfig) {
       }
       return false;
     });
-    const allTopLevelWithName = allTopLevel.map((i) => {
-      const inputContent = i.template.inputContent;
-      if (inputContent && typeof inputContent === "string") {
-        const titleIndex = inputContent?.indexOf("<title>") + 7;
-        const titleEndIndex = inputContent?.indexOf("</title>");
-
-        i.data.name =
-          titleIndex && titleEndIndex
-            ? inputContent.substring(titleIndex, titleEndIndex)
-            : inputContent ?? "Unknown Item";
-      } else {
-        i.data.name = "Unknown Item";
-      }
+    const namePromises = await allTopLevel.map(async (i) => {
+      const _inputContent = i.template.inputContent;
+      const inputContent = await _inputContent;
+      const titleIndex = inputContent?.indexOf("<title>") + 7;
+      const titleEndIndex = inputContent?.indexOf("</title>");
+      i.name = inputContent.substring(titleIndex, titleEndIndex);
+      i.readableDate = new Date(i.date).toDateString();
       return i;
     });
-    console.log(allTopLevelWithName[0].data);
-    return allTopLevelWithName;
+    await Promise.all(namePromises);
+    allTopLevel.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    return allTopLevel;
   });
 
   return {

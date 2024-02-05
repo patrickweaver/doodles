@@ -7,10 +7,11 @@ title: Doodles by Patrick Weaver
 
 <p>This is a collection of front-end apps, experiments, and presentations I've made. You can also take a look at my full portfolio at <a href="https://patrickweaver.net/portfolio">patrickweaver.net/portfolio</a>.</p>
 
-<ol class="doodles-list">
+<ol class="doodles-list" reversed>
 {{#each collections.allTopLevel }}
-  <li>
-    <a href=".{{this.url}}">{{this.data.name}}</a>
+  <li class="index-item">
+    <a href=".{{this.url}}">{{this.name}}</a><br />
+    <span class="date">{{this.readableDate}}</span> 
   </li>
 {{/each}}
 </ol>
