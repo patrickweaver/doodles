@@ -35,13 +35,17 @@ module.exports = function (eleventyConfig) {
     });
     const allTopLevelWithName = allTopLevel.map((i) => {
       const inputContent = i.template.inputContent;
-      const titleIndex = inputContent?.indexOf("<title>") + 7;
-      const titleEndIndex = inputContent?.indexOf("</title>");
+      if (inputContent && typeof inputContent === "string") {
+        const titleIndex = inputContent?.indexOf("<title>") + 7;
+        const titleEndIndex = inputContent?.indexOf("</title>");
 
-      i.data.name =
-        titleIndex && titleEndIndex
-          ? inputContent.substring(titleIndex, titleEndIndex)
-          : inputContent ?? "Unknown Item";
+        i.data.name =
+          titleIndex && titleEndIndex
+            ? inputContent.substring(titleIndex, titleEndIndex)
+            : inputContent ?? "Unknown Item";
+      } else {
+        i.data.name = "Unknown Item";
+      }
       return i;
     });
     console.log(allTopLevelWithName[0].data);
