@@ -60,6 +60,12 @@ function App() {
     <div>
       <header>
         <h1>iMessage Safe URL Stored Color Palette Example</h1>
+        <p>
+          Read my blog post about this app here:{" "}
+          <a href="https://www.patrickweaver.net/blog/imessage-mystery/">
+            patrickweaver.net/blog/imessage-mystery/
+          </a>
+        </p>
       </header>
       <div id="sharable-url">
         <h2>Sharable URL:</h2>
