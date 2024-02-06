@@ -2,63 +2,80 @@
 <html lang="en">
   <head>
     <title>Slide 8: Drawing Parallel Lines on a Map</title>
-      
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="description" content="Drawing Parallel Lines on a Map">
-    <link id="favicon" rel="icon" href="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png" type="image/png">
-    
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Drawing Parallel Lines on a Map" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png"
+      type="image/png"
+    />
+
     <!-- Social -->
-    <meta property="og:title" content="Drawing Parallel Lines on a Map"/>
+    <meta property="og:title" content="Drawing Parallel Lines on a Map" />
     <meta property="og:description" content="Drawing Parallel Lines on a Map" />
-    <meta property="og:image" content="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png" />
-    
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png"
+    />
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@patrickweave_r" />
     <meta name="twitter:creator" content="@patrickweave_r" />
     <meta name="twitter:title" content="Drawing Parallel Lines on a Map" />
-    <meta name="twitter:description" content="An interactive presentation on the challenges of drawing parallel lines." />
-    <meta name="twitter:image" content="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png" />
+    <meta
+      name="twitter:description"
+      content="An interactive presentation on the challenges of drawing parallel lines."
+    />
+    <meta
+      name="twitter:image"
+      content="https://doodles.patrickweaver.net/drawing-parallel-lines-on-a-map/images/map.png"
+    />
     <meta name="twitter:image:alt" content="A screenshot of the map" />
-    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../style.css" />
   </head>
-  <link rel="stylesheet" href="../../leaflet/leaflet.css">
+  <link rel="stylesheet" href="/libs/leaflet.css" />
   <body>
     <div class="slide">
       <div id="card">
-      
         <ul id="nav">
           <li><a href="../7/">Previous</a></li>
           <li><a href="../../">Slide List</a></li>
           <li></li>
         </ul>
-      
-        
+
         <h2 class="card-title">Drawing Parallel-ish Tracks</h2>
         <div id="card-content">
-          <p>Using the calculated angle bisectors I can now draw lines that are roughly parallel to the actual lines between the two stations, which allows me to animate trains that don't collide.</p>
-      <p>The end!</p>
-      <ol class="button-list">
-        <li><button onClick="addTrains()">Add trains</button></li>
-        <li><button onClick="moveTrains()">Move trains</button></li>
-      </ol>
+          <p>
+            Using the calculated angle bisectors I can now draw lines that are
+            roughly parallel to the actual lines between the two stations, which
+            allows me to animate trains that don't collide.
+          </p>
+          <p>The end!</p>
+          <ol class="button-list">
+            <li><button onClick="addTrains()">Add trains</button></li>
+            <li><button onClick="moveTrains()">Move trains</button></li>
+          </ol>
         </div>
-      
+
         <div id="responsive">
           <button id="hide-card" onclick="hideCard()">Hide Card</button>
           <button id="show-card" onclick="showCard()">Show Card</button>
         </div>
       </div>
-      
-      <div id="map"></div>    </div>
+
+      <div id="map"></div>
+    </div>
     <script src="../../leaflet/config.js"></script>
-    <script src="../../leaflet/victor.js"></script>
-    <script src="../../leaflet/leaflet-src.js"></script>
+    <script src="/libs/victor.js"></script>
+    <script src="/libs/leaflet-src.js"></script>
     <script src="../../leaflet/leafletHelpers.js"></script>
-    <script src="../../leaflet/Leaflet.Marker.SlideTo.js"></script>
+    <script src="/libs/leaflet.Marker.SlideTo.js"></script>
     <script src="../../responsive.js"></script>
     <script src="script.js"></script>
   </body>
