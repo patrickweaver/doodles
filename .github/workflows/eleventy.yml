@@ -8,13 +8,9 @@ jobs:
   build_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "18.x"
-      - run: npm install
+      - uses: actions/checkout@v4
       - name: Build
-        uses: TartanLlama/actions-eleventy@v1.3
+        uses: patrickweaver/actions-eleventy@master
       - name: CNAME
         run: echo 'doodles.patrickweaver.net' | sudo tee dist/CNAME
       - name: Deploy
