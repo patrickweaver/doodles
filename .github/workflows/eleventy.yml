@@ -9,12 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22.x"
-      - run: npm install
       - name: Build
         uses: patrickweaver/actions-eleventy@master
+        with:
+          install_dependencies: true
       - name: CNAME
         run: echo 'doodles.patrickweaver.net' | sudo tee dist/CNAME
       - name: Deploy
