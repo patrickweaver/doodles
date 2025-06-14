@@ -1,0 +1,81 @@
+---
+title: URL Hosted Bookmarklet
+date: 2022-03-22
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/url-hosted-bookmarklet/images/icon.png" />
+
+
+    <title>URL Hosted Bookmarklet</title>
+
+    <!-- Meta tags for SEO and social sharing -->
+    <link rel="canonical" href="https://doodles.patrickweaver.net/url-hosted-bookmarklet" />
+    <meta
+      name="description"
+      content="Client side URL based bookmarklet hosting app
+"
+    />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="URL Hosted Bookmarklet" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://doodles.patrickweaver.net/url-hosted-bookmarklet" />
+    <meta
+      property="og:description"
+      content="Client side URL based bookmarklet hosting app
+"
+    />
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/url-hosted-bookmarklet/images/preview.png"
+    />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/url-hosted-bookmarklet/style.css" />
+
+    <!-- Import the webpage's javascript file -->
+    <script src="/url-hosted-bookmarklet/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- This is the start of content for our page -->
+        <h1 class="title">URL Hosted Bookmarklet</h1>
+        
+        <p>
+          "A bookmarklet is a bookmark stored in a web browser that contains JavaScript commands that add new features to the browser." - <a href="https://en.wikipedia.org/wiki/Bookmarklet">Wikipedia</a>
+        </p>
+        
+        <p>Drag the link below to your Bookmarks Bar:</p>
+        <a id="bookmarklet" href="javascript:(function()%7Balert(%22Create%20a%20bookmarklet%20at%3A%20https%3A%2F%2Fmrcoles.com%2Fbookmarklet%2F%22)%7D)()">Demo Bookmarklet</a>
+        
+        <hr id="separator">
+        
+        <h2>
+          Update the Bookmarklet
+        </h2>
+        
+        <p>
+          Use the form below to update the bookmarklet on this page, and the URL of the page in real time. The URL will always reflect any changes you've made in the form. Send the updated URL to someone to share your bookmarklet. I generate the code for bookmarklets at Peter Coles' <a href="https://mrcoles.com/bookmarklet/" target="_blank">Bookmarklet Creator</a>.
+        </p>
+        
+        <form>
+          <label>Name: <input type="text" id="name"></label>
+          <label>Code: <textarea id="code"></textarea></label>
+          <label>Description: <textarea id="description">An example bookmarklet that provides a link to a bookmarklet builder.</textarea></label>
+        </form>
+        
+        <p>
+          I haven't tested this very well, so some bookmarklets will probably break it. - <a href="mailto:hello.patrickw@gmail.com" target="_blank">Patrick</a>
+        </p>
+
+      </div>
+    </div>
+  </body>
+</html>
