@@ -1,0 +1,68 @@
+body {
+    font-family: sans-serif;
+    margin: 5px;
+  }
+  
+  h1 {
+    padding: 0;
+    margin: 5px 0;
+  }
+  
+  .week {
+    list-style-type: none;
+    padding: 0;
+    font-family: monospace;
+    margin: 2px 0;
+  }
+  
+  .day, .label {
+    display: inline-block;
+    margin: 4px;
+    padding: 3px;
+    border: 1px solid #444;
+    border-radius: 5px;
+  }
+  
+  .day {
+    cursor: pointer;
+  }
+  
+  .label {
+    background-color: #DDD;
+  }
+  
+  .weekend {
+    background-color: #CCFFEE;
+  }
+  
+  .weekend-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #CCFFEE, #CCFFEE, #CCFFEE);
+  }
+  
+  .holiday {
+    background-color: #EECCFF;
+  }
+  
+  .summer-friday {
+    background-color: #AADDFF;
+  }
+  
+  .half-summer-friday {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #AADDFF, #AADDFF, #AADDFF);
+  }
+  
+  .vacation {
+    background-color: #FF88CC;
+  }
+  
+  .half-vacation {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FF88CC, #FF88CC, #FF88CC);
+  }
+  
+  .other {
+    background-color: #FFEEAA;
+  }
+  
+  .other-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FFEEAA, #FFEEAA, #FFEEAA);
+  }

@@ -1,0 +1,270 @@
+body {
+    font-family: sans-serif;
+    margin: 0 auto;
+    max-width: 884px;
+  }
+  
+  h1#app-title {
+    padding: 0;
+    margin: 5px 0;
+    color: #BBF;
+    top: 0;
+  }
+  
+  #tally, #key-container {
+    position: fixed;
+    margin: 5px 20px 5px 450px;
+    padding: 7px 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: white;
+    width: 382px;
+  }
+  
+  #tally {
+    top: 58px;
+  }
+  
+  #tally input {
+    display: inline-block;
+  }
+  
+  #tally li {
+    list-style: none;
+  }
+  
+  #day-labels {
+    margin-top: 10px;
+  }
+  
+  .week {
+    list-style-type: none;
+    padding: 0;
+    font-family: monospace;
+    margin: 2px 0;
+  }
+  
+  #key-container {
+    top: 220px;
+  }
+  
+  #key {
+    padding: 0;
+    width: 370px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  #key > li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+    height: 30px;
+    margin: 3px 0;
+  }
+  
+  #key > li > label, #key > li > div {
+    font-family: monospace;
+    margin: 0 5px;
+  }
+  
+  #key > li > label {
+    max-width: 100px;
+    margin: 0;
+  }
+  
+  .day, .label {
+    display: inline-block;
+    margin: 4px;
+    padding: 3px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    height: 18px;
+  }
+  
+  .day {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .label {
+    background-color: #DDD;
+  }
+  
+  .weekend {
+    background-color: #CCFFEE;
+  }
+  
+  .weekend-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #CCFFEE, #CCFFEE, #CCFFEE);
+  }
+  
+  .holiday {
+    background-color: #B8E8FF;
+  }
+  
+  .holiday-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #BFEFFF, #BFEFFF, #BFEFFF);
+  }
+  
+  .vacation {
+    background-color: #FF4FCF;
+  }
+  
+  .vacation-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FF4FCF, #FF4FCF, #FF4FCF);
+  }
+  
+  .rollover-vacation {
+    background-color: #FF87A7;
+  }
+  
+  .rollover-vacation-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FF87A7, #FF87A7, #FF87A7);
+  }
+  
+  .summer-friday {
+    background-color: #FFFFAF;
+  }
+  
+  .summer-friday-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FFFFAF, #FFFFAF, #FFFFAF);
+  }
+  
+  .other {
+    background-color: #DF9FFF;
+  }
+  
+  .other-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #DF9FFF, #DF9FFF, #DF9FFF);
+  }
+  
+  .next-year-vacation-half-rollover-half {
+    background-image: linear-gradient(to bottom, #FFBF7F, #FFBF7F, #FFBF7F, #FF87A7, #FF87A7, #FF87A7);
+  }
+  
+  .next-year-vacation {
+    background-color: #FFBF7F;
+  }
+  
+  .next-year-vacation-half {
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF, #FFFFFF, #FFBF7F, #FFBF7F, #FFBF7F);
+  }
+  
+  .summer-friday-half-vacation-half {
+    background-image: linear-gradient(to bottom, #FFFFAF, #FFFFAF, #FFFFAF, #FF4FCF, #FF4FCF, #FF4FCF);
+  }
+  
+  .days-input {
+    width: 70px;
+    font-size: 16px;
+  }
+  
+  
+  /*
+  
+  Narrower than 900 px tally moves to above calendar
+  and key moves below calendar. Tally stays fixed, key sits at bottom
+  
+  */
+  
+  @media (max-width: 900px) {
+    
+    body {
+      margin-bottom: 40px;
+      max-width: 447px;
+    }
+    
+    h1#app-title {
+      position: fixed;
+      background-color: white;
+      width: 100%;
+      text-align: center;
+      left: 0;
+    }
+    
+    #tally, #key-container {
+      margin: 5px 20px;
+    }
+    
+    #key-container {
+      top: 10px;
+      position: relative;
+    }
+    
+    #day-labels {
+      margin-top: 220px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 80%;
+      margin-bottom: 50px;
+    }
+    
+    h1 {
+      font-size: 170%;
+      text-align: center;
+    }
+    
+    #tally, #key-container {
+      width: Calc(100% - 40px);
+    }
+    
+    #tally {
+      top: 40px;
+      margin: 0;
+    }
+    
+    #day-labels {
+      margin-top: 180px;
+    }
+    
+    .day, .label {
+      margin: 3px;
+      padding: 3px;
+      height: 17px;
+    }
+    
+    #key-container {
+      position: relative;
+      top: 10px;
+      margin: 0;
+      padding: 5px;
+    }
+    
+    #key-container h3 {
+      margin: 5px 0;
+    }
+    
+    #key {
+      width: 100%;
+    }
+    
+    #key > li {
+      width: 120px;
+      flex-direction: row;
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    body {
+      margin: 5px;
+      font-size: 75%;
+    }
+    
+    #day-labels {
+      margin-top: 180px;
+    }
+    .day, .label {
+      margin: 2px;
+      padding: 1px;
+    }
+  }
+  
