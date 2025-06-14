@@ -13,18 +13,29 @@ module.exports = function (eleventyConfig) {
   });
 
   // Passthrough
-  eleventyConfig.addPassthroughCopy("build/libs");
+  
   eleventyConfig.addPassthroughCopy("build/style.css");
-  eleventyConfig.addPassthroughCopy("build/drawing-parallel-lines-on-a-map");
-  eleventyConfig.addPassthroughCopy("build/canvas-lines");
-  eleventyConfig.addPassthroughCopy("build/interactive-slides-website");
-  eleventyConfig.addPassthroughCopy(
-    "build/working-with-nyc-mta-realtime-subway-data"
-  );
-  eleventyConfig.addPassthroughCopy("build/crossword");
-  eleventyConfig.addPassthroughCopy("build/ait");
-  eleventyConfig.addPassthroughCopy("build/hash-state-example");
-  eleventyConfig.addPassthroughCopy("build/imessage-url-state-example");
+
+  // eleventyConfig.addPassthroughCopy("build/ait");
+  // eleventyConfig.addPassthroughCopy("build/amazing-and-easy-static-site-generator");
+  // eleventyConfig.addPassthroughCopy("build/canvas-lines");
+  // eleventyConfig.addPassthroughCopy("build/crossword");
+  // eleventyConfig.addPassthroughCopy("build/drawing-parallel-lines-on-a-map");
+  // eleventyConfig.addPassthroughCopy("build/hash-state-example");
+  // eleventyConfig.addPassthroughCopy("build/imessage-url-state-example");
+  // eleventyConfig.addPassthroughCopy("build/interactive-slides-website");
+  // eleventyConfig.addPassthroughCopy("build/irl-html");
+  // eleventyConfig.addPassthroughCopy("build/libs");
+  // eleventyConfig.addPassthroughCopy("build/please-confirm-you-are-a-robot");
+  // eleventyConfig.addPassthroughCopy("build/url-hosted-bookmarklet");
+  // eleventyConfig.addPassthroughCopy("build/vacation-planner");
+  // eleventyConfig.addPassthroughCopy(
+  //   "build/working-with-nyc-mta-realtime-subway-data"
+  // );
+  
+  
+  
+  
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", async function (collectionApi) {
