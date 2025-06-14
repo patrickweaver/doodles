@@ -26,6 +26,10 @@ input {
   max-width: Calc(100% - 20px);
 }
 
+button {
+  color: #000;
+}
+
 .name {
   font-size: 18px;
   line-height: 22px;
