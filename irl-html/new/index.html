@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IRL HTML Archive: New Page</title>
+<link rel="shortcut icon" type="image/png" href="/irl-html/icon.png" />
+<meta
+	name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+/>
+
+<!-- Social -->
+<meta property="og:title" content="IRL HTML" />
+<meta
+	property="og:description"
+	content="IRL HTML is a web app that hosts HTML web pages created from photographs of HTML code."
+/>
+<meta property="og:image" content="https://doodles.patrickweaver.net/irl-html/icon.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@patrickweave_r" />
+<meta name="twitter:creator" content="@patrickweave_r" />
+<meta name="twitter:title" content="IRL HTML" />
+<meta
+	name="twitter:description"
+	content="IRL HTML is a web app that hosts HTML web pages created from photographs of HTML code."
+/>
+<meta name="twitter:image" content="https://doodles.patrickweaver.net/irl-html/icon.png" />
+<meta name="twitter:image:alt" content="A screenshot of the text HTML" />
+
+<style>
+	.notice {
+		padding: 1rem;
+		border: 2px solid #fa4;
+		border-radius: 3px;
+		margin: 0.5rem;
+		background-color: #fed;
+	}
+</style>
+
+
+
+	</head>
+	<body class="container">
+		<header>
+			<h1>IRL HTML</h1>
+
+
+	<div class="notice">
+		<h2>Update on IRL HTML</h2>
+		<p>IRL HTML is now closed. This is an archive of the HTML pages created with IRL HTML between 2023 and 2025 hosted as a static site.</p>
+	</div>
+
+
+<ul>
+	<li><a href="/irl-html" class="">List of HTML Pages</a></li>
+	<li><a href="/irl-html/new" class="">Create New HTML Page</a></li>
+</ul>
+
+		</header>
+		<main>
+
+
+<h2>New Page</h2>
+
+<p>
+	You can create a new HTML page on IRL HTML by uploading a photo or screenshot
+	of your HTML here.
+</p>
+<details>
+	<summary><h3 class="inline-header">About the OCR methods</h3></summary>
+	<p>
+		In my experience the LLM based OCR methods, Claude and GPT-4 tend to work
+		best with handwritten text. Google Vision can also read some handwritten
+		text, but doesn’t have the ability to automatically fix syntax errors. The
+		prompt used for the LLM models is below.
+	</p>
+	<details>
+		<summary>LLM Prompt</summary>
+		<em>This is an image of a piece of paper with HTML code on it.	If there are any syntax errors, fix them with the most likely valid HTML. If there are no syntax errors don&#39;t make changes. Do not add a &lt;title&gt; tag if one is not present in the image, but if it is there include it. Be careful not to omit any of the tags in the image. Respond with just the HTML code properly formatted, not wrapped in markdown or any description of what is in the response. If the image does not contain HTML code respond with the exact string: ERROR_NOT_HTML_INVALID_IMAGE.</em>
+	</details>
+	<p>
+		I have added $5 to both the Claude and OpenAI APIs, not sure how long it
+		will last. If the project is out of credits, or you would like to contribute
+		to buy more credits email me at
+		<a href="mailto:hello.patrickw@gmail.com">hello.patrickw@gmail.com</a>.
+	</p>
+</details>
+
+<h3>Code of Conduct</h3>
+<p class="small-text">
+	All Pages uploaded to IRL HTML should be original content and not copied
+	source code from another website. They should also be free of any content
+	intended to upset or harass any potential viewers of IRL HTML. Any Pages that
+	have the potential to cause harm, are not <strong>original</strong>, are not
+	<strong>intelligible</strong>, or do not contribute positive HTML Energy will
+	be <strong>removed</strong>. If you would like your page to be removed please
+	create an issue on the GitHub repo.
+</p>
+<p class="small-text">
+	A full Code of Conduct can be found on
+	<a
+		href="https://github.com/patrickweaver/irlhtml/blob/main/CODE_OF_CONDUCT.md"
+		>GitHub</a
+	>.
+</p>
+<details>
+	<summary><h4 class="inline-header">A Note on JavaScript</h4></summary>
+	<p>
+		JavaScript tags will be replaced with
+		<code>&lt;code style="display: none"&gt;</code> and inline event handlers
+		will be removed. I wanted to keep the site fun and allow for things like
+		<code>alert()</code>, but I don’t have time to make it more secure.
+	</p>
+</details>
+
+<h2>Create a new HTML page</h2>
+<form method="post" enctype="multipart/form-data" id="new-page-form">
+	<label for="upload-button" id="image-label"
+		><span aria-hidden="true">📸 </span>Image:
+	</label>
+	<input type="file" id="upload-button" name="html-image" />
+	<label for="author">Author Name: (optional)</label>
+	<input type="text" id="author" name="author" class="text-input" />
+	<fieldset class="ocr-method-list">
+		<legend>Select OCR method:</legend>
+		<div class="radio-grid">
+			<input
+				type="radio"
+				id="anthropic-claude"
+				name="ocr-method"
+				value="ANTHROPIC_CLAUDE"
+			/>
+			<label for="anthropic-claude">Anthropic Claude</label>
+			<!--
+			<input
+				type="radio"
+				id="open-ai-gpt-turbo"
+				name="ocr-method"
+				value="OPEN_AI_GPT_4_TURBO"
+				disabled
+			/>
+			<label for="open-ai-gpt-turbo">OpenAI GPT-4 Turbo</label>
+			-->
+			<input
+				type="radio"
+				id="open-ai-gpt-4-o"
+				name="ocr-method"
+				value="OPEN_AI_GPT_4_O"
+			/>
+			<label for="open-ai-gpt-4-o">OpenAI GPT-4o</label>
+			<input
+				type="radio"
+				id="google-vision"
+				name="ocr-method"
+				value="GOOGLE_VISION"
+			/>
+			<label for="google-vision">Google Vision</label>
+			<input
+				type="radio"
+				id="tesseract"
+				name="ocr-method"
+				value="TESSERACT"
+				checked
+			/>
+			<label for="tesseract"
+				>Tesseract (local, not recommended for handwriting)</label
+			>
+		</div>
+	</fieldset>
+	
+	<p class="notice">IRL HTML is now closed. New HTML pages can no longer be created.</p>
+
+	<button type="submit" class="submit-button"  disabled  >
+		<span aria-hidden="true">❇️ </span>Submit<span aria-hidden="true"> ❇️</span>
+	</button>
+</form>
+<div id="status" style="display: none">
+	<h2>Status</h2>
+	<ol reversed id="status-list"></ol>
+</div>
+
+		</main>
+
+		<!-- This is an image for link previews -->
+		<img
+			src="/icon.png"
+			height="0"
+			width="0"
+			alt="A picture that says HTML"
+			style="display: inline-block"
+		/>
+
+		<footer><hr />
+<p>Made by <a href="https://www.patrickweaver.net/">Patrick Weaver</a></p>
+<p>Contribute on <a href="https://github.com/patrickweaver/irlhtml" target="_blank">GitHub</a></p>
+</footer>
+	</body>
+</html>
