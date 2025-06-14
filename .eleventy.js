@@ -69,8 +69,8 @@ module.exports = function (eleventyConfig) {
       "njk",
       // 'gif',
       // 'jpg',
-      // 'jpeg',
-      // 'png',
+      'jpeg',
+      'png',
       // 'mp3',
       // 'mp4',
       // 'pdf'
