@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Please Confirm You Are A Robot</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="icon" type="image/png" href="/please-confirm-you-are-a-robot/images/robot-face.png" />
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/please-confirm-you-are-a-robot/style.css">
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/please-confirm-you-are-a-robot/vue.js"></script>
+    <script src="/please-confirm-you-are-a-robot/script.js" defer></script>
+    
+    <!-- Social -->
+    <meta property="og:title" content="Please Confirm Your Are A Robot"/>
+    <meta property="og:description" content="A simple captcha-like form to distinguish robots from humans. Made by Patrick Weaver, patrickweaver.net" />
+    <!-- Needs to be exactly a 2:1 ratio for Twitter, recommend 800 x 400 px -->
+    <meta property="og:image" content="https://doodles.patrickweaver.net/please-confirm-you-are-a-robot/images/preview.png" />
+    
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:title" content="Please Confirm Your Are A Robot" />
+    <meta name="twitter:description" content="A simple captcha-like form to distinguish robots from humans. Made by Patrick Weaver, patrickweaver.net" />
+    <!-- Needs to be exactly a 2:1 ratio for Twitter, recommend 800 x 400 px -->
+    <meta name="twitter:image" content="https://doodles.patrickweaver.net/please-confirm-you-are-a-robot/images/preview.png" />
+    
+    
+  </head>  
+  <body>
+    <h1>Please Confirm You Are A Robot</h1>
+    <img src="/please-confirm-you-are-a-robot/images/preview-tall.png" width="0" height="0">
+    <form action="/please-confirm-you-are-a-robot/new-robot" method="get">
+      <div id="name-container">
+        <label class="name">Name:</label>
+        <input type="text" name="name" class="name" id="name">
+        <p id="name-alert">
+              Please enter a name.
+        </p>
+      </div>
+
+      <div id="captcha-container">
+        
+     
+        <div id="robot-checkbox">
+          <div id="checkbox-container">
+            <input id="checkbox" type="checkbox" />
+            <span id="custom-checkbox">
+              <span id="check">✔︎</span>
+            </span>
+            <label id="robot-label">I am a robot.</label>
+          </div>
+          <div id="info">
+            <img id="robot" src="/please-confirm-you-are-a-robot/images/robot-face.png">
+            <div id="robotcha">
+              roBOTCHA
+            </div>
+            <div id="links">
+              <a href="/please-confirm-you-are-a-robot/privacy">Privacy</a> - <a href="/please-confirm-you-are-a-robot/terms">Terms</a>
+            </div>
+          </div>
+
+        </div>
+        <p id="checkbox-alert">
+            Please verify that you are a robot.
+        </p>
+      </div>
+      
+      <button id="submit" type="submit">
+        Submit
+      </button>
+    </form>
+      
+    
+    <div id="images">
+      <div id="images-header">
+        <h4>
+          Select all images
+        </h4>
+        <h2>
+          <strong>taken on a Tuesday</strong>
+        </h2>
+      </div>
+      <div id="images-thumbnails">
+
+      </div>
+      <div id="images-footer">
+        <div id="rc-buttons">
+          <img src="/please-confirm-you-are-a-robot/images/refresh.png">
+          <img src="/please-confirm-you-are-a-robot/images/audio.png">
+          <img src="/please-confirm-you-are-a-robot/images/info.png">
+        </div>
+        <button id="verify-button">
+          VERIFY
+        </button>
+      </div>
+    </div>
+    
+    <div id="bubble-arrow-grey" class="bubble-arrow"></div>
+    <div id="bubble-arrow-white" class="bubble-arrow"></div>
+    
+    <div id="alert">
+      <h3 id="alert-header">
+        We're not sure you are a robot
+      </h3>
+      <p id="alert-message">
+        You did not complete the verification correctly. If you are a robot please try again.
+      </p>
+      <button id="try-again">
+        ⟳ Try Again
+      </button>
+    </div>
+    
+    <div id="confirmed-robots-section">
+      <h2>
+        Confirmed Robots:
+      </h2>
+      <div id="confirmed-robots">
+        <p v-if="robots.length === 0"></p>
+        <ol>
+          <li v-for="robot in robots">
+            <span v-text="robot.name"></span>
+          </li>
+        </ol>
+      </div>
+
+      <p>New robot submissions are no longer accepted as of June 2025.</p>
+    </div>
+    
+    <p>
+      Made by <a href="https://patrickweaver.net" target="_blank">Patrick Weaver</a>
+    </p>
+
+  </body>
+</html>
