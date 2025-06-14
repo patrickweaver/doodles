@@ -1,0 +1,336 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: arial, sans-serif;
+  margin: 2em;
+  text-align: center;
+  line-height: 75%;
+}
+
+h1 {
+  margin: 2em 0 1em;
+  line-height: 100%;
+}
+
+form {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #eee;
+  margin: 0 auto;
+  max-width: 500px;
+  width: Calc(100% - 20px);
+}
+
+input {
+  max-width: Calc(100% - 20px);
+}
+
+.name {
+  font-size: 18px;
+  line-height: 22px;
+  margin: 10px 0;
+}
+
+#robot-checkbox {
+  border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(249, 249, 249);
+  width: 300px;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 4px 1px;
+  height: 74px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  max-width: Calc(100% - 20px);
+}
+
+#checkbox {
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+#checkbox-container {
+  width: 230px;
+  text-align: left;
+}
+
+#captcha-container {
+  margin: 10px auto;
+  text-align: center;
+  /*width: 320px;*/
+  width: 100%;
+  /*display: flex;
+  justify-content: center;*/
+}
+
+#checkbox-alert {
+  display: none;
+  color: red;
+  font-size: 75%;
+  width: 100%;
+  flex-basis: 100%;
+}
+
+#name-alert {
+  display: none;
+  color: red;
+  font-size: 75%;
+  margin-top: 0;
+}
+
+#check {
+  font-size: 26px;
+  position: relative;
+  top: 6px;
+  left: 2px;
+  color: #3fb549;
+  display: none;
+}
+
+#info {
+  width: 70px;
+}
+
+#robot-checkbox { 
+}
+
+
+#robot-checkbox #custom-checkbox {
+  border: 2px solid rgb(193, 193, 193);
+  background-color: white;
+  margin: 23px auto 23px;
+  height: 24px;
+  width: 24px;
+}
+
+#robot-checkbox label {
+  width: 100px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+#robot-checkbox label, #robot-checkbox #custom-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#robot {
+  width: 32px;
+  height: auto;
+  margin: 10px 13px 0;
+}
+
+#robotcha {
+  margin: 0;
+  font-family: "Roboto", "helvetica", "arial", sans-serif;
+  font-size: 10px;
+  display: inline-block;
+}
+
+#links {
+  color: #555;
+  font-family: "Roboto", "helvetica", "arial", sans-serif;
+  font-size: 8px;
+  margin: 0;
+}
+
+#links a {
+  text-decoration: none;
+}
+
+#links a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-size: 18px;
+  border: 1px solid rgb(211, 211, 211);
+  background-color: rgb(249, 249, 249);
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: white;
+}
+
+#images {
+  display: none;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px rgba(58, 58, 58, .3);
+  width: 408px;
+  min-height: 300px;
+  position: relative;
+  z-index: 100;
+  text-align: left;
+  left: 526px;
+  overflow: hidden;
+}
+
+.bubble-arrow {
+  display: none;
+  position: relative;
+  right: 689px;
+  height: 0;
+  z-index: 200;
+  margin-top: -11px;
+  border-style: solid;
+}
+
+#bubble-arrow-grey {
+  border-width: 11px;
+  border-color: transparent rgb(204, 204, 204) transparent transparent;
+  top: -686px;
+}
+
+#bubble-arrow-white {
+  border-width: 10px;
+  border-color: transparent rgb(255, 255, 255) transparent transparent;
+  top: -696px;
+}
+
+#images-header {
+  background-color: rgb(74, 144, 226);
+  color: #fff;
+  width: 100%;
+  padding: 1em;
+  display: inline-block;
+  text-align: left;
+}
+
+#images-header h4, #images-header h2 {
+  margin: .5em 0;
+  display: block;
+  font-family: Roboto, helvetica, arial, sans-serif
+}
+
+#images-header h2 {
+  font-weight: bolder;
+  font-size: 28px;
+  margin-bottom: 1.5em;
+}
+
+#images-footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+#images-footer img {
+  width: 32px;
+}
+
+#images-thumbnails {
+  position: relative;
+  width: 420px;
+}
+
+#images-thumbnails img {
+  width: 126px;
+  height: 126px;
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+}
+
+#verify-button {
+  background-color: rgb(74, 144, 226);
+  color: #fff;
+  padding: 0px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Roboto, helvetica, arial, sans-serif;
+  border: none;
+  border-radius: 2px;
+  height: 42px;
+  min-width: 100px;
+  margin: 8px;
+}
+
+#rc-buttons {
+  width: 144px;
+  display: flex;
+  justify-content: space-between;
+  height: 32px;
+  margin: 10px 5px;
+}
+
+#rc-buttons img {
+  opacity: 0.5; 
+  cursor: pointer;
+}
+
+#rc-buttons img:hover {
+  opacity: 1.0;
+}
+
+#alert {
+  border: 2px solid red;
+  border-radius: 5px;
+  background-color: white;
+  position: relative;
+  top: -185px;
+  max-width: Calc(100% - 4em);
+  width: 400px;
+  margin: 0 auto;
+  padding: 1em;
+  display: none;
+}
+
+#alert-header {
+  line-height: 125%;
+}
+
+#alert-message {
+  text-align: left;
+  margin: 1em;
+  line-height: 18px;
+}
+
+#confirmed-robots-section {
+  margin-top: 4em;
+  position: relative;
+}
+
+#confirmed-robots {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 125%;
+}
+
+#confirmed-robots p {
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  #images {
+    width: 408px;
+    min-height: 300px;
+    height: 600px;
+    position: absolute;
+    z-index: 100;
+    text-align: left;
+    top: 10px;
+    margin: 0 auto;
+    left: Calc(50% - 204px)
+  } 
+}
+
+
+@media (max-width: 350px) {
+  #robot-label {
+    margin: 0 0 0 13px;
+    vertical-align: top;
+  }
+  #custom-checkbox {
+    margin: 23px 12px 3px !important;
+  }
+  
+}

@@ -64,13 +64,14 @@ module.exports = function (eleventyConfig) {
     templateFormats: [
       "html",
       "md",
-      // "css",
+      "css",
       "hbs",
       "njk",
-      // 'gif',
-      // 'jpg',
+      'gif',
+      'jpg',
       'jpeg',
       'png',
+      'js',
       // 'mp3',
       // 'mp4',
       // 'pdf'
