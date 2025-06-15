@@ -1,0 +1,41 @@
+/* CSS files add styling rules to your content */
+
+body {
+    font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    margin: 2px;
+  }
+  
+  h1 {
+    font-style: italic;
+    color: #373fff;
+  }
+  
+  form label, form input {
+    display: block;
+  }
+  
+  #ghost-canvas, #controls, #image-library {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 650px;
+    margin-left: 10px;
+  }
+  
+  #ghost-canvas canvas {
+    display: inline-block;
+    margin: 5px 2px;
+  }
+  
+  p {
+    font-size: 10px;
+    margin: 0;
+  }
+  
+  #image-library img {
+    max-width: 70;
+    height: auto;
+  }
+  
+  #image-library img, #img-library label, #img-library input {
+    display: block;
+  }
