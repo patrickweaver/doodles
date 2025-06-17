@@ -14,6 +14,7 @@ var nameAlert = document.getElementById("name-alert");
 var captchaContainer = document.getElementById("captcha-container");
 var nameContainer = document.getElementById("name-container");
 var robotsList = document.getElementById("confirmed-robots-section");
+var dow = document.getElementById("dow");
 
 function handleRobotClick(e) {
   var inputCheckbox = document.getElementById("checkbox");
@@ -49,7 +50,6 @@ function isNotRobot() {
 }
 
 function handleNotRobotClick(e) {
-
   var images = [
     "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r12.jpeg",
     "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r13.jpeg",
@@ -70,30 +70,39 @@ function handleNotRobotClick(e) {
     "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r3.jpeg",
     "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r1.jpeg",
     "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r20.jpeg",
-    "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r19.jpeg" 
-  ]
-  
-  var thumbnailsHTML = '';
+    "/please-confirm-you-are-a-robot/images/a5e521be-edd4-433c-885e-f2d838d40fbf_r19.jpeg",
+  ];
+
+  var thumbnailsHTML = "";
   var usedImages = [];
-  
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  dow.innerHTML = days[Math.floor(Math.random() * days.length)];
   for (var i = 0; i < 9; i++) {
     var randomIndex = Math.floor(Math.random() * (images.length - 1)) + 1;
     if (usedImages.indexOf(randomIndex) === -1) {
-      thumbnailsHTML += '<img src="' + images[randomIndex] + '" />'
+      thumbnailsHTML += '<img src="' + images[randomIndex] + '" />';
       usedImages.push(randomIndex);
     } else {
       i--;
     }
-    
   }
-  
-  document.getElementById('images-thumbnails').innerHTML = thumbnailsHTML;
-  
+
+  document.getElementById("images-thumbnails").innerHTML = thumbnailsHTML;
+
   imagesPopup.style.display = "block";
   robotsList.style.bottom = "20px";
   bag.style.display = "block";
   baw.style.display = "block";
-  setTimeout(function() {
+  setTimeout(function () {
     imagesPopup.style.display = "none";
     robotsList.style.bottom = "187px";
     bag.style.display = "none";
@@ -107,44 +116,38 @@ function hideAlert(e) {
   robotsList.style.bottom = "0px";
 }
 
-
-
-
-
 customCheckbox.addEventListener("click", handleRobotClick);
 submitButton.addEventListener("click", handleRobotSubmit);
 tryAgain.addEventListener("click", hideAlert);
 setTimeout(isNotRobot, delayTime);
 
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/please-confirm-you-are-a-robot/get-robots');
-xhr.onload = function() {
-    if (xhr.status === 200) {
-      var robotNameData = xhr.responseText;
-      var robotNameObject = JSON.parse(robotNameData);
-      console.log(robotNameObject);
-      for (var i in robotNameObject) {
-        robots.addNewRobot(robotNameObject[i].name);
-      }
+xhr.open("GET", "/please-confirm-you-are-a-robot/get-robots");
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    var robotNameData = xhr.responseText;
+    var robotNameObject = JSON.parse(robotNameData);
+    console.log(robotNameObject);
+    for (var i in robotNameObject) {
+      robots.addNewRobot(robotNameObject[i].name);
     }
-    else {
-        alert('Request failed.  Returned status of ' + xhr.status);
-    }
+  } else {
+    alert("Request failed.  Returned status of " + xhr.status);
+  }
 };
 xhr.send();
 
-
 var robots = new Vue({
-  el: '#confirmed-robots',
+  el: "#confirmed-robots",
   data: {
-    defaultText: 'No confirmed robots',
-    robots: []
+    defaultText: "No confirmed robots",
+    robots: [],
   },
   methods: {
     addNewRobot: function (name) {
       this.robots.push({
-        name: name
-      })
-    }
-  }
-})
+        name: name,
+      });
+    },
+  },
+});
