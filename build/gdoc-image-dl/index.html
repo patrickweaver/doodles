@@ -1,0 +1,93 @@
+---
+title: Google Doc Image Download Bookmarklet
+date: 2020-07-31
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Google Doc Image Downloader</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+    href="/gdoc-image-dl/shortcut-icon.png"
+    type="image/png" />
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/gdoc-image-dl/style.css">
+
+  <!-- Social -->
+  <meta property="og:title" content="GDoc Image DL" />
+  <meta property="og:description"
+    content="Hover over an image in a Google Doc to download it easily! Made by Patrick Weaver, patrickweaver.net" />
+  <meta property="og:image"
+    content="https://doodles.patrickweaver.net/gdoc-image-dl/preview.png" />
+
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@patrickweave_r">
+  <meta name="twitter:creator" content="@patrickweave_r">
+  <meta name="twitter:title" content="GDoc Image DL">
+  <meta name="twitter:description"
+    content="Hover over an image in a Google Doc to download it easily! Made by Patrick Weaver, patrickweaver.net">
+  <meta name="twitter:image"
+    content="https://doodles.patrickweaver.net/gdoc-image-dl/preview.png">
+</head>
+
+<body>
+  <h1>Google Doc Image Download Bookmarklet</h1>
+
+  <h3>
+    What is this?
+  </h3>
+  <p>
+    Google makes it very hard to download an image file from a Google Doc! With this very hacky bookmarklet you can make
+    it easy!
+  </p>
+
+  <h3>
+    How to use it:
+  </h3>
+
+  <p>
+    1. Drag one of the bookmarklets below to your bookmarks toolbar. The text displayed is what will be show on the
+    toolbar:
+  </p>
+
+  <ul id="bookmarklet-container">
+    <li><a class="bookmarklet"
+        href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3BsetTimeout(function()%20%7Bvar%20result%20%3D%20window.confirm(%22Hover%20over%20the%20image%20you%20want%20to%20download.%22)%3Bif%20(result)%7B%24(%22image%22).hover(function()%20%7Bvar%20i%20%3D%20%24(this).attr(%22xlink%3Ahref%22)%3Bconsole.log(i)%3Bvar%20link%20%3D%20document.createElement(%22a%22)%3Blink.download%20%3D%20name%3Blink.href%20%3D%20i%3Blink.target%3D%20%22_blank%22%3Blink.click()%3B%24(%22image%22).each(function()%20%7B%24(this).unbind(%22mouseenter%20mouseleave%22)%3B%7D)%7D%2C%20null)%7D%7D%2C%20300)%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.11.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()">🖼⤵️</a>
+    </li>
+    <li><a class="bookmarklet"
+        href="javascript:(function()%7Bfunction%20callback()%7B(function(%24)%7Bvar%20jQuery%3D%24%3BsetTimeout(function()%20%7Bvar%20result%20%3D%20window.confirm(%22Hover%20over%20the%20image%20you%20want%20to%20download.%22)%3Bif%20(result)%7B%24(%22image%22).hover(function()%20%7Bvar%20i%20%3D%20%24(this).attr(%22xlink%3Ahref%22)%3Bconsole.log(i)%3Bvar%20link%20%3D%20document.createElement(%22a%22)%3Blink.download%20%3D%20name%3Blink.href%20%3D%20i%3Blink.target%3D%20%22_blank%22%3Blink.click()%3B%24(%22image%22).each(function()%20%7B%24(this).unbind(%22mouseenter%20mouseleave%22)%3B%7D)%7D%2C%20null)%7D%7D%2C%20300)%7D)(jQuery.noConflict(true))%7Dvar%20s%3Ddocument.createElement(%22script%22)%3Bs.src%3D%22https%3A%2F%2Fajax.googleapis.com%2Fajax%2Flibs%2Fjquery%2F1.11.1%2Fjquery.min.js%22%3Bif(s.addEventListener)%7Bs.addEventListener(%22load%22%2Ccallback%2Cfalse)%7Delse%20if(s.readyState)%7Bs.onreadystatechange%3Dcallback%7Ddocument.body.appendChild(s)%3B%7D)()">GDoc
+        Image DL</a></li>
+  </ul>
+
+  <p>
+    2. Then, when you're on a Google Doc, click the bookmarklet, then hover over an image embeded in the doc. Depending
+    on your browser settings it will either download immediately, or open the actual image in a new tab.
+  </p>
+
+  <br />
+  <hr />
+  <br />
+
+  <h3>
+    It's not working! Why?
+  </h3>
+  <p>
+    Right now it's July 2020 and it works! It's very likely that Google will change something in the near future that
+    makes this stop working. No promises!
+  </p>
+
+
+  <p>
+    Made by <a href="https://patrickweaver.net" target="_blank">Patrick Weaver</a>
+  </p>
+
+</body>
+
+</html>
