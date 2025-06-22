@@ -119,7 +119,7 @@ function generateNew() {
     }
   }
   q = q.slice(0, -1);
-  window.location = "https://doodles.patrickweaver.net/emojiwallpaper" + q;
+  window.location = "https://doodles.patrickweaver.net/emoji-wallpaper" + q;
 }
 
 if (!blank) {
