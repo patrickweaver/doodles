@@ -33,7 +33,8 @@ if (blank) {
     if (v >= 0 && v <= allEmoji.length) {
       emoji.push(allEmoji[v]);
     }
-    form = false;
+    document.getElementById("input").style.display = "none";
+    document.getElementById("to-form").style.display = "block";
   }
 } else {
   emoji = allEmoji;
