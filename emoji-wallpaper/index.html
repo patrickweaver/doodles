@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Emoji Wallpaper</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="favicon" rel="icon"
+    href="/emoji-wallpaper/icon.png"
+    type="image/x-icon">
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/emoji-wallpaper/style.css">
+
+  <!-- import the webpage's javascript file -->
+  <script src="/emoji-wallpaper/allEmoji.js" defer></script>
+  <script src="/emoji-wallpaper/client.js" defer></script>
+</head>
+
+<body>
+  <div id="container">
+    <div id="root"></div>
+    <div id="input">
+      <h1>
+        Generate your own emoji wallpaper:
+      </h1>
+      <p>
+        Add any emojis you want to include below with a space or new line between each one. If this page makes it too
+        hard to fill out the form, try this one: <a
+          href="https://doodles.patrickweaver.net/emoji-wallpaper#no=emojis">doodles.patrickweaver.net/emoji-wallpaper#no=emojis</a>.
+      </p>
+      <textarea id="emoji-input"></textarea>
+      <button id="submit-button">
+        📠 ➔
+      </button>
+    </div>
+    <div id="to-form" style="display: none;">
+      <h4>
+        Make your own here: <a
+          href="https://doodles.patrickweaver.net/emoji-wallpaper#no=emojis">doodles.patrickweaver.net/emoji-wallpaper#no=emojis</a>
+      </h4>
+      <p id="hide-link">Hide this</p>
+    </div>
+  </div>
+</body>
+
+</html>
