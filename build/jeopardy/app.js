@@ -34,6 +34,10 @@ const handleClick = (event) => {
     prompt.classList.remove("is-active");
     activeQuestion.classList.remove("is-active");
     activeQuestion.classList.add("is-answered");
+    activeQuestion.classList.add("post-answer");
+    setTimeout(() => {
+      activeQuestion.classList.remove("post-answer");
+    }, 3000);
     activeQuestion.innerText = activeQuestion.dataset.answer;
   }
 };

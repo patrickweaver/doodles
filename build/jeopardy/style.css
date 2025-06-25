@@ -84,7 +84,7 @@ body {
   text-shadow: none;
 }
 
-.question.is-answered:hover {
+.question.is-answered:hover, .question.post-answer {
   color: white;
   font-size: 28px;
 }
