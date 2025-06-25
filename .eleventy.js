@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Passthrough
-  
+
   eleventyConfig.addPassthroughCopy("build/style.css");
 
   // eleventyConfig.addPassthroughCopy("build/ait");
@@ -32,10 +32,6 @@ module.exports = function (eleventyConfig) {
   // eleventyConfig.addPassthroughCopy(
   //   "build/working-with-nyc-mta-realtime-subway-data"
   // );
-  
-  
-  
-  
 
   // Collections:
   eleventyConfig.addCollection("allTopLevel", async function (collectionApi) {
@@ -78,11 +74,14 @@ module.exports = function (eleventyConfig) {
       "css",
       "hbs",
       "njk",
-      'gif',
-      'jpg',
-      'jpeg',
-      'png',
-      'js',
+      "gif",
+      "jpg",
+      "jpeg",
+      "png",
+      "js",
+      "woff",
+      "eot",
+      "json",
       // 'mp3',
       // 'mp4',
       // 'pdf'
