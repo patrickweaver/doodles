@@ -36,64 +36,99 @@ date: 2025-07-31
       dd {
         margin-bottom: 0.25rem;
       }
-      #ui {
-        background-color: #e8fcc8;
-        width: 50%;
-        min-height: 100vh;
-      }
-      #controls > button {
+      button {
         display: inline-block;
         font-size: 1.2rem;
-        margin: 0.5rem;
+        /* margin: Calc(0.5rem + 0px) Calc(0.5rem + 2px) Calc(0.5rem + 2px)
+          Calc(0.5rem + 0px); */
         padding: 0.5rem;
         border-radius: 50px;
         background-color: #cdf;
         font-weight: 700;
         border: 3px solid #469;
         color: #136;
+        filter: drop-shadow(3px 4px 4px #aaa);
       }
-      #controls > button:hover {
+      button:hover {
         background-color: #def;
+        color: #257;
+        filter: drop-shadow(5px 6px 6px #bbb);
       }
-      #controls > button:disabled {
+      button:active {
+        /* margin: Calc(0.5rem + 2px) Calc(0.5rem + 0px) Calc(0.5rem + 0px) */
+        /* Calc(0.5rem + 2px); */
+        filter: drop-shadow(1px 2px 2px #ccc);
+      }
+      button:disabled {
         background-color: #e8f8ff;
         color: #9ad;
         border-color: #9ae;
         cursor: not-allowed;
       }
-      #web-page {
+      button.source,
+      button.source {
+        background-color: #c8b8ff;
+        color: #428;
+        border-color: #539;
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        min-width: 150px;
+      }
+      button.source:hover {
+        background-color: #d4c4ff;
+        color: #539;
+        border-color: #64a;
+      }
+      .app-section {
         width: 50%;
         min-height: 100vh;
       }
-      #element {
+      #ui {
+        background-color: #e8fcc8;
+      }
+      #web-page-container {
+        display: block;
+      }
+      #web-page-source-container {
+        display: none;
+        background-color: #224;
+        color: #eef;
+        font-family: monospace;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 1rem;
+      }
+      #web-page > * {
+        border: 0px solid orange;
+      }
+      #active-tag {
         width: 100%;
         text-align: center;
         font-size: 4rem;
         font-family: monospace;
+        margin: 0 0 0.5rem;
       }
     </style>
   </head>
   <body>
     <main>
-      <div id="ui">
+      <div id="ui" class="app-section">
         <h1>Dancing HTML</h1>
         <div id="controls">
           <button id="listen">Start Listening</button>
           <button id="no-listen" disabled>Stop Listening</button>
         </div>
-        <h2>Status</h2>
-        <p id="current-status">Waiting</p>
-
-        <h2>Speach</h2>
-        <p id="speach"></p>
+        <h2 style="display: inline-block">Status</h2>
+        <p style="display: inline-block" id="current-status">🔇</p>
 
         <div id="info" style="display: none">
           Browser does not support video capture or device has no camera
         </div>
         <div id="loading">Loading the model...</div>
 
-        <h1 id="element">&nbsp;</h1>
-        <div id="main" style="display: none">
+        <h1 id="active-tag">&nbsp;</h1>
+        <div id="hidden-video" style="display: none">
           <div id="video-container">
             <video
               id="video"
@@ -112,7 +147,14 @@ date: 2025-07-31
         </div>
 
         <details>
-          <summary><h2 style="display: inline-block">Positions</h2></summary>
+          <summary><h2 style="display: inline-block">Transcript</h2></summary>
+          <p id="speech-transcript"></p>
+        </details>
+
+        <details>
+          <summary>
+            <h2 style="display: inline-block">Detected Positions</h2>
+          </summary>
           <dl>
             <dt>H1</dt>
             <dd id="h1"></dd>
@@ -140,7 +182,14 @@ date: 2025-07-31
           </dl>
         </details>
       </div>
-      <div id="web-page"></div>
+      <div id="web-page-container" class="app-section">
+        <div id="web-page"></div>
+        <button id="view-source" class="source">View Source</button>
+      </div>
+      <div id="web-page-source-container" class="app-section">
+        <div id="web-page-source"></div>
+        <button id="close-view-source" class="source">Close</button>
+      </div>
     </main>
   </body>
 

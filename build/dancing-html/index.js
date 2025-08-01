@@ -1,8 +1,17 @@
 const videoId = "video";
 const videoWidth = 300;
 const videoHeight = 250;
+const fps = 15;
+let activeTagLastUpdated = 0;
+const activeTagTimeoutMs = 250;
+let isActive = false;
+const spacer = `<!-- spacer -->`;
+
 const canvas = document.getElementById("output");
 const webPage = document.getElementById("web-page");
+const viewSourceButton = document.getElementById("view-source");
+const webPageSource = document.getElementById("web-page-source");
+const closeViewSourceButton = document.getElementById("close-view-source");
 
 let activeTag = null;
 let runningInnerHtml = "";
@@ -92,17 +101,19 @@ async function poseDetection() {
 
       const now = new Date().getTime();
       if (now > lastUpdate + 67) {
-        parsePosition(poses);
+        handleVideoFrame(poses);
         lastUpdate = now;
       }
 
-      requestAnimationFrame(poseDetectionFrame); // next frame
+      setTimeout(() => {
+        requestAnimationFrame(poseDetectionFrame);
+      }, 1000 / fps);
     }
-    poseDetectionFrame(); // first frame
+    poseDetectionFrame();
   }
 
   const uiLoading = document.getElementById("loading"),
-    uiMain = document.getElementById("main");
+    uiMain = document.getElementById("hidden-video");
   function toggleLoadingUI(loading) {
     uiLoading.style.display = loading ? "block" : "none";
     uiMain.style.display = loading ? "none" : "block";
@@ -149,21 +160,23 @@ async function listener() {
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
-  var speach = document.getElementById("speach");
+  var speech = document.getElementById("speech-transcript");
   var bg = document.querySelector("html");
   var currentStatus = document.getElementById("current-status");
 
   const listenButton = document.getElementById("listen");
   const noListenButton = document.getElementById("no-listen");
   listenButton.onclick = function (event) {
+    isActive = true;
     recognition.start();
-    currentStatus.innerHTML = "Listening";
+    currentStatus.innerHTML = "🎙️ Listening";
     listenButton.disabled = true;
     noListenButton.disabled = false;
   };
   noListenButton.onclick = function () {
+    isActive = false;
     recognition.stop();
-    currentStatus.innerHTML = "";
+    currentStatus.innerHTML = "🔇";
     listenButton.disabled = false;
     noListenButton.disabled = true;
   };
@@ -179,15 +192,24 @@ async function listener() {
     // We then return the transcript property of the SpeechRecognitionAlternative object
     const { results } = event;
     const nextItem = results[results.length - 1];
-    console.log(nextItem);
-    const nextTranscript = nextItem[0].transcript;
-    console.log(nextTranscript);
-    console.log("Confidence: " + event.results[0][0].confidence);
-    var word = " " + nextTranscript + " ";
-    speach.innerHTML += word;
+    // console.log("🎙️", nextItem);
+    // const nextTranscript = nextItem[0].transcript;
+    // console.log(nextTranscript);
+    // console.log("Confidence: " + event.results[0][0].confidence);
+    speech.innerHTML += " " + nextTranscript;
+
+    const currentElement = document.getElementById("current-element");
+    const currentElementTag = currentElement.tagName.toLowerCase();
+
+    if (!activeTag || activeTag !== currentElementTag) {
+      runningInnerHtml = "";
+    }
+
     if (activeTag) {
-      runningInnerHtml += word;
-      document.getElementById("current-element").innerHTML = runningInnerHtml;
+      runningInnerHtml += nextTranscript + " ";
+      if (runningInnerHtml.trim().length) {
+        currentElement.innerHTML = runningInnerHtml.trim();
+      }
     }
   };
 
@@ -293,16 +315,18 @@ function drawSkeleton(keypoints, minConfidence, ctx) {
   });
 }
 
-let logged = false;
-function parsePosition(poses) {
+// let logged = false;
+
+function handleVideoFrame(poses) {
+  let webPageUpdated = false;
   const keypoints = poses?.[0]?.keypoints ?? [];
   if (keypoints.length) {
-    if (!logged) {
-      keypoints.forEach((i) => {
-        console.log(i);
-      });
-      logged = true;
-    }
+    // if (!logged) {
+    //   keypoints.forEach((i) => {
+    //     console.log(i);
+    //   });
+    //   logged = true;
+    // }
   }
 
   const validKeypoints = [];
@@ -329,7 +353,7 @@ function parsePosition(poses) {
     positions[keypoint.part] = [keypoint.position.x, keypoint.position.y];
   }
 
-  const element = document.getElementById("element");
+  const activeTagDisplay = document.getElementById("active-tag");
   const elementChecks = [
     ["h1", isH1],
     ["h2", isH2],
@@ -337,22 +361,89 @@ function parsePosition(poses) {
     ["p", isP],
   ];
 
-  let found = false;
+  let foundValidPosition = false;
+  let currentElement = document.getElementById("current-element");
+  let currentElementTag = currentElement?.tagName.toLowerCase();
+
   for (let i in elementChecks) {
     const [tag, fn] = elementChecks?.[i];
     if (fn(positions)) {
-      element.innerHTML = `&lt;${tag.toUpperCase()}&gt;`;
-      canvas.style.borderColor = "yellow";
+      foundValidPosition = true;
+      activeTagLastUpdated = new Date().getTime();
+      activeTagDisplay.innerHTML = `&lt;${tag.toUpperCase()}&gt;`;
+      canvas.style.borderColor = isActive ? "LawnGreen" : "Yellow";
       activeTag = tag;
-      webPage.innerHTML += `<${activeTag} id="current-element"><${activeTag}>`;
-      found = true;
+
+      if (isActive) {
+        const currentElementNotActive =
+          !!currentElementTag && currentElementTag !== activeTag;
+        if (currentElementNotActive) {
+          if (currentElement.innerHTML === "") {
+            // console.log(
+            //   "🔮 removing empty current element",
+            //   currentElement.tagName
+            // );
+            currentElement.remove();
+          } else {
+            // console.log("🔮 deactivating current element", currentElementTag);
+            // console.log("current content:", currentElement.innerHTML);
+            webPage.innerHTML =
+              webPage.innerHTML.replaceAll(' id="current-element"', "") +
+              spacer;
+            runningInnerHtml = "";
+          }
+          currentElement = undefined;
+          currentElementTag = undefined;
+          webPageUpdated = true;
+        }
+
+        if (!currentElementTag) {
+          // console.log("🔮 no current element adding as current:", activeTag);
+          webPage.innerHTML += `<${activeTag} id="current-element"></${activeTag}>`;
+          // console.log("🔮 current source:", webPage.innerHTML);
+          webPageUpdated = true;
+        } else {
+          // console.log("🔮 current element", currentElementTag);
+          // console.log(` 🔮 innerHTML: '${currentElement.innerHTML}'`);
+          // console.log(
+          //   `🌎 full page:`,
+          //   document.getElementById("web-page").innerHTML
+          // );
+        }
+      }
+
       break;
     }
   }
-  if (!found) {
-    element.innerHTML = "&nbsp;";
+  const nowMs = new Date().getTime();
+  if (
+    !foundValidPosition &&
+    nowMs - activeTagLastUpdated > activeTagTimeoutMs
+  ) {
+    activeTagDisplay.innerHTML = "&nbsp;";
     canvas.style.borderColor = "black";
-    activeTag = null;
+
+    if (currentElement) {
+      if (currentElement.innerHTML === "") {
+        // console.log(
+        //   "😻 removing empty current element",
+        //   currentElement.tagName
+        // );
+        currentElement.remove();
+      } else {
+        // console.log("😻 deactivating current element", currentElementTag);
+        // console.log("current content:", currentElement.innerHTML);
+        webPage.innerHTML =
+          webPage.innerHTML.replaceAll(' id="current-element"', "") + spacer;
+        runningInnerHtml = "";
+      }
+      activeTag = null;
+      webPageUpdated = true;
+    }
+  }
+
+  if (webPageUpdated) {
+    webPageSource.innerHTML = escapeHTML(webPage.innerHTML);
   }
 }
 
@@ -401,4 +492,23 @@ function isH3({ rightWrist, leftWrist }) {
 
 function isP({ rightWrist, leftWrist }) {
   return inBottomRCorner(rightWrist) && inBottomLCorner(leftWrist);
+}
+
+viewSourceButton.onclick = (_event) => {
+  webPage.parentElement.style.display = "none";
+  webPageSource.parentElement.style.display = "block";
+};
+
+closeViewSourceButton.onclick = (_event) => {
+  webPageSource.parentElement.style.display = "none";
+  webPage.parentElement.style.display = "block";
+};
+
+function escapeHTML(html) {
+  return html
+    .replaceAll(spacer, "#LINEBREAK#")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll("/", "&#47;")
+    .replaceAll("#LINEBREAK#", "<br />");
 }
