@@ -197,7 +197,7 @@ async function listener() {
     speech.innerHTML += " " + nextTranscript;
 
     const currentElement = document.getElementById("current-element");
-    const currentElementTag = currentElement.tagName.toLowerCase();
+    const currentElementTag = currentElement?.tagName?.toLowerCase();
 
     if (!activeTag || activeTag !== currentElementTag) {
       runningInnerHtml = "";
@@ -361,7 +361,7 @@ function handleVideoFrame(poses) {
 
   let foundValidPosition = false;
   let currentElement = document.getElementById("current-element");
-  let currentElementTag = currentElement?.tagName.toLowerCase();
+  let currentElementTag = currentElement?.tagName?.toLowerCase();
 
   for (let i in elementChecks) {
     const [tag, fn] = elementChecks?.[i];

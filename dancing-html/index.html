@@ -2,12 +2,38 @@
 <html>
   <head>
     <title>Dancing HTML</title>
+    <meta name="description" content="An HTML text editor, with dancing!" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪩</text></svg>"
+    />
+    <!-- Social -->
+    <meta property="og:title" content="Dancing HTML" />
+    <meta
+      property="og:description"
+      content="An HTML text editor, with dancing!"
+    />
+    <!-- Needs to be exactly a 2:1 ratio for Twitter, recommend 800 x 400 px -->
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/dancing-html/dancing-html-social.png"
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@patrickweave_r" />
+    <meta name="twitter:title" content="Dancing HTML" />
+    <meta
+      name="twitter:description"
+      content="An HTML text editor, with dancing!"
+    />
+    <!-- Needs to be exactly a 2:1 ratio for Twitter, recommend 800 x 400 psefx -->
+    <meta
+      name="twitter:image"
+      content="https://doodles.patrickweaver.net/dancing-html/dancing-html-social.png"
     />
     <style>
       body {
@@ -81,7 +107,7 @@
         min-height: 100vh;
       }
       #ui {
-        background-color: #e8fcc8;
+        background-color: #f4ffe8;
       }
       #web-page-container {
         display: block;
@@ -117,6 +143,10 @@
         </div>
         <h2 style="display: inline-block">Status</h2>
         <p style="display: inline-block" id="current-status">🔇</p>
+        <p style="margin: 0.25rem 0">
+          🔒 All video and audio is processed locally. No data leaves your
+          device.
+        </p>
 
         <div id="info" style="display: none">
           Browser does not support video capture or device has no camera
@@ -195,5 +225,9 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
   <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
   <script src="https://unpkg.com/dat.gui@0.7.2/build/dat.gui.min.js"></script>
-  <script type="module" src="/dancing-html/index.js"></script>
+  <script type="module" src="index.js"></script>
+  <img
+    style="height: 0px; width: 0px"
+    src="https://doodles.patrickweaver.net/dancing-html/dancing-html-social.png"
+  />
 </html>
