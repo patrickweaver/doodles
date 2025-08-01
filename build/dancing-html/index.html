@@ -1,0 +1,154 @@
+---
+title: Dancing HTML
+date: 2025-07-31
+---
+
+<html>
+  <head>
+    <title>Dancing HTML</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪩</text></svg>"
+    />
+    <style>
+      body {
+        margin: 0;
+      }
+      main {
+        display: flex;
+      }
+
+      main > div {
+        padding: 0 1rem;
+      }
+      #video-container {
+        width: 100%;
+        text-align: center;
+      }
+      canvas {
+        border: 10px solid black;
+        margin: 0 auto;
+        display: inline-block;
+      }
+      dd {
+        margin-bottom: 0.25rem;
+      }
+      #ui {
+        background-color: #e8fcc8;
+        width: 50%;
+        min-height: 100vh;
+      }
+      #controls > button {
+        display: inline-block;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        border-radius: 50px;
+        background-color: #cdf;
+        font-weight: 700;
+        border: 3px solid #469;
+        color: #136;
+      }
+      #controls > button:hover {
+        background-color: #def;
+      }
+      #controls > button:disabled {
+        background-color: #e8f8ff;
+        color: #9ad;
+        border-color: #9ae;
+        cursor: not-allowed;
+      }
+      #web-page {
+        width: 50%;
+        min-height: 100vh;
+      }
+      #element {
+        width: 100%;
+        text-align: center;
+        font-size: 4rem;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="ui">
+        <h1>Dancing HTML</h1>
+        <div id="controls">
+          <button id="listen">Start Listening</button>
+          <button id="no-listen" disabled>Stop Listening</button>
+        </div>
+        <h2>Status</h2>
+        <p id="current-status">Waiting</p>
+
+        <h2>Speach</h2>
+        <p id="speach"></p>
+
+        <div id="info" style="display: none">
+          Browser does not support video capture or device has no camera
+        </div>
+        <div id="loading">Loading the model...</div>
+
+        <h1 id="element">&nbsp;</h1>
+        <div id="main" style="display: none">
+          <div id="video-container">
+            <video
+              id="video"
+              playsinline
+              style="
+                display: none;
+                -moz-transform: scaleX(-1, 1);
+                -o-transform: scaleX(-1, 1);
+                -webkit-transform: scaleX(-1, 1);
+                transform: scaleX(-1, 1);
+                filter: FlipH;
+              "
+            ></video>
+            <canvas id="output" />
+          </div>
+        </div>
+
+        <details>
+          <summary><h2 style="display: inline-block">Positions</h2></summary>
+          <dl>
+            <dt>H1</dt>
+            <dd id="h1"></dd>
+            <dt>P</dt>
+            <dd id="p"></dd>
+            <hr />
+            <dt>Nose</dt>
+            <dd id="nose"></dd>
+            <dt>Left Shoulder</dt>
+            <dd id="leftShoulder"></dd>
+            <dt>Right Shoulder</dt>
+            <dd id="rightShoulder"></dd>
+            <dt>Right Elbow</dt>
+            <dd id="rightElbow"></dd>
+            <dt>Left Elbow</dt>
+            <dd id="leftElbow"></dd>
+            <dt>Right Wrist</dt>
+            <dd id="rightWrist"></dd>
+            <dt>Left Wrist</dt>
+            <dd id="leftWrist"></dd>
+            <dt>Right</dt>
+            <dd id="right"></dd>
+            <dt>Left</dt>
+            <dd id="left"></dd>
+          </dl>
+        </details>
+      </div>
+      <div id="web-page"></div>
+    </main>
+  </body>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
+  <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
+  <script src="https://unpkg.com/dat.gui@0.7.2/build/dat.gui.min.js"></script>
+  <script type="module" src="index.js"></script>
+</html>
