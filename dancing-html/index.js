@@ -151,8 +151,6 @@ async function poseDetection() {
 async function listener() {
   var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
   var SpeechGrammarList = SpeechGrammarList || window.webkitSpeechGrammarList;
-  var SpeechRecognitionEvent =
-    SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
   var recognition = new SpeechRecognition();
   recognition.continuous = true;
@@ -193,7 +191,7 @@ async function listener() {
     const { results } = event;
     const nextItem = results[results.length - 1];
     // console.log("🎙️", nextItem);
-    // const nextTranscript = nextItem[0].transcript;
+    const nextTranscript = nextItem[0].transcript;
     // console.log(nextTranscript);
     // console.log("Confidence: " + event.results[0][0].confidence);
     speech.innerHTML += " " + nextTranscript;
