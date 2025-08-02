@@ -205,7 +205,7 @@ async function listener() {
 
     if (activeTag) {
       runningInnerHtml += nextTranscript + " ";
-      if (runningInnerHtml.trim().length) {
+      if (runningInnerHtml.trim().length && currentElement) {
         currentElement.innerHTML = runningInnerHtml.trim();
       }
     }
@@ -313,19 +313,9 @@ function drawSkeleton(keypoints, minConfidence, ctx) {
   });
 }
 
-// let logged = false;
-
 function handleVideoFrame(poses) {
   let webPageUpdated = false;
   const keypoints = poses?.[0]?.keypoints ?? [];
-  if (keypoints.length) {
-    // if (!logged) {
-    //   keypoints.forEach((i) => {
-    //     console.log(i);
-    //   });
-    //   logged = true;
-    // }
-  }
 
   const validKeypoints = [];
   for (const i in keypoints) {
@@ -357,12 +347,23 @@ function handleVideoFrame(poses) {
     ["h2", isH2],
     ["h3", isH3],
     ["p", isP],
+    ["img", isImg],
+    ["marquee", isMarquee],
+    ["ul", isUl],
+    ["ol", isOl],
+    ["li", isLi],
   ];
+
+  const parentChild = {
+    ul: "li",
+    ol: "li",
+  };
 
   let foundValidPosition = false;
   let currentElement = document.getElementById("current-element");
   let currentElementTag = currentElement?.tagName?.toLowerCase();
 
+  let newlyActive = false;
   for (let i in elementChecks) {
     const [tag, fn] = elementChecks?.[i];
     if (fn(positions)) {
@@ -370,13 +371,19 @@ function handleVideoFrame(poses) {
       activeTagLastUpdated = new Date().getTime();
       activeTagDisplay.innerHTML = `&lt;${tag.toUpperCase()}&gt;`;
       canvas.style.borderColor = isActive ? "LawnGreen" : "Yellow";
+      if (activeTag !== tag) {
+        newlyActive = true;
+      }
       activeTag = tag;
 
       if (isActive) {
         const currentElementNotActive =
           !!currentElementTag && currentElementTag !== activeTag;
         if (currentElementNotActive) {
-          if (currentElement.innerHTML === "") {
+          if (
+            currentElement.innerHTML === "" &&
+            currentElement.tagName.toLowerCase() !== "img"
+          ) {
             // console.log(
             //   "🔮 removing empty current element",
             //   currentElement.tagName
@@ -395,18 +402,67 @@ function handleVideoFrame(poses) {
           webPageUpdated = true;
         }
 
+        const validForInnerHtml = ["h1", "h2", "h3", "p", "li", "marquee"];
+        const selfClosing = ["img"];
+
         if (!currentElementTag) {
           // console.log("🔮 no current element adding as current:", activeTag);
-          webPage.innerHTML += `<${activeTag} id="current-element"></${activeTag}>`;
+          let appendParent = webPage;
+          const lastElement = webPage.lastElementChild;
+          const lastElementTag = lastElement?.tagName?.toLowerCase();
+          const childIfParent = parentChild[lastElementTag];
+
+          if (childIfParent === activeTag) {
+            appendParent = lastElement;
+          } else {
+            if (
+              !selfClosing.includes(lastElementTag) &&
+              lastElement?.innerHTML === ""
+            ) {
+              lastElement?.remove();
+            }
+          }
+
+          const isSelfClosing = selfClosing.includes(activeTag);
+          const setCurrent =
+            validForInnerHtml.includes(activeTag) || isSelfClosing;
+          const currentElementIdProperty = setCurrent
+            ? ` id="current-element"`
+            : "";
+          const elementHtml = `<${activeTag}${currentElementIdProperty}${
+            isSelfClosing ? "/ " : ""
+          }>${isSelfClosing ? "" : `</${activeTag}>`}`;
+          const lastElementOfParent = appendParent.lastElementChild;
+          const lastElementOfParentTag =
+            lastElementOfParent?.tagName?.toLowerCase();
+          if (lastElementOfParentTag === activeTag && !newlyActive) {
+            break;
+          }
+          if (
+            lastElementOfParent?.innerHTML !== "" ||
+            !lastElementOfParent ||
+            selfClosing.includes(lastElementOfParentTag)
+          ) {
+            appendParent.innerHTML += elementHtml;
+          }
+
           // console.log("🔮 current source:", webPage.innerHTML);
+          currentElement = document.getElementById("current-element");
+
+          if (activeTag === "img") {
+            if (!currentElement?.src) {
+              getDogImage().then((url) => {
+                currentElement.src = url;
+                currentElement.style.maxWidth = "100%";
+                currentElement.style.maxHeight = "300px";
+                webPage.innerHTML =
+                  webPage.innerHTML.replaceAll(' id="current-element"', "") +
+                  spacer;
+                runningInnerHtml = "";
+              });
+            }
+          }
           webPageUpdated = true;
-        } else {
-          // console.log("🔮 current element", currentElementTag);
-          // console.log(` 🔮 innerHTML: '${currentElement.innerHTML}'`);
-          // console.log(
-          //   `🌎 full page:`,
-          //   document.getElementById("web-page").innerHTML
-          // );
         }
       }
 
@@ -420,9 +476,13 @@ function handleVideoFrame(poses) {
   ) {
     activeTagDisplay.innerHTML = "&nbsp;";
     canvas.style.borderColor = "black";
+    activeTag = null;
 
     if (currentElement) {
-      if (currentElement.innerHTML === "") {
+      if (
+        currentElement.innerHTML === "" &&
+        currentElement.tagName.toLowerCase() !== "img"
+      ) {
         // console.log(
         //   "😻 removing empty current element",
         //   currentElement.tagName
@@ -435,12 +495,12 @@ function handleVideoFrame(poses) {
           webPage.innerHTML.replaceAll(' id="current-element"', "") + spacer;
         runningInnerHtml = "";
       }
-      activeTag = null;
+
       webPageUpdated = true;
     }
   }
 
-  if (webPageUpdated) {
+  if (true || webPageUpdated) {
     webPageSource.innerHTML = escapeHTML(webPage.innerHTML);
   }
 }
@@ -492,7 +552,37 @@ function isP({ rightWrist, leftWrist }) {
   return inBottomRCorner(rightWrist) && inBottomLCorner(leftWrist);
 }
 
+function isImg({ rightWrist, leftWrist }) {
+  return inTopRCorner(rightWrist) && inBottomLCorner(leftWrist);
+}
+
+function isMarquee({ rightWrist, leftWrist }) {
+  return inBottomRCorner(rightWrist) && inTopLCorner(leftWrist);
+}
+
+function isUl({ rightWrist, leftWrist }) {
+  return (
+    (inTopLCorner(rightWrist) && inBottomLCorner(leftWrist)) ||
+    (inTopLCorner(leftWrist) && inBottomLCorner(rightWrist))
+  );
+}
+
+function isOl({ rightWrist, leftWrist }) {
+  return (
+    (inTopRCorner(rightWrist) && inBottomRCorner(leftWrist)) ||
+    (inTopRCorner(leftWrist) && inBottomRCorner(rightWrist))
+  );
+}
+
+function isLi({ rightWrist, leftWrist }) {
+  return (
+    (inMiddleTop(rightWrist) && inMiddleBot(leftWrist)) ||
+    (inMiddleBot(rightWrist) && inMiddleTop(leftWrist))
+  );
+}
+
 viewSourceButton.onclick = (_event) => {
+  webPageSource.innerHTML = escapeHTML(webPage.innerHTML);
   webPage.parentElement.style.display = "none";
   webPageSource.parentElement.style.display = "block";
 };
@@ -509,4 +599,10 @@ function escapeHTML(html) {
     .replaceAll(">", "&gt;")
     .replaceAll("/", "&#47;")
     .replaceAll("#LINEBREAK#", "<br />");
+}
+
+async function getDogImage() {
+  const response = await fetch("https://dog.ceo/api/breeds/image/random");
+  const data = await response.json();
+  return data.message;
 }
