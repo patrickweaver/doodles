@@ -1,4 +1,3 @@
-
 <html>
   <head>
     <title>Dancing HTML</title>
@@ -131,6 +130,12 @@
         font-family: monospace;
         margin: 0 0 0.5rem;
       }
+      summary > h2 {
+        display: inline-block;
+      }
+      #dance-move-library img {
+        max-height: 160px;
+      }
     </style>
   </head>
   <body>
@@ -172,14 +177,74 @@
           </div>
         </div>
 
+        <details id="dance-move-library">
+          <summary><h2>🕺 Dance Move Library</h2></summary>
+          <ul style="display: flex; flex-wrap: wrap">
+            <li>
+              <img
+                src="/dancing-html/h1.png"
+                alt="h1: both wrists in the top corners"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/h2.png"
+                alt="h2: both wrists in the top middle"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/h3.png"
+                alt="h3: both wrists in the bottom middle"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/p.png"
+                alt="p: both wrists in the bottom corners"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/ul.png"
+                alt="ul: both wrists in the left corners"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/ol.png"
+                alt="ol: both wrists in the right corners"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/li.png"
+                alt="li: both wrists in the middle, top and bottom"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/img.png"
+                alt="img: right wrist top right corner, left wrist bottom left corner"
+              />
+            </li>
+            <li>
+              <img
+                src="/dancing-html/marquee.png"
+                alt="marquee: right wrist bottom right corner, left wrist top left corner"
+              />
+            </li>
+          </ul>
+        </details>
+
         <details>
-          <summary><h2 style="display: inline-block">Transcript</h2></summary>
+          <summary><h2>Transcript</h2></summary>
           <p id="speech-transcript"></p>
         </details>
 
         <details>
           <summary>
-            <h2 style="display: inline-block">Detected Positions</h2>
+            <h2>Detected Positions</h2>
           </summary>
           <dl>
             <dt>H1</dt>
@@ -214,7 +279,7 @@
       </div>
       <div id="web-page-source-container" class="app-section">
         <div id="web-page-source"></div>
-        <button id="close-view-source" class="source">Close</button>
+        <button id="close-view-source" class="source">View Page</button>
       </div>
     </main>
   </body>
@@ -225,7 +290,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
   <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
   <script src="https://unpkg.com/dat.gui@0.7.2/build/dat.gui.min.js"></script>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="/dancing-html/index.js"></script>
   <img
     style="height: 0px; width: 0px"
     src="https://doodles.patrickweaver.net/dancing-html/dancing-html-social.png"
