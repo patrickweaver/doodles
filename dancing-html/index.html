@@ -36,6 +36,10 @@
       content="https://doodles.patrickweaver.net/dancing-html/dancing-html-social.png"
     />
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
       }
@@ -87,7 +91,6 @@
         border-color: #9ae;
         cursor: not-allowed;
       }
-      button.source,
       button.source {
         background-color: #c8b8ff;
         color: #428;
@@ -108,6 +111,10 @@
       }
       #ui {
         background-color: #f4ffe8;
+      }
+
+      #status > * {
+        display: inline-block;
       }
       #web-page-container {
         display: block;
@@ -137,22 +144,78 @@
       #dance-move-library img {
         max-height: 160px;
       }
+
+      @media (max-width: 800px) {
+        #ui {
+          background-color: #fff4e8;
+        }
+
+        main {
+          flex-direction: column-reverse;
+        }
+
+        main > div {
+          padding: 0 1rem;
+        }
+
+        .app-section {
+          width: 100%;
+          height: 50vh;
+          min-height: 50vh;
+          overflow: scroll;
+        }
+
+        button.source {
+          background-color: #c8b8ff;
+          color: #428;
+          border-color: #539;
+          position: absolute;
+          bottom: Calc(50vh + 20px);
+          right: 20px;
+          min-width: 150px;
+        }
+
+        #title-header,
+        #controls {
+          display: inline-block;
+        }
+
+        #title-header {
+          margin: 0.5rem 30px 0.5rem 0;
+        }
+
+        #status,
+        #privacy {
+          width: Calc(50vw - 30px);
+          display: inline-block;
+        }
+
+        #status > * {
+          margin: 0.25rem 0;
+        }
+        #active-tag {
+          font-size: 2.5rem;
+          line-height: 2.5rem;
+        }
+      }
     </style>
   </head>
   <body>
     <main>
       <div id="ui" class="app-section">
-        <h1>Dancing HTML</h1>
+        <h1 id="title-header">Dancing HTML</h1>
+        <div id="status">
+          <h2>Mic Status</h2>
+          <p id="current-status">🔇 Not listening</p>
+        </div>
+        <p id="privacy" style="margin: 0.25rem 0">
+          🔒 All video and audio is processed locally. No data leaves your
+          device.
+        </p>
         <div id="controls">
           <button id="listen">Start Listening</button>
           <button id="no-listen" disabled>Stop Listening</button>
         </div>
-        <h2 style="display: inline-block">Status</h2>
-        <p style="display: inline-block" id="current-status">🔇</p>
-        <p style="margin: 0.25rem 0">
-          🔒 All video and audio is processed locally. No data leaves your
-          device.
-        </p>
 
         <div id="info" style="display: none">
           Browser does not support video capture or device has no camera
