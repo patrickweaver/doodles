@@ -174,7 +174,7 @@ async function listener() {
   noListenButton.onclick = function () {
     isActive = false;
     recognition.stop();
-    currentStatus.innerHTML = "🔇";
+    currentStatus.innerHTML = "🔇 Not listening";
     listenButton.disabled = false;
     noListenButton.disabled = true;
   };
