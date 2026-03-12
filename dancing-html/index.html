@@ -199,6 +199,13 @@
     <main>
       <div id="ui" class="app-section">
         <h1 id="title-header">Dancing HTML</h1>
+        <details>
+          <summary><h2>About Dancing HTML</h2></summary>
+        <p style="font-size: 20px; line-height: 24px;">Dancing HTML is a website that helps you compose HTML web pages through dancing and speaking. Enable microphone and camera access to start dancing and composing. Review the Dance Move Library below to learn the positions for each HTML element. While you are in the position, anything you say will be the <code>innerHTML</code> of the current element.</p>
+        <p  style="font-size: 20px; line-height: 24px;">If you do not see a video feed below, confirm your camera is enabled and try refreshing the page. Dancing HTML uses TensorFlow.js for pose detection and machine learning and browser APIs for speech recognition. If you
+        are getting poor quality transcripts, try a different browser.</p>
+        <p style="font-size: 20px; line-height: 24px;">Check out a demonstration in <a href="https://mastodon.social/@patrickweaver/114955527335056664" target="_blank">this Mastodon post.</a></p>
+        </details>
         <div id="status">
           <h2>Mic Status</h2>
           <p id="current-status">🔇 Not listening</p>
@@ -343,12 +350,12 @@
     </main>
   </body>
 
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection"></script>
-  <script src="https://unpkg.com/@tensorflow-models/posenet"></script>
-  <script src="https://unpkg.com/dat.gui@0.7.2/build/dat.gui.min.js"></script>
+  <script src="/libs/@tensorflow/tfjs-core.2025_08_02.min.js"></script>
+  <script src="/libs/@tensorflow/tfjs-converter.2025_08_02.min.js"></script>
+  <script src="/libs/@tensorflow/tfjs-backend-webgl.2025_08_02.min.js"></script>
+  <script src="/libs/@tensorflow-models/pose-detection.2025_08_02.min.js"></script>
+  <script src="/libs/@tensorflow-models/posenet@2.2.2.min.js"></script>
+  <script src="/libs/dat.gui@0.7.2.min.js"></script>
   <script type="module" src="/dancing-html/index.js"></script>
   <img
     style="height: 0px; width: 0px"
