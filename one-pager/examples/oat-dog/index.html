@@ -49,7 +49,7 @@
       content="Oat dog saying “Follow the laws! Don't stir with your paws”"
       id="twitter-image-alt"
     />
-    <script type="module">
+        <script type="module">
       var ElementTag = /* @__PURE__ */ ((ElementTag2) => {
         ElementTag2["A"] = "a";
         ElementTag2["BR"] = "br";
@@ -114,6 +114,7 @@
         EventType2["CHANGE"] = "change";
         EventType2["CLICK"] = "click";
         EventType2["INPUT"] = "input";
+        EventType2["PASTE"] = "paste";
         return EventType2;
       })(EventType || {});
       var AlignOptions = /* @__PURE__ */ ((AlignOptions2) => {
@@ -160,6 +161,10 @@
         ImgElementProperty2["STYLE"] = "style";
         return ImgElementProperty2;
       })(ImgElementProperty || {});
+      var MetaElementProperty = /* @__PURE__ */ ((MetaElementProperty2) => {
+        MetaElementProperty2["CONTENT"] = "content";
+        return MetaElementProperty2;
+      })(MetaElementProperty || {});
       const ALIGNMENT_LABELS = {
         LEFT: "Left",
         CENTER: "Center",
@@ -262,6 +267,7 @@
       const PAGE_TWITTER_DESC_ID = "twitter-description";
       const PAGE_OG_DESC_ID = "og-description";
       const PAGE_LANG_INPUT_ID = "edit-page-language";
+      const UNSAVED_CHANGES_BODY_CLASS = "unsaved-changes";
       const UNSAVED_CHANGES_BANNER_ID = "unsaved-changes-banner";
       const MINIMIZE_BUTTON_ID = "minimize-lc";
       const UNMINIMIZE_BUTTON_ID = "unminimize-lc";
@@ -299,8 +305,8 @@
       const UPDATE_TEXT_ALIGN_ID = "update-text-align";
       const UPDATE_TEXT_ALIGN_OPTION_NAME = "text-align";
       const UPDATE_TEXT_SIZE_ID = "update-text-size";
-      const ALERT_LIST = "local-controls-alert-list";
-      const ALERT_CLASS = "local-controls-alert";
+      const ALERT_LIST = "alert-list";
+      const ALERT_CLASS = "alert";
       const ALERT_REMOVED_CLASS = "alert-removed";
       const CONTROLS_SECTION_CLASS = "controls-section";
       const COLOR_PICKER_CLASS = "color-picker";
@@ -339,6 +345,9 @@
       const LOCAL_CONTROLS_CONTAINER_ID = "local-controls-container";
       const LOCAL_CONTROLS_ID = "local-controls";
       const LOCAL_CONTROLS_MINIMIZED_ID = "local-controls-minimized";
+      const LOCAL_CONTROLS_BODY_CLASS = "local-controls-enabled";
+      const LOCAL_CONTROLS_MINIMIZED_BODY_CLASS =
+        "local-controls-enabled-minimized";
       const NEW_CONTENT_MODAL_ID = "new-content-modal";
       const NEW_CONTENT_MODAL_WRAPPER_ID = "new-content-modal-wrapper";
       const NOTE_CLASS = "note";
@@ -651,7 +660,7 @@
           alert(ERROR_NO_URL);
           return;
         }
-        if ((href == null ? void 0 : href.slice(0, 5)) !== "http") {
+        if ((href == null ? void 0 : href.slice(0, 4)) !== "http") {
           href = `http://${href}`;
         }
         return href;
@@ -757,7 +766,9 @@
         neighbor.insertAdjacentElement(position, element);
       }
       function setUnsavedChanges() {
-        document.body.classList += " unsaved-changes";
+        if (!document.body.classList.contains(UNSAVED_CHANGES_BODY_CLASS)) {
+          document.body.classList += ` ${UNSAVED_CHANGES_BODY_CLASS}`;
+        }
         const localControlsContainer = document.getElementById(
           LOCAL_CONTROLS_CONTAINER_ID,
         );
@@ -783,6 +794,7 @@
         currentlyEditing.remove();
       }
       function exitEditMode(element) {
+        var _a;
         const linkHandler = getCurrentlyEditingLinkHandler();
         linkHandler == null ? void 0 : linkHandler.remove();
         const toolbar = getCurrentlyEditingToolbar();
@@ -800,6 +812,11 @@
           element.remove();
           return;
         }
+        const editableElement = element;
+        (_a = editableElement.pasteAbortController) == null
+          ? void 0
+          : _a.abort();
+        delete editableElement.pasteAbortController;
         element.removeAttribute("id");
         element.removeAttribute("contentEditable");
         element.removeAttribute(DATA_ORIGINAL_HTML);
@@ -840,8 +857,10 @@
           originalTagName !== ElementTag.H4 &&
           originalTagName !== ElementTag.H5 &&
           originalTagName !== ElementTag.H6
-        )
+        ) {
+          element.removeAttribute(DATA_ORIGINAL_TAG_NAME);
           return element;
+        }
         return updateTagName(element, originalTagName);
       }
       function restoreInnerHtml(element) {
@@ -1512,7 +1531,21 @@
         cancelEdit();
         return true;
       }
+      const ALLOWED_PASTE_TAGS = /* @__PURE__ */ new Set([ElementTag.A]);
+      const LINE_BREAK_TAGS = /* @__PURE__ */ new Set([ElementTag.BR]);
+      const BLOCK_TAGS_TO_LINE_BREAK = /* @__PURE__ */ new Set([
+        ElementTag.DIV,
+        ElementTag.P,
+        ElementTag.LI,
+        ElementTag.H1,
+        ElementTag.H2,
+        ElementTag.H3,
+        ElementTag.H4,
+        ElementTag.H5,
+        ElementTag.H6,
+      ]);
       function activateEditor(element) {
+        var _a;
         const valid = validateElementForEditing(element);
         if (!valid) return;
         element.id = CURRENTLY_EDITING_ID;
@@ -1522,6 +1555,15 @@
         if (editableType === EditableType.TEXT) {
           element.contentEditable = "true";
           saveInnerHtml(element);
+          const editableElement = element;
+          (_a = editableElement.pasteAbortController) == null
+            ? void 0
+            : _a.abort();
+          const controller = new AbortController();
+          editableElement.pasteAbortController = controller;
+          editableElement.addEventListener(EventType.PASTE, handlePaste, {
+            signal: controller.signal,
+          });
         }
         if (
           editableType === EditableType.IMAGE &&
@@ -1576,6 +1618,115 @@
         ) {
           saveCss(element.parentElement);
         }
+      }
+      function handlePaste(event) {
+        var _a, _b;
+        if (!(event instanceof ClipboardEvent)) return;
+        event.preventDefault();
+        const selection = window.getSelection();
+        if (!selection || selection.rangeCount === 0) return;
+        const html =
+          ((_a = event.clipboardData) == null
+            ? void 0
+            : _a.getData("text/html")) ?? "";
+        const text =
+          ((_b = event.clipboardData) == null
+            ? void 0
+            : _b.getData("text/plain")) ?? "";
+        const nodeToInsert = html
+          ? sanitizeHtmlToFragment(html)
+          : document.createTextNode(text);
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        if (nodeToInsert instanceof DocumentFragment) {
+          const lastNode = nodeToInsert.lastChild;
+          range.insertNode(nodeToInsert);
+          if (lastNode) {
+            range.setStartAfter(lastNode);
+          }
+        } else {
+          range.insertNode(nodeToInsert);
+          range.setStartAfter(nodeToInsert);
+        }
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      function sanitizeHtmlToFragment(html) {
+        const parsedHtml = new DOMParser().parseFromString(html, "text/html");
+        const cleanFragment = document.createDocumentFragment();
+        for (const child of Array.from(parsedHtml.body.childNodes)) {
+          const sanitizedNode = sanitizeNode(child);
+          if (sanitizedNode) {
+            cleanFragment.appendChild(sanitizedNode);
+          }
+        }
+        return cleanFragment;
+      }
+      function sanitizeNode(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          return document.createTextNode(node.textContent ?? "");
+        }
+        if (!(node instanceof HTMLElement)) return null;
+        const tagName = node.tagName.toLowerCase();
+        if (LINE_BREAK_TAGS.has(tagName)) {
+          return document.createElement(ElementTag.BR);
+        }
+        if (!ALLOWED_PASTE_TAGS.has(tagName)) {
+          const nestedFragment = document.createDocumentFragment();
+          for (const child of Array.from(node.childNodes)) {
+            const sanitizedChild = sanitizeNode(child);
+            if (sanitizedChild) {
+              nestedFragment.appendChild(sanitizedChild);
+            }
+          }
+          if (BLOCK_TAGS_TO_LINE_BREAK.has(tagName)) {
+            appendLineBreakIfNeeded(nestedFragment);
+          }
+          return nestedFragment;
+        }
+        if (tagName === ElementTag.A) {
+          return sanitizeAnchor(node);
+        }
+        const unsupportedAllowedTag = document.createDocumentFragment();
+        for (const child of Array.from(node.childNodes)) {
+          const sanitizedChild = sanitizeNode(child);
+          if (sanitizedChild) {
+            unsupportedAllowedTag.appendChild(sanitizedChild);
+          }
+        }
+        return unsupportedAllowedTag;
+      }
+      function sanitizeAnchor(node) {
+        var _a;
+        const anchor = document.createElement(ElementTag.A);
+        const href =
+          ((_a = node.getAttribute("href")) == null ? void 0 : _a.trim()) ?? "";
+        if (/^(https?:|mailto:|tel:|\/|#)/i.test(href)) {
+          anchor.setAttribute("href", href);
+        }
+        const target = node.getAttribute("target");
+        if (target === "_blank") {
+          anchor.setAttribute("target", "_blank");
+          anchor.setAttribute("rel", "noopener noreferrer");
+        }
+        for (const child of Array.from(node.childNodes)) {
+          const sanitizedChild = sanitizeNode(child);
+          if (sanitizedChild) {
+            anchor.appendChild(sanitizedChild);
+          }
+        }
+        return anchor;
+      }
+      function appendLineBreakIfNeeded(fragment) {
+        const lastNode = fragment.lastChild;
+        if (
+          lastNode instanceof HTMLElement &&
+          lastNode.tagName.toLowerCase() === ElementTag.BR
+        ) {
+          return;
+        }
+        fragment.appendChild(document.createElement(ElementTag.BR));
       }
       function getLinkHandler(anchor, relatedElement) {
         const currentlyEditing = getCurrentlyEditingElement();
@@ -1741,10 +1892,10 @@
           element[property] = newValue;
           otherElementIds == null
             ? void 0
-            : otherElementIds.forEach((id) => {
+            : otherElementIds.forEach(({ id, property: property2 }) => {
                 const element2 = document.getElementById(id);
-                if (!(element2 instanceof HTMLTitleElement)) return;
-                element2[property] = newValue;
+                if (!(element2 instanceof HTMLMetaElement)) return;
+                element2[property2] = newValue;
               });
           setUnsavedChanges();
         };
@@ -2172,11 +2323,16 @@
         if (currentlyMinimized) {
           localControls.style.setProperty("display", "block");
           localControlsMinimized.style.setProperty("display", "none");
-          container.style.setProperty("margin-top", "25rem");
+          const classList = String(document.body.classList) ?? "";
+          const updatedClassList = classList
+            .split(" ")
+            .filter((i) => i !== LOCAL_CONTROLS_MINIMIZED_BODY_CLASS)
+            .join(" ");
+          document.body.classList = updatedClassList;
         } else {
           localControls.style.setProperty("display", "none");
           localControlsMinimized.style.setProperty("display", "block");
-          container.style.setProperty("margin-top", "4rem");
+          document.body.classList += ` ${LOCAL_CONTROLS_MINIMIZED_BODY_CLASS}`;
         }
       }
       function activatePageListeners() {
@@ -2269,7 +2425,13 @@
           PAGE_TITLE_INPUT_ID,
           PAGE_TITLE_ID,
           TitleProperty.INNER_HTML,
-          [PAGE_OG_TITLE_ID, PAGE_TWITTER_TITLE_ID],
+          [
+            { id: PAGE_OG_TITLE_ID, property: MetaElementProperty.CONTENT },
+            {
+              id: PAGE_TWITTER_TITLE_ID,
+              property: MetaElementProperty.CONTENT,
+            },
+          ],
         );
         addListenerToMetaEditor(
           PAGE_DESC_INPUT_ID,
@@ -2680,6 +2842,7 @@
               UPDATE_SOCIAL_IMAGE_ID,
               INPUT_TYPES.TEXT,
               LC_SOCIAL_IMAGE_INPUT_LABEL,
+              currentSocialImageURL,
             ),
             createElement({
               tag: ElementTag.LABEL,
@@ -2687,11 +2850,11 @@
               classList: [NOTE_CLASS],
               innerHTML: LC_SOCIAL_IMAGE_INPUT_BELOW_LABEL,
             }),
-            // TODO this is not activated
             ...addControlsInput(
               UPDATE_SOCIAL_IMAGE_ALT_ID,
               INPUT_TYPES.TEXT,
               LC_SOCIAL_IMAGE_ALT_INPUT_LABEL,
+              currentSocialImageAlt,
             ),
           ],
           ElementTag.H4,
@@ -2779,7 +2942,7 @@
         const localControlsMinimized = getMinimizedLocalControls();
         insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControls);
         insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControlsMinimized);
-        document.body.classList.add("local-controls-enabled");
+        document.body.classList.add(LOCAL_CONTROLS_BODY_CLASS);
         const devEnv = isDevEnv();
         if (devEnv) showAlert("Test alert");
         if (window.screen.width < 900) {
@@ -2824,7 +2987,7 @@
         window.navigator.userAgent.includes("jsdom");
       if (isLocal) localEditingMode();
     </script>
-    <style rel="stylesheet" crossorigin="">
+    <style rel="stylesheet" crossorigin>
       :root {
         --warning-bg-a: #ffbfbf;
         --warning-highlight-a: #ff0000;
@@ -2832,10 +2995,11 @@
         --lc-bg-2: #f8f8ff;
         --lc-bg-3: #f4f4f4;
         --lc-bg-4: rgba(250, 250, 245, 0.95);
-        --lc-bg-5: rgba(250, 250, 230, 0.6);
+        --lc-bg-5: rgba(250, 250, 230, 0.8);
+        --lc-bg-6: rgba(250, 250, 245, 0.98);
         --lc-color: #000000;
         --lc-border: #717067;
-        --modal-shadow-bg: #4f4f4fdf;
+        --modal-shadow-bg: #60606066;
         --note-border: #ffe8b8;
         --note-bg: #fffce8;
         --scroll-bar: #9f9f9f;
@@ -2854,33 +3018,60 @@
         z-index: 5;
       }
 
-      body.local-controls-enabled::-webkit-scrollbar {
-        display: block;
-        width: 10px;
-        z-index: 5;
+      @media (min-width: 1000px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 400px - 4rem);
+        }
       }
 
-      body.local-controls-enabled::-webkit-scrollbar-track {
-        background: var(--scroll-bar-bg);
+      @media (min-width: 801px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 40% - 4rem);
+        }
+
+        body.local-controls-enabled-minimized {
+          max-width: Calc(100vw - 4rem);
+        }
       }
 
-      body.local-controls-enabled::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-bar);
-        border-right: none;
-        border-left: none;
-      }
+      @media (max-width: 800px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 4rem);
+          margin-bottom: 350px;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-thumb:hover {
-        background-color: var(--scroll-bar-hover);
-      }
+        body.local-controls-enabled-minimized {
+          margin-bottom: 4rem;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-track-piece:end {
-        background: transparent;
-        margin-bottom: 25rem;
-      }
+        body.local-controls-enabled::-webkit-scrollbar {
+          display: block;
+          width: 10px;
+          z-index: 5;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-track-piece:start {
-        background: transparent;
+        body.local-controls-enabled::-webkit-scrollbar-track {
+          background: var(--scroll-bar-bg);
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-thumb {
+          background-color: var(--scroll-bar);
+          border-right: none;
+          border-left: none;
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-thumb:hover {
+          background-color: var(--scroll-bar-hover);
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-track-piece:end {
+          background: transparent;
+          margin-bottom: 25rem;
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-track-piece:start {
+          background: transparent;
+        }
       }
 
       body.unsaved-changes {
@@ -2993,52 +3184,86 @@
         margin-bottom: 0.5rem;
       }
 
-      #local-controls-container {
-        width: Calc(100% + 4rem);
-        margin-top: 25rem;
-        position: relative;
-        left: -2rem;
-      }
-
       #local-controls,
       #local-controls-minimized {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 25rem;
         background-color: var(--lc-bg);
         color: var(--lc-color);
         text-align: left;
         margin: 1rem 0 0 0;
         padding: 0.5rem 1rem;
-        outline: 1px dashed var(--lc-border);
-        overflow-y: scroll;
-        font-size: 16px;
-        z-index: 10;
+        border: 1px dashed var(--lc-border);
+        border-radius: 4px;
       }
 
-      #local-controls-minimized {
-        height: 4rem;
+      @media (min-width: 801px) {
+        #local-controls-container {
+          width: 400px;
+          max-width: 40%;
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          padding: 1rem 0.5rem 3rem 0;
+        }
+
+        #local-controls {
+          overflow: scroll;
+          max-height: Calc(100vh - 4rem);
+        }
+
+        #local-controls-minimized {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 300px;
+          text-align: right;
+          line-height: 2rem;
+        }
       }
 
-      #local-controls::-webkit-scrollbar {
-        width: 20px;
+      @media (max-width: 800px) {
+        #local-controls-container {
+          width: Calc(100% + 4rem);
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        #local-controls,
+        #local-controls-minimized {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 350px;
+          overflow-y: scroll;
+          font-size: 16px;
+          z-index: 10;
+        }
+
+        #local-controls-minimized {
+          height: 4rem;
+        }
+
+        #local-controls::-webkit-scrollbar {
+          width: 20px;
+        }
+
+        #local-controls::-webkit-scrollbar-thumb {
+          background-color: var(--scroll-bar);
+        }
+
+        #local-controls::-webkit-scrollbar-thumb:hover {
+          background-color: var(--scroll-bar-hover);
+        }
+
+        #local-controls::-webkit-scrollbar-track {
+          background-color: var(--scroll-bar-bg);
+        }
       }
 
-      #local-controls::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-bar);
-      }
-
-      #local-controls::-webkit-scrollbar-thumb:hover {
-        background-color: var(--scroll-bar-hover);
-      }
-
-      #local-controls::-webkit-scrollbar-track {
-        background-color: var(--scroll-bar-bg);
-      }
-
-      .local-controls-alert {
+      #local-controls .alert {
         border: 2px solid var(--warning-highlight-a);
         background-color: var(--warning-bg-a);
         padding: 0rem 1rem 1rem;
@@ -3047,13 +3272,13 @@
         transform: scaleY(1);
       }
 
-      .local-controls-alert button {
+      #local-controls .alert button {
         position: absolute;
         top: 6px;
         right: 2px;
       }
 
-      .local-controls-alert.alert-removed {
+      #local-controls .alert.alert-removed {
         display: none;
       }
 
@@ -3147,10 +3372,11 @@
 
       #new-content-modal {
         margin: 5rem 10% 0;
-        background-color: var(--lc-bg-2);
+        background-color: var(--lc-bg-6);
         padding: 1rem 2rem;
         width: Calc(80% - 2rem - 2rem);
         border-radius: 1rem;
+        border: 2px dashed var(--lc-border);
         /* 2rem is body margin */
       }
 
