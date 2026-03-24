@@ -46,9 +46,15 @@ module.exports = function (eleventyConfig) {
     const namePromises = await allTopLevel.map(async (i) => {
       const _inputContent = i.template.inputContent;
       const inputContent = await _inputContent;
-      const titleIndex = inputContent?.indexOf("<title>") + 7;
-      const titleEndIndex = inputContent?.indexOf("</title>");
-      i.name = inputContent.substring(titleIndex, titleEndIndex);
+      const fromFrontmatter =
+        typeof i.data?.title === "string" && i.data.title.trim() !== ""
+          ? i.data.title.trim()
+          : null;
+      const fromTag =
+        typeof inputContent === "string"
+          ? inputContent.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim()
+          : null;
+      i.name = fromFrontmatter ?? fromTag ?? i.url;
       i.readableDate = !!i.data.date
         ? new Date(i.data.date ?? 0).toDateString()
         : "";
