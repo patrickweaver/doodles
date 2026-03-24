@@ -2626,7 +2626,7 @@ function boilerplateSetup() {
     }
   });
 }
-const isLocal = window.location.protocol === "file:" || window.location.hostname === "doodles.patrickweaver.net" || isDevEnv() || window.navigator.userAgent.includes("jsdom");
+const isLocal = window.location.protocol === "file:" || window.location.hostname === "doodles.patrickweaver.net" && window.location.pathname === "/one-pager/" || isDevEnv() || window.navigator.userAgent.includes("jsdom");
 if (isLocal) localEditingMode();</script>
     <style rel="stylesheet" crossorigin>:root {
   --warning-bg-a: #ffbfbf;

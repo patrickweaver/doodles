@@ -1,25 +1,54 @@
-<!DOCTYPE html><html lang="en" id="html-element"><head>
-    <meta charset="UTF-8">
-    <meta name="description" content="A 24-hour kid-appropriate playlist" id="page-description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!doctype html>
+<html lang="en" id="html-element">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="A 24-hour kid-appropriate playlist"
+      id="page-description"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title id="page-title">20s Kids Know Playlist</title>
 
     <!-- Favicon - SVG from Emoji: https://emojicon.dev/ -->
-    
 
     <!-- Social -->
-    <meta property="og:title" content="One Pager" id="og-title">
-    <meta property="og:description" content="A 24-hour kid-appropriate playlist" id="og-description">
-    <meta property="og:image" content="https://doodles.patrickweaver.net/one-pager/images/20s-kids.jpg" id="og-image">
-    <meta property="og:image:alt" content="The cover image of the playlist, a pixelated CD emoji with a yellow background." id="og-image-alt">
+    <meta property="og:title" content="One Pager" id="og-title" />
+    <meta
+      property="og:description"
+      content="A 24-hour kid-appropriate playlist"
+      id="og-description"
+    />
+    <meta
+      property="og:image"
+      content="https://doodles.patrickweaver.net/one-pager/images/20s-kids.jpg"
+      id="og-image"
+    />
+    <meta
+      property="og:image:alt"
+      content="The cover image of the playlist, a pixelated CD emoji with a yellow background."
+      id="og-image-alt"
+    />
 
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary" id="twitter-card">
-    <meta name="twitter:title" content="One Pager" id="twitter-title">
-    <meta name="twitter:description" content="A 24-hour kid-appropriate playlist" id="twitter-description">
-    <meta name="twitter:image" content="https://doodles.patrickweaver.net/one-pager/images/20s-kids.jpg" id="twitter-image">
-    <meta name="twitter:image:alt" content="The cover image of the playlist, a pixelated CD emoji with a yellow background." id="twitter-image-alt">
+    <meta name="twitter:card" content="summary" id="twitter-card" />
+    <meta name="twitter:title" content="One Pager" id="twitter-title" />
+    <meta
+      name="twitter:description"
+      content="A 24-hour kid-appropriate playlist"
+      id="twitter-description"
+    />
+    <meta
+      name="twitter:image"
+      content="https://doodles.patrickweaver.net/one-pager/images/20s-kids.jpg"
+      id="twitter-image"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="The cover image of the playlist, a pixelated CD emoji with a yellow background."
+      id="twitter-image-alt"
+    />
     <script type="module">
       var ElementTag = /* @__PURE__ */ ((ElementTag2) => {
         ElementTag2["A"] = "a";
@@ -2789,7 +2818,8 @@
       }
       const isLocal =
         window.location.protocol === "file:" ||
-        window.location.hostname === "doodles.patrickweaver.net" ||
+        (window.location.hostname === "doodles.patrickweaver.net" &&
+          window.location.pathname === "/one-pager/") ||
         isDevEnv() ||
         window.navigator.userAgent.includes("jsdom");
       if (isLocal) localEditingMode();
@@ -3249,33 +3279,57 @@
         transform: translateY(1px);
       }
     </style>
-  <link class="" rel="icon" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wEEEABkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1EQBkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1/8IAEQgBLAEsAwEiAAIRAQMRAf/EAC0AAQEBAQAAAAAAAAAAAAAAAAABAgMBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADsPNsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASystTTI0yNJc0JQAAAAAAAAAABNQXriU3KAACZ2lzUxal5aCUAAAAAAABDpldTrmLLkCpVAAAAmdyUl4bDNAAAAAAE1ls7QCTUuYLFlUAAAACZ3JSXz7CUAAAAElmu+ai2hASStSWCoKlAAClFOduedo47AAAASzUal7wBYihGbmwhKJSXU0zslJQAHPpkDz7CUAABLOmdDrAAUQhGWjhsM1nU3lrN750gqCwATNl8/QM0AABLOudDrgABnWQMao4bABIPTi2WwAADNl4dAxQAAEs6Z0O2ABVk1DMqKl8+wlS53FO2bRQAQRJZeGwzQAAEs1NJrvgAACZ1LMqlCJSy1VSpqCgVLhLTz0JQAAEpJ0569GNEqyKBAEok0IC3NiiaAircxcQOOwAAAAEs3nczrvgAAAACLBYS2JqiVLzLThoJQAAAAAIs6Z0zrtgAAABLAEWF0zmW046DGgAAAAAAAIreVy650zrUAAAiCwxZo5bDNAAAAAAAAAAAitSK1MtCKIrFCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/xAAdEAEAAwEBAQEBAQAAAAAAAAABABEwQCAQUHAx/9oACAEBAAE/AP7hfypXqpUr5fTWlSpfNUreuRgSuFOJhyPEcqQ2Yc7D8VNWH4xguJgwzMz2YMMzBwYYsMzqYZnGe2GZg4OTDMwfo7sOR4WGbDGuxh0OzDnYbDL5VhuweRZ/vCweJeSoPBfRet9NfLl+7l/K668XL8V/Tf/EACIRAAICAgEEAwEAAAAAAAAAAAECACARMDEDEBITIUFQMv/aAAgBAgEBPwD80KTPAz1meBhB2hSYEAriFIQRqVYNBGYy40KuTrIzCMG6jA2OLJzbIE8hYw81Sp+IWJ7K1n5r06v3EXir/wBV6dSMiEEdlWfVX5qliAZ4CYFfqHmoinI2OcXQ6+ITnQraTGbOoORAwNi4hYnaGM9k9k9kLH87/8QAHREAAgMAAgMAAAAAAAAAAAAAAAERIDAQEgJAUP/aAAgBAwEBPwD50nYnaSbJk5N5J4N6L01ZitGjJJJ5jhqyr5VVHVV8rLhvmCCBVdpJ4VHd+m1osGsksmiLJCWsHU6nUj53/9k="></head>
+    <link
+      class=""
+      rel="icon"
+      href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wEEEABkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1EQBkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1/8IAEQgBLAEsAwEiAAIRAQMRAf/EAC0AAQEBAQAAAAAAAAAAAAAAAAABAgMBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADsPNsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASystTTI0yNJc0JQAAAAAAAAAABNQXriU3KAACZ2lzUxal5aCUAAAAAAABDpldTrmLLkCpVAAAAmdyUl4bDNAAAAAAE1ls7QCTUuYLFlUAAAACZ3JSXz7CUAAAAElmu+ai2hASStSWCoKlAAClFOduedo47AAAASzUal7wBYihGbmwhKJSXU0zslJQAHPpkDz7CUAABLOmdDrAAUQhGWjhsM1nU3lrN750gqCwATNl8/QM0AABLOudDrgABnWQMao4bABIPTi2WwAADNl4dAxQAAEs6Z0O2ABVk1DMqKl8+wlS53FO2bRQAQRJZeGwzQAAEs1NJrvgAACZ1LMqlCJSy1VSpqCgVLhLTz0JQAAEpJ0569GNEqyKBAEok0IC3NiiaAircxcQOOwAAAAEs3nczrvgAAAACLBYS2JqiVLzLThoJQAAAAAIs6Z0zrtgAAABLAEWF0zmW046DGgAAAAAAAIreVy650zrUAAAiCwxZo5bDNAAAAAAAAAAAitSK1MtCKIrFCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/xAAdEAEAAwEBAQEBAQAAAAAAAAABABEwQCAQUHAx/9oACAEBAAE/AP7hfypXqpUr5fTWlSpfNUreuRgSuFOJhyPEcqQ2Yc7D8VNWH4xguJgwzMz2YMMzBwYYsMzqYZnGe2GZg4OTDMwfo7sOR4WGbDGuxh0OzDnYbDL5VhuweRZ/vCweJeSoPBfRet9NfLl+7l/K668XL8V/Tf/EACIRAAICAgEEAwEAAAAAAAAAAAECACARMDEDEBITIUFQMv/aAAgBAgEBPwD80KTPAz1meBhB2hSYEAriFIQRqVYNBGYy40KuTrIzCMG6jA2OLJzbIE8hYw81Sp+IWJ7K1n5r06v3EXir/wBV6dSMiEEdlWfVX5qliAZ4CYFfqHmoinI2OcXQ6+ITnQraTGbOoORAwNi4hYnaGM9k9k9kLH87/8QAHREAAgMAAgMAAAAAAAAAAAAAAAERIDAQEgJAUP/aAAgBAwEBPwD50nYnaSbJk5N5J4N6L01ZitGjJJJ5jhqyr5VVHVV8rLhvmCCBVdpJ4VHd+m1osGsksmiLJCWsHU6nUj53/9k="
+    />
+  </head>
 
-  <body style="background-color: rgb(172, 232, 100); color: rgb(0, 0, 0); text-align: left; align-items: flex-start; width: 450px; display: flex; flex-direction: column; justify-content: flex-start; margin: 2rem auto; font-size: 110%;">
+  <body
+    style="
+      background-color: rgb(172, 232, 100);
+      color: rgb(0, 0, 0);
+      text-align: left;
+      align-items: flex-start;
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin: 2rem auto;
+      font-size: 110%;
+    "
+  >
     <h1 data-original-tag-name="h1">20s Kids Know Playlist</h1>
 
-    
-
-    <p data-original-tag-name="p">Do you ever find yourself needing a fun and upbeat playlist to play around kids, but don't want to listen to kids music for hours? My partner JP and I have just the playlist for you! “20s Kids Know” is a 24 hour (yes!) playlist of kid-appropriate (lexically, thematically, energetically, etc.) music.</p>
-
-    
+    <p data-original-tag-name="p">
+      Do you ever find yourself needing a fun and upbeat playlist to play around
+      kids, but don't want to listen to kids music for hours? My partner JP and
+      I have just the playlist for you! “20s Kids Know” is a 24 hour (yes!)
+      playlist of kid-appropriate (lexically, thematically, energetically, etc.)
+      music.
+    </p>
 
     <h2 data-original-tag-name="h2">Listen now!</h2>
 
-    <p data-original-tag-name="p"><a id="new-anchor" class="" href="http://https://open.spotify.com/playlist/7MIohSL17Dv94PAefraLq5?si=07549ee88d354f59" target="_blank">Listen on Spotify</a></p>
+    <p data-original-tag-name="p">
+      <a
+        id="new-anchor"
+        class=""
+        href="http://https://open.spotify.com/playlist/7MIohSL17Dv94PAefraLq5?si=07549ee88d354f59"
+        target="_blank"
+        >Listen on Spotify</a
+      >
+    </p>
 
-    
+    <img
+      src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wEEEABkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1EQBkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1/8IAEQgBLAEsAwEiAAIRAQMRAf/EAC0AAQEBAQAAAAAAAAAAAAAAAAABAgMBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADsPNsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASystTTI0yNJc0JQAAAAAAAAAABNQXriU3KAACZ2lzUxal5aCUAAAAAAABDpldTrmLLkCpVAAAAmdyUl4bDNAAAAAAE1ls7QCTUuYLFlUAAAACZ3JSXz7CUAAAAElmu+ai2hASStSWCoKlAAClFOduedo47AAAASzUal7wBYihGbmwhKJSXU0zslJQAHPpkDz7CUAABLOmdDrAAUQhGWjhsM1nU3lrN750gqCwATNl8/QM0AABLOudDrgABnWQMao4bABIPTi2WwAADNl4dAxQAAEs6Z0O2ABVk1DMqKl8+wlS53FO2bRQAQRJZeGwzQAAEs1NJrvgAACZ1LMqlCJSy1VSpqCgVLhLTz0JQAAEpJ0569GNEqyKBAEok0IC3NiiaAircxcQOOwAAAAEs3nczrvgAAAACLBYS2JqiVLzLThoJQAAAAAIs6Z0zrtgAAABLAEWF0zmW046DGgAAAAAAAIreVy650zrUAAAiCwxZo5bDNAAAAAAAAAAAitSK1MtCKIrFCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/xAAdEAEAAwEBAQEBAQAAAAAAAAABABEwQCAQUHAx/9oACAEBAAE/AP7hfypXqpUr5fTWlSpfNUreuRgSuFOJhyPEcqQ2Yc7D8VNWH4xguJgwzMz2YMMzBwYYsMzqYZnGe2GZg4OTDMwfo7sOR4WGbDGuxh0OzDnYbDL5VhuweRZ/vCweJeSoPBfRet9NfLl+7l/K668XL8V/Tf/EACIRAAICAgEEAwEAAAAAAAAAAAECACARMDEDEBITIUFQMv/aAAgBAgEBPwD80KTPAz1meBhB2hSYEAriFIQRqVYNBGYy40KuTrIzCMG6jA2OLJzbIE8hYw81Sp+IWJ7K1n5r06v3EXir/wBV6dSMiEEdlWfVX5qliAZ4CYFfqHmoinI2OcXQ6+ITnQraTGbOoORAwNi4hYnaGM9k9k9kLH87/8QAHREAAgMAAgMAAAAAAAAAAAAAAAERIDAQEgJAUP/aAAgBAwEBPwD50nYnaSbJk5N5J4N6L01ZitGjJJJ5jhqyr5VVHVV8rLhvmCCBVdpJ4VHd+m1osGsksmiLJCWsHU6nUj53/9k="
+      alt="The cover image of the playlist, a pixelated CD emoji with a yellow background."
+      data-original-tag-name="img"
+    />
 
-    
-
-    
-
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wEEEABkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1EQBkAGQAZABkAGoAZABxAH0AfQBxAJwAqQCWAKkAnADnANUAwgDCANUA5wFeAPoBDQD6AQ0A+gFeAhMBSwGEAUsBSwGEAUsCEwHVAjkBzwGvAc8COQHVA0wClwJMAkwClwNMA88DMwMHAzMDzwSdBCAEIASdBdAFhQXQB5gHmAo1/8IAEQgBLAEsAwEiAAIRAQMRAf/EAC0AAQEBAQAAAAAAAAAAAAAAAAABAgMBAQEBAQEAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADsPNsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASystTTI0yNJc0JQAAAAAAAAAABNQXriU3KAACZ2lzUxal5aCUAAAAAAABDpldTrmLLkCpVAAAAmdyUl4bDNAAAAAAE1ls7QCTUuYLFlUAAAACZ3JSXz7CUAAAAElmu+ai2hASStSWCoKlAAClFOduedo47AAAASzUal7wBYihGbmwhKJSXU0zslJQAHPpkDz7CUAABLOmdDrAAUQhGWjhsM1nU3lrN750gqCwATNl8/QM0AABLOudDrgABnWQMao4bABIPTi2WwAADNl4dAxQAAEs6Z0O2ABVk1DMqKl8+wlS53FO2bRQAQRJZeGwzQAAEs1NJrvgAACZ1LMqlCJSy1VSpqCgVLhLTz0JQAAEpJ0569GNEqyKBAEok0IC3NiiaAircxcQOOwAAAAEs3nczrvgAAAACLBYS2JqiVLzLThoJQAAAAAIs6Z0zrtgAAABLAEWF0zmW046DGgAAAAAAAIreVy650zrUAAAiCwxZo5bDNAAAAAAAAAAAitSK1MtCKIrFCUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/xAAdEAEAAwEBAQEBAQAAAAAAAAABABEwQCAQUHAx/9oACAEBAAE/AP7hfypXqpUr5fTWlSpfNUreuRgSuFOJhyPEcqQ2Yc7D8VNWH4xguJgwzMz2YMMzBwYYsMzqYZnGe2GZg4OTDMwfo7sOR4WGbDGuxh0OzDnYbDL5VhuweRZ/vCweJeSoPBfRet9NfLl+7l/K668XL8V/Tf/EACIRAAICAgEEAwEAAAAAAAAAAAECACARMDEDEBITIUFQMv/aAAgBAgEBPwD80KTPAz1meBhB2hSYEAriFIQRqVYNBGYy40KuTrIzCMG6jA2OLJzbIE8hYw81Sp+IWJ7K1n5r06v3EXir/wBV6dSMiEEdlWfVX5qliAZ4CYFfqHmoinI2OcXQ6+ITnQraTGbOoORAwNi4hYnaGM9k9k9kLH87/8QAHREAAgMAAgMAAAAAAAAAAAAAAAERIDAQEgJAUP/aAAgBAwEBPwD50nYnaSbJk5N5J4N6L01ZitGjJJJ5jhqyr5VVHVV8rLhvmCCBVdpJ4VHd+m1osGsksmiLJCWsHU6nUj53/9k=" alt="The cover image of the playlist, a pixelated CD emoji with a yellow background." data-original-tag-name="img">
-
-    
     <p data-original-tag-name="p">Thanks for listening!</p>
 
-    <hr id="end-of-document" style="display: none">
-  
-
-</body></html>
+    <hr id="end-of-document" style="display: none" />
+  </body>
+</html>
