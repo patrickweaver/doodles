@@ -169,6 +169,10 @@
         ImgElementProperty2["STYLE"] = "style";
         return ImgElementProperty2;
       })(ImgElementProperty || {});
+      var MetaElementProperty = /* @__PURE__ */ ((MetaElementProperty2) => {
+        MetaElementProperty2["CONTENT"] = "content";
+        return MetaElementProperty2;
+      })(MetaElementProperty || {});
       const ALIGNMENT_LABELS = {
         LEFT: "Left",
         CENTER: "Center",
@@ -309,11 +313,12 @@
       const UPDATE_TEXT_ALIGN_ID = "update-text-align";
       const UPDATE_TEXT_ALIGN_OPTION_NAME = "text-align";
       const UPDATE_TEXT_SIZE_ID = "update-text-size";
-      const ALERT_LIST = "local-controls-alert-list";
-      const ALERT_CLASS = "local-controls-alert";
+      const ALERT_LIST = "alert-list";
+      const ALERT_CLASS = "alert";
       const ALERT_REMOVED_CLASS = "alert-removed";
       const CONTROLS_SECTION_CLASS = "controls-section";
       const COLOR_PICKER_CLASS = "color-picker";
+      const SAVE_CHANGES_TOP_ID = "save-changes-top";
       const SAVE_CHANGES_ID = "save-changes";
       const SAVE_CHANGES_MINIMIZED_ID = "save-changes-minimized";
       const CURRENTLY_EDITING_ID = "currently-editing";
@@ -349,6 +354,9 @@
       const LOCAL_CONTROLS_CONTAINER_ID = "local-controls-container";
       const LOCAL_CONTROLS_ID = "local-controls";
       const LOCAL_CONTROLS_MINIMIZED_ID = "local-controls-minimized";
+      const LOCAL_CONTROLS_BODY_CLASS = "local-controls-enabled";
+      const LOCAL_CONTROLS_MINIMIZED_BODY_CLASS =
+        "local-controls-enabled-minimized";
       const NEW_CONTENT_MODAL_ID = "new-content-modal";
       const NEW_CONTENT_MODAL_WRAPPER_ID = "new-content-modal-wrapper";
       const NOTE_CLASS = "note";
@@ -661,7 +669,7 @@
           alert(ERROR_NO_URL);
           return;
         }
-        if ((href == null ? void 0 : href.slice(0, 5)) !== "http") {
+        if ((href == null ? void 0 : href.slice(0, 4)) !== "http") {
           href = `http://${href}`;
         }
         return href;
@@ -1893,10 +1901,10 @@
           element[property] = newValue;
           otherElementIds == null
             ? void 0
-            : otherElementIds.forEach((id) => {
+            : otherElementIds.forEach(({ id, property: property2 }) => {
                 const element2 = document.getElementById(id);
-                if (!(element2 instanceof HTMLTitleElement)) return;
-                element2[property] = newValue;
+                if (!(element2 instanceof HTMLMetaElement)) return;
+                element2[property2] = newValue;
               });
           setUnsavedChanges();
         };
@@ -2324,15 +2332,25 @@
         if (currentlyMinimized) {
           localControls.style.setProperty("display", "block");
           localControlsMinimized.style.setProperty("display", "none");
-          container.style.setProperty("margin-top", "25rem");
+          const classList = String(document.body.classList) ?? "";
+          const updatedClassList = classList
+            .split(" ")
+            .filter((i) => i !== LOCAL_CONTROLS_MINIMIZED_BODY_CLASS)
+            .join(" ");
+          document.body.classList = updatedClassList;
         } else {
           localControls.style.setProperty("display", "none");
           localControlsMinimized.style.setProperty("display", "block");
-          container.style.setProperty("margin-top", "4rem");
+          document.body.classList += ` ${LOCAL_CONTROLS_MINIMIZED_BODY_CLASS}`;
         }
       }
       function activatePageListeners() {
         const listeners = [
+          {
+            id: SAVE_CHANGES_TOP_ID,
+            eventHandler: handleSaveChanges,
+            type: EventType.CLICK,
+          },
           {
             id: MINIMIZE_BUTTON_ID,
             eventHandler: handleMinimize,
@@ -2421,7 +2439,13 @@
           PAGE_TITLE_INPUT_ID,
           PAGE_TITLE_ID,
           TitleProperty.INNER_HTML,
-          [PAGE_OG_TITLE_ID, PAGE_TWITTER_TITLE_ID],
+          [
+            { id: PAGE_OG_TITLE_ID, property: MetaElementProperty.CONTENT },
+            {
+              id: PAGE_TWITTER_TITLE_ID,
+              property: MetaElementProperty.CONTENT,
+            },
+          ],
         );
         addListenerToMetaEditor(
           PAGE_DESC_INPUT_ID,
@@ -2849,16 +2873,24 @@
           ],
           ElementTag.H4,
         );
+        const saveChangesTop = createElement({
+          tag: ElementTag.BUTTON,
+          id: SAVE_CHANGES_TOP_ID,
+          innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+          classList: [SAVE_BUTTON_CLASS],
+        });
         const saveChanges = addControlsSection(LC_SAVE_CHANGES_SUBHEADER, [
           createElement({
             tag: ElementTag.BUTTON,
             id: SAVE_CHANGES_ID,
             innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+            classList: [SAVE_BUTTON_CLASS],
           }),
         ]);
         const wrapper = createElement({ id: LOCAL_CONTROLS_ID });
         const children = [
           minimizeButton,
+          saveChangesTop,
           createElement({ id: ALERT_LIST }),
           createElement({ tag: ElementTag.H2, innerHTML: LC_HEADER }),
           createElement({ tag: ElementTag.P, innerHTML: LC_INSTRUCTIONS }),
@@ -2900,6 +2932,7 @@
           tag: ElementTag.BUTTON,
           id: SAVE_CHANGES_MINIMIZED_ID,
           innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+          classList: [SAVE_BUTTON_CLASS],
         });
         const wrapper = createElement({ id: LOCAL_CONTROLS_MINIMIZED_ID });
         const children = [minimizeButton, addContentButton, saveChangesButton];
@@ -2932,7 +2965,7 @@
         const localControlsMinimized = getMinimizedLocalControls();
         insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControls);
         insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControlsMinimized);
-        document.body.classList.add("local-controls-enabled");
+        document.body.classList.add(LOCAL_CONTROLS_BODY_CLASS);
         const devEnv = isDevEnv();
         if (devEnv) showAlert("Test alert");
         if (window.screen.width < 900) {
@@ -2977,7 +3010,7 @@
         window.navigator.userAgent.includes("jsdom");
       if (isLocal) localEditingMode();
     </script>
-    <style rel="stylesheet" crossorigin="">
+    <style rel="stylesheet" crossorigin>
       :root {
         --warning-bg-a: #ffbfbf;
         --warning-highlight-a: #ff0000;
@@ -2985,10 +3018,11 @@
         --lc-bg-2: #f8f8ff;
         --lc-bg-3: #f4f4f4;
         --lc-bg-4: rgba(250, 250, 245, 0.95);
-        --lc-bg-5: rgba(250, 250, 230, 0.6);
+        --lc-bg-5: rgba(250, 250, 230, 0.8);
+        --lc-bg-6: rgba(250, 250, 245, 0.98);
         --lc-color: #000000;
         --lc-border: #717067;
-        --modal-shadow-bg: #4f4f4fdf;
+        --modal-shadow-bg: #60606066;
         --note-border: #ffe8b8;
         --note-bg: #fffce8;
         --scroll-bar: #9f9f9f;
@@ -3007,33 +3041,60 @@
         z-index: 5;
       }
 
-      body.local-controls-enabled::-webkit-scrollbar {
-        display: block;
-        width: 10px;
-        z-index: 5;
+      @media (min-width: 1000px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 400px - 4rem);
+        }
       }
 
-      body.local-controls-enabled::-webkit-scrollbar-track {
-        background: var(--scroll-bar-bg);
+      @media (min-width: 801px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 40% - 4rem);
+        }
+
+        body.local-controls-enabled-minimized {
+          max-width: Calc(100vw - 4rem);
+        }
       }
 
-      body.local-controls-enabled::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-bar);
-        border-right: none;
-        border-left: none;
-      }
+      @media (max-width: 800px) {
+        body.local-controls-enabled {
+          max-width: Calc(100vw - 4rem);
+          margin-bottom: 350px;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-thumb:hover {
-        background-color: var(--scroll-bar-hover);
-      }
+        body.local-controls-enabled-minimized {
+          margin-bottom: 4rem;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-track-piece:end {
-        background: transparent;
-        margin-bottom: 25rem;
-      }
+        body.local-controls-enabled::-webkit-scrollbar {
+          display: block;
+          width: 10px;
+          z-index: 5;
+        }
 
-      body.local-controls-enabled::-webkit-scrollbar-track-piece:start {
-        background: transparent;
+        body.local-controls-enabled::-webkit-scrollbar-track {
+          background: var(--scroll-bar-bg);
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-thumb {
+          background-color: var(--scroll-bar);
+          border-right: none;
+          border-left: none;
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-thumb:hover {
+          background-color: var(--scroll-bar-hover);
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-track-piece:end {
+          background: transparent;
+          margin-bottom: 25rem;
+        }
+
+        body.local-controls-enabled::-webkit-scrollbar-track-piece:start {
+          background: transparent;
+        }
       }
 
       body.unsaved-changes {
@@ -3146,52 +3207,86 @@
         margin-bottom: 0.5rem;
       }
 
-      #local-controls-container {
-        width: Calc(100% + 4rem);
-        margin-top: 25rem;
-        position: relative;
-        left: -2rem;
-      }
-
       #local-controls,
       #local-controls-minimized {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 25rem;
         background-color: var(--lc-bg);
         color: var(--lc-color);
         text-align: left;
         margin: 1rem 0 0 0;
         padding: 0.5rem 1rem;
-        outline: 1px dashed var(--lc-border);
-        overflow-y: scroll;
-        font-size: 16px;
-        z-index: 10;
+        border: 1px dashed var(--lc-border);
+        border-radius: 4px;
       }
 
-      #local-controls-minimized {
-        height: 4rem;
+      @media (min-width: 801px) {
+        #local-controls-container {
+          width: 400px;
+          max-width: 40%;
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          padding: 1rem 0.5rem 3rem 0;
+        }
+
+        #local-controls {
+          overflow: scroll;
+          max-height: Calc(100vh - 4rem);
+        }
+
+        #local-controls-minimized {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          width: 300px;
+          text-align: right;
+          line-height: 2rem;
+        }
       }
 
-      #local-controls::-webkit-scrollbar {
-        width: 20px;
+      @media (max-width: 800px) {
+        #local-controls-container {
+          width: Calc(100% + 4rem);
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        #local-controls,
+        #local-controls-minimized {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 350px;
+          overflow-y: scroll;
+          font-size: 16px;
+          z-index: 10;
+        }
+
+        #local-controls-minimized {
+          height: 4rem;
+        }
+
+        #local-controls::-webkit-scrollbar {
+          width: 20px;
+        }
+
+        #local-controls::-webkit-scrollbar-thumb {
+          background-color: var(--scroll-bar);
+        }
+
+        #local-controls::-webkit-scrollbar-thumb:hover {
+          background-color: var(--scroll-bar-hover);
+        }
+
+        #local-controls::-webkit-scrollbar-track {
+          background-color: var(--scroll-bar-bg);
+        }
       }
 
-      #local-controls::-webkit-scrollbar-thumb {
-        background-color: var(--scroll-bar);
-      }
-
-      #local-controls::-webkit-scrollbar-thumb:hover {
-        background-color: var(--scroll-bar-hover);
-      }
-
-      #local-controls::-webkit-scrollbar-track {
-        background-color: var(--scroll-bar-bg);
-      }
-
-      .local-controls-alert {
+      #local-controls .alert {
         border: 2px solid var(--warning-highlight-a);
         background-color: var(--warning-bg-a);
         padding: 0rem 1rem 1rem;
@@ -3200,13 +3295,13 @@
         transform: scaleY(1);
       }
 
-      .local-controls-alert button {
+      #local-controls .alert button {
         position: absolute;
         top: 6px;
         right: 2px;
       }
 
-      .local-controls-alert.alert-removed {
+      #local-controls .alert.alert-removed {
         display: none;
       }
 
@@ -3246,6 +3341,11 @@
       .edit-buttons button {
         margin: 0 0.25rem;
         display: inline-block;
+      }
+
+      #local-controls > button {
+        display: inline-block;
+        margin: 0.25rem 10px 0.25rem 0;
       }
 
       .controls-section {
@@ -3300,10 +3400,11 @@
 
       #new-content-modal {
         margin: 5rem 10% 0;
-        background-color: var(--lc-bg-2);
+        background-color: var(--lc-bg-6);
         padding: 1rem 2rem;
         width: Calc(80% - 2rem - 2rem);
         border-radius: 1rem;
+        border: 2px dashed var(--lc-border);
         /* 2rem is body margin */
       }
 

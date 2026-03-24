@@ -314,6 +314,7 @@
       const ALERT_REMOVED_CLASS = "alert-removed";
       const CONTROLS_SECTION_CLASS = "controls-section";
       const COLOR_PICKER_CLASS = "color-picker";
+      const SAVE_CHANGES_TOP_ID = "save-changes-top";
       const SAVE_CHANGES_ID = "save-changes";
       const SAVE_CHANGES_MINIMIZED_ID = "save-changes-minimized";
       const CURRENTLY_EDITING_ID = "currently-editing";
@@ -2342,6 +2343,11 @@
       function activatePageListeners() {
         const listeners = [
           {
+            id: SAVE_CHANGES_TOP_ID,
+            eventHandler: handleSaveChanges,
+            type: EventType.CLICK,
+          },
+          {
             id: MINIMIZE_BUTTON_ID,
             eventHandler: handleMinimize,
             type: EventType.CLICK,
@@ -2863,16 +2869,24 @@
           ],
           ElementTag.H4,
         );
+        const saveChangesTop = createElement({
+          tag: ElementTag.BUTTON,
+          id: SAVE_CHANGES_TOP_ID,
+          innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+          classList: [SAVE_BUTTON_CLASS],
+        });
         const saveChanges = addControlsSection(LC_SAVE_CHANGES_SUBHEADER, [
           createElement({
             tag: ElementTag.BUTTON,
             id: SAVE_CHANGES_ID,
             innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+            classList: [SAVE_BUTTON_CLASS],
           }),
         ]);
         const wrapper = createElement({ id: LOCAL_CONTROLS_ID });
         const children = [
           minimizeButton,
+          saveChangesTop,
           createElement({ id: ALERT_LIST }),
           createElement({ tag: ElementTag.H2, innerHTML: LC_HEADER }),
           createElement({ tag: ElementTag.P, innerHTML: LC_INSTRUCTIONS }),
@@ -2914,6 +2928,7 @@
           tag: ElementTag.BUTTON,
           id: SAVE_CHANGES_MINIMIZED_ID,
           innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL,
+          classList: [SAVE_BUTTON_CLASS],
         });
         const wrapper = createElement({ id: LOCAL_CONTROLS_MINIMIZED_ID });
         const children = [minimizeButton, addContentButton, saveChangesButton];
@@ -3322,6 +3337,11 @@
       .edit-buttons button {
         margin: 0 0.25rem;
         display: inline-block;
+      }
+
+      #local-controls > button {
+        display: inline-block;
+        margin: 0.25rem 10px 0.25rem 0;
       }
 
       .controls-section {
