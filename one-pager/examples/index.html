@@ -1,0 +1,3079 @@
+<!DOCTYPE html><html lang="en" id="html-element"><head>
+    <meta charset="UTF-8">
+    <meta name="description" content="A gallery of web pages made with One Pager" id="page-description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title id="page-title">One Pager Example Gallery</title>
+
+    <!-- Favicon - SVG from Emoji: https://emojicon.dev/ -->
+    
+
+    <!-- Social -->
+    <meta property="og:title" content="One Pager" id="og-title">
+    <meta property="og:description" content="A gallery of web pages made with One Pager" id="og-description">
+    <meta property="og:image" content="https://doodles.patrickweaver.net/one-pager/images/social-image.png" id="og-image">
+    <meta property="og:image:alt" content="A screenshot of the One Pager website" id="og-image-alt">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" id="twitter-card">
+    <meta name="twitter:title" content="One Pager" id="twitter-title">
+    <meta name="twitter:description" content="A gallery of web pages made with One Pager" id="twitter-description">
+    <meta name="twitter:image" content="https://doodles.patrickweaver.net/one-pager/images/social-image.png" id="twitter-image">
+    <meta name="twitter:image:alt" content="A screenshot of the One Pager website" id="twitter-image-alt">
+    <script type="module">
+var ElementTag = /* @__PURE__ */ ((ElementTag2) => {
+  ElementTag2["A"] = "a";
+  ElementTag2["BR"] = "br";
+  ElementTag2["BUTTON"] = "button";
+  ElementTag2["DATALIST"] = "datalist";
+  ElementTag2["DIV"] = "div";
+  ElementTag2["FIELDSET"] = "fieldset";
+  ElementTag2["FIGCAPTION"] = "figcaption";
+  ElementTag2["FIGURE"] = "figure";
+  ElementTag2["H1"] = "h1";
+  ElementTag2["H2"] = "h2";
+  ElementTag2["H3"] = "h3";
+  ElementTag2["H4"] = "h4";
+  ElementTag2["H5"] = "h5";
+  ElementTag2["H6"] = "h6";
+  ElementTag2["HR"] = "hr";
+  ElementTag2["IMG"] = "img";
+  ElementTag2["INPUT"] = "input";
+  ElementTag2["LABEL"] = "label";
+  ElementTag2["LEGEND"] = "legend";
+  ElementTag2["LI"] = "li";
+  ElementTag2["LINK"] = "link";
+  ElementTag2["OPTION"] = "option";
+  ElementTag2["P"] = "p";
+  ElementTag2["OL"] = "ol";
+  ElementTag2["SELECT"] = "select";
+  ElementTag2["SPAN"] = "span";
+  ElementTag2["TEXTAREA"] = "textarea";
+  ElementTag2["UL"] = "ul";
+  return ElementTag2;
+})(ElementTag || {});
+var InsertPosition = /* @__PURE__ */ ((InsertPosition2) => {
+  InsertPosition2["BEFORE_BEGIN"] = "beforebegin";
+  InsertPosition2["BEFORE_END"] = "beforeend";
+  InsertPosition2["AFTER_BEGIN"] = "afterbegin";
+  InsertPosition2["AFTER_END"] = "afterend";
+  return InsertPosition2;
+})(InsertPosition || {});
+var CSSProperties = /* @__PURE__ */ ((CSSProperties2) => {
+  CSSProperties2["COLOR"] = "color";
+  CSSProperties2["BACKGROUND_COLOR"] = "backgroundColor";
+  return CSSProperties2;
+})(CSSProperties || {});
+var IMAGE_PREVIEW = /* @__PURE__ */ ((IMAGE_PREVIEW2) => {
+  IMAGE_PREVIEW2[IMAGE_PREVIEW2["IMAGE"] = 0] = "IMAGE";
+  IMAGE_PREVIEW2[IMAGE_PREVIEW2["FAVICON"] = 1] = "FAVICON";
+  return IMAGE_PREVIEW2;
+})(IMAGE_PREVIEW || {});
+var EditorTypes = /* @__PURE__ */ ((EditorTypes2) => {
+  EditorTypes2["ALIGN"] = "align";
+  EditorTypes2["HEADING"] = "heading";
+  EditorTypes2["HEADING_LEVEL"] = "heading-level";
+  EditorTypes2["IMAGE"] = "image";
+  EditorTypes2["IMAGE_ALT_TEXT"] = "image-alt";
+  EditorTypes2["IMAGE_HREF"] = "image-href";
+  EditorTypes2["OPTION"] = "option";
+  EditorTypes2["PARAGRAPH"] = "paragraph";
+  EditorTypes2["TEXT"] = "text";
+  return EditorTypes2;
+})(EditorTypes || {});
+var EventType = /* @__PURE__ */ ((EventType2) => {
+  EventType2["CHANGE"] = "change";
+  EventType2["CLICK"] = "click";
+  EventType2["INPUT"] = "input";
+  EventType2["PASTE"] = "paste";
+  return EventType2;
+})(EventType || {});
+var AlignOptions = /* @__PURE__ */ ((AlignOptions2) => {
+  AlignOptions2["LEFT"] = "LEFT";
+  AlignOptions2["CENTER"] = "CENTER";
+  AlignOptions2["RIGHT"] = "RIGHT";
+  AlignOptions2["DEFAULT"] = "DEFAULT";
+  return AlignOptions2;
+})(AlignOptions || {});
+var FlexAlignCssValues = /* @__PURE__ */ ((FlexAlignCssValues2) => {
+  FlexAlignCssValues2["LEFT"] = "flex-start";
+  FlexAlignCssValues2["CENTER"] = "center";
+  FlexAlignCssValues2["RIGHT"] = "flex-end";
+  FlexAlignCssValues2["DEFAULT"] = "default";
+  return FlexAlignCssValues2;
+})(FlexAlignCssValues || {});
+var TextAlignCssValues = /* @__PURE__ */ ((TextAlignCssValues2) => {
+  TextAlignCssValues2["LEFT"] = "left";
+  TextAlignCssValues2["CENTER"] = "center";
+  TextAlignCssValues2["RIGHT"] = "right";
+  TextAlignCssValues2["DEFAULT"] = "auto";
+  return TextAlignCssValues2;
+})(TextAlignCssValues || {});
+var UpdateMethod = /* @__PURE__ */ ((UpdateMethod2) => {
+  UpdateMethod2["REMOVE"] = "removeEventListener";
+  UpdateMethod2["ADD"] = "addEventListener";
+  return UpdateMethod2;
+})(UpdateMethod || {});
+var MetaProperty = /* @__PURE__ */ ((MetaProperty2) => {
+  MetaProperty2["CONTENT"] = "content";
+  return MetaProperty2;
+})(MetaProperty || {});
+var HtmlProperty = /* @__PURE__ */ ((HtmlProperty2) => {
+  HtmlProperty2["LANG"] = "lang";
+  return HtmlProperty2;
+})(HtmlProperty || {});
+var TitleProperty = /* @__PURE__ */ ((TitleProperty2) => {
+  TitleProperty2["INNER_HTML"] = "innerHTML";
+  return TitleProperty2;
+})(TitleProperty || {});
+var ImgElementProperty = /* @__PURE__ */ ((ImgElementProperty2) => {
+  ImgElementProperty2["ALT"] = "alt";
+  ImgElementProperty2["SRC"] = "src";
+  ImgElementProperty2["STYLE"] = "style";
+  return ImgElementProperty2;
+})(ImgElementProperty || {});
+const ALIGNMENT_LABELS = {
+  LEFT: "Left",
+  CENTER: "Center",
+  RIGHT: "Right",
+  DEFAULT: "Default"
+};
+const BODY_WIDTH_LABELS = {
+  FULL: "Full width",
+  FIXED: "Fixed width"
+};
+const BUTTON_CANCEL = "Cancel";
+const BUTTON_DELETE = "Delete";
+const BUTTON_UPLOAD = "Upload";
+const BUTTON_ALT_TEXT = "Alt Text";
+const BUTTON_FORMAT = "Format";
+const BUTTON_LINK = "Create Link";
+const BUTTON_OPEN_LINK = "Open Link";
+const BUTTON_OPEN_EDITOR = "Edit Element";
+const BUTTON_ADD_HEADING = "Heading";
+const BUTTON_ADD_PARAGRAPH = "Paragraph";
+const BUTTON_ADD_IMAGE = "Image";
+const BUTTON_SAVE = "Save";
+const BUTTON_UPDATE = "Update";
+const BUTTON_CLOSE_SUBPANEL = "Close";
+const CONFIRM_DELETE = "Are you sure you want to delete this element?";
+const ERROR_IMAGE_ONLY = "Error: Please choose an image file";
+const ERROR_NO_IMAGE = "Error: No image found";
+const ERROR_NO_SELECTION = "Error: Nothing selected";
+const ERROR_INVALID_SELECTION = "Error: Invalid selection";
+const ERROR_NO_URL = "Error: Invalid URL";
+const EDITOR_LABELS = {
+  align: "Edit alignment",
+  heading: "Edit heading text",
+  "heading-level": "Edit heading level",
+  image: "Select an image",
+  "image-alt": "Image alt text",
+  "image-href": "Image link URL",
+  paragraph: "Edit paragraph text",
+  text: "Edit text",
+  option: null
+};
+const FAVICON_PREVIEW_CAPTION = "New favicon preview:";
+const IMAGE_PREVIEW_CAPTION = "Image preview:";
+const LC_UNSAVED_CHANGES_BANNER = "Unsaved changes, make sure to save your file after completing edits.";
+const LC_MINIMIZE_BUTTON_TEXT = "Minimize Local Controls Area";
+const LC_EXPAND_BUTTON_TEXT = "Expand Local Controls Area";
+const LC_BG_COLOR_SUBHEADER = "Background Color";
+const LC_TEXT_COLOR_SUBHEADER = "Text Color";
+const LC_COLOR_LABEL = "Select a color";
+const LC_BODY_ALIGNMENT_LEGEND = "Select an option for aligning the body of the page on the window";
+const LC_BODY_ALIGNMENT_RIGHT_MESSAGE = "Right aligned body is not supported.";
+const LC_BODY_ALIGNMENT_SUBHEADER = "Body Alignment";
+const LC_BODY_WIDTH_SUBHEADER = "Body Width";
+const LC_BODY_WIDTH_FIXED_LABEL = "Fixed Body Width (px): ";
+const LC_BODY_WIDTH_LABEL = "Window Width";
+const LC_CONTENT_SUBHEADER = "Add Content";
+const LC_CONTENT_BUTTON = "Add Item";
+const LC_CURRENT_FAVICON_CAPTION = "Current Favicon:";
+const LC_CURRENT_FAVICON_ALT_TEXT = "The current favicon";
+const LC_FAVICON_SUBHEADER = "Favicon";
+const LC_GENERAL_PAGE_DESC_LABEL = "Page Description";
+const LC_GENERAL_PAGE_LANG_LABEL = "Page Language";
+const LC_GENERAL_PAGE_LANG_BELOW_LABEL = `See list of valid language tags <a href="https://en.wikipedia.org/wiki/IETF_language_tag#List_of_subtags" target="_blank">here</a>.`;
+const LC_GENERAL_PAGE_TITLE_LABEL = "Page Title";
+const LC_GENERAL_SUBHEADER = "General";
+const LC_HEADER = "Local Controls";
+const LC_INSTRUCTIONS = 'This section of the page will only display when viewing the local version of your website by opening the <code>index.html</code> file on a computer or on the <a href="https://doodles.patrickweaver.net/one-pager/" target="_blank">demo site</a>.';
+const LC_METADATA_SUBHEADER = "Metadata";
+const LC_SAVE_CHANGES_BUTTON_LABEL = "Save All Changes to Local File";
+const LC_SAVE_CHANGES_SUBHEADER = "Save Changes";
+const LC_SOCIAL_IMAGE_INPUT_BELOW_LABEL = "Social Image must be a full URL including the domain name and cannot be included inline as a data URL like other images. You will likely need to upload the image to your web host, then update your page again with the hosted image URL. The social image is configured for a square image at least 144px x 144px large.";
+const LC_SOCIAL_IMAGE_INPUT_LABEL = "Update Social Image URL";
+const LC_SOCIAL_IMAGE_ALT_INPUT_LABEL = "Update Social Image Alt Text";
+const LC_SOCIAL_IMAGE_LABEL = "Current Social Image:";
+const LC_SOCIAL_IMAGE_SUBHEADER = "Social Image";
+const LC_STYLES_SUBHEADER = "Styles";
+const LC_TEXT_ALIGNMENT_LEGEND = "Select an option for aligning the text within the body";
+const LC_TEXT_ALIGNMENT_SUBHEADER = "Text Alignment";
+const LC_TEXT_SIZE_LABEL = "Font Size (%)";
+const LC_TEXT_STYLE_SUBHEADER = "Text Style";
+const LC_UPDATE_FAVICON_LABEL = "Update Favicon";
+const PROMPT_LINK_URL = "URL:";
+const MISSING_SOCIAL_IMAGE_ALT = "Social Image is not set.";
+const NEW_CONTENT_HEADER = "Add New Content";
+const ALERT_PHONE_SCREEN_SIZE = "It looks like you might be using a phone sized screen. I have done limited testing on phones and you will need to store the <code>index.html</code> file on your phone’s filesystem to save it.";
+const HTML_ELEMENT_ID = "html-element";
+const PAGE_TITLE_INPUT_ID = "edit-page-title";
+const PAGE_TITLE_ID = "page-title";
+const PAGE_OG_TITLE_ID = "og-title";
+const PAGE_TWITTER_TITLE_ID = "twitter-title";
+const PAGE_DESC_INPUT_ID = "edit-page-description";
+const PAGE_DESC_ID = "page-description";
+const PAGE_TWITTER_DESC_ID = "twitter-description";
+const PAGE_OG_DESC_ID = "og-description";
+const PAGE_LANG_INPUT_ID = "edit-page-language";
+const UNSAVED_CHANGES_BODY_CLASS = "unsaved-changes";
+const UNSAVED_CHANGES_BANNER_ID = "unsaved-changes-banner";
+const MINIMIZE_BUTTON_ID = "minimize-lc";
+const UNMINIMIZE_BUTTON_ID = "unminimize-lc";
+const ADD_ITEM_ID = "add-item";
+const ADD_ITEM_MINIMIZED_ID = "add-item-minimized";
+const ADD_ITEM_HEADING_ID = "add-item-heading";
+const ADD_ITEM_IMAGE_ID = "add-item-image";
+const ADD_ITEM_PARAGRAPH_ID = "add-item-paragraph";
+const ADD_ITEM_CANCEL_BUTTON_ID = "add-item-cancel";
+const CURRENT_FAVICON_PREVIEW_FIGURE_ID = "favicon-preview";
+const CURRENT_FAVICON_PREVIEW_ID = "current-favicon-preview";
+const UPDATE_FAVICON_ID = "update-favicon";
+const CANCEL_FAVICON_UPDATE_ID = "cancel-favicon-update";
+const CONFIRM_FAVICON_UPDATE_ID = "confirm-favicon-update";
+const FAVICON_QUERY_SELECTOR = "link[rel~='icon']";
+const CURRENT_SOCIAL_IMAGE_ID = "og-image";
+const CURRENT_SOCIAL_IMAGE_ALT_ID = "og-image-alt";
+const CURRENT_TWITTER_IMAGE_ID = "twitter-image";
+const CURRENT_TWITTER_IMAGE_ALT_ID = "twitter-image-alt";
+const SOCIAL_IMAGE_PREVIEW_FIGURE_ID = "social-image-preview";
+const CURRENT_SOCIAL_IMAGE_PREVIEW_ID = "current-social-image-preview";
+const UPDATE_SOCIAL_IMAGE_ID = "update-social-image";
+const UPDATE_SOCIAL_IMAGE_ALT_ID = "update-social-image-alt";
+const UPDATE_BACKGROUND_COLOR_ID = "update-background-color";
+const UPDATE_TEXT_COLOR_ID = "update-text-color";
+const FULL_WIDTH_RADIO_ID = "update-width-toggle";
+const WIDTH_SLIDER_CONTAINER_ID = "update-body-width-container";
+const BODY_WIDTH_RANGE_INPUT_ID = "update-body-width-range";
+const BODY_WIDTH_NUMBER_INPUT_ID = "body-width-number-input";
+const WIDTH_SLIDER_DATALIST_ID = "body-width-tickmarks";
+const UPDATE_BODY_ALIGN_CONTAINER_ID = "update-body-align-container";
+const UPDATE_BODY_ALIGN_ID = "update-body-align";
+const UPDATE_BODY_ALIGN_OPTION_NAME = "body-align";
+const BODY_WIDTH_OPTION_NAME = "body-width";
+const UPDATE_TEXT_ALIGN_ID = "update-text-align";
+const UPDATE_TEXT_ALIGN_OPTION_NAME = "text-align";
+const UPDATE_TEXT_SIZE_ID = "update-text-size";
+const ALERT_LIST = "local-controls-alert-list";
+const ALERT_CLASS = "local-controls-alert";
+const ALERT_REMOVED_CLASS = "alert-removed";
+const CONTROLS_SECTION_CLASS = "controls-section";
+const COLOR_PICKER_CLASS = "color-picker";
+const SAVE_CHANGES_ID = "save-changes";
+const SAVE_CHANGES_MINIMIZED_ID = "save-changes-minimized";
+const CURRENTLY_EDITING_ID = "currently-editing";
+const CURRENTLY_EDITING_LINK_HANDLER_ID = "currently-editing-link";
+const CURRENTLY_EDITING_NEW_ANCHOR_ID = "new-anchor";
+const CURRENTLY_EDITING_TOOLBAR_ID = "currently-editing-toolbar";
+const CURRENTLY_EDITING_FORMATTING_ID = "currently-editing-formatting";
+const CURRENTLY_EDITING_UPLOAD_ID = "currently-editing-upload";
+const CURRENTLY_EDITING_UPLOAD_IMAGE_INPUT_ID = "currently-editing-upload-image-input";
+const CURRENTLY_EDITING_ALT_TEXT_ID = "currently-editing-alt-text";
+const CURRENTLY_EDITING_ALT_TEXT_INPUT_ID = "currently-editing-alt-text-input";
+const DATA_ORIGINAL_TAG_NAME = "data-original-tag-name";
+const DATA_ORIGINAL_HTML = "data-original-html";
+const DATA_ORIGINAL_CSS = "data-original-css";
+const DATA_ORIGINAL_SRC = "data-original-src";
+const DATA_ORIGINAL_ALT = "data-original-alt";
+const EDIT_UI_CONTAINER_CLASS = "edit-ui-container";
+const EDIT_UI_SUB_PANEL_CLASS = "editor-sub-container";
+const NON_DESTRUCTIVE_BUTTON_CLASS = "non-destructive";
+const DESTRUCTIVE_BUTTON_CLASS = "destructive";
+const SAVE_BUTTON_CLASS = "save";
+const EDIT_BUTTONS_CLASS = "edit-buttons";
+const INPUT_TYPE_TEXT_CLASS = "text-input";
+const INPUT_BELOW_LABEL_CLASS = "below-label";
+const IMAGE_PLACEHOLDER_CLASS = "image-placeholder";
+const IMAGE_PREVIEW_FIGURE_ID_PREFIX = "image-preview-figure-";
+const IMAGE_PREVIEW_ID_PREFIX = "image-preview-";
+const IMAGE_PREVIEW_CLASS = "image-preview";
+const HIDDEN_CLASS = "hidden";
+const END_OF_DOC_ID = "end-of-document";
+const LOCAL_CONTROLS_CONTAINER_ID = "local-controls-container";
+const LOCAL_CONTROLS_ID = "local-controls";
+const LOCAL_CONTROLS_MINIMIZED_ID = "local-controls-minimized";
+const NEW_CONTENT_MODAL_ID = "new-content-modal";
+const NEW_CONTENT_MODAL_WRAPPER_ID = "new-content-modal-wrapper";
+const NOTE_CLASS = "note";
+var EditableType = /* @__PURE__ */ ((EditableType2) => {
+  EditableType2["TEXT"] = "text";
+  EditableType2["IMAGE"] = "image";
+  return EditableType2;
+})(EditableType || {});
+const EDITABLE_STYLE_PROPERTIES = {
+  TEXT_ALIGN: "text-align",
+  ALIGN_SELF: "align-self"
+};
+const BODY_WIDTH_OPTIONS = {
+  FULL: "FULL",
+  FIXED: "FIXED"
+};
+var INPUT_TYPES = /* @__PURE__ */ ((INPUT_TYPES2) => {
+  INPUT_TYPES2["TEXT"] = "text";
+  INPUT_TYPES2["TEXTAREA"] = "textarea";
+  INPUT_TYPES2["COLOR"] = "color";
+  INPUT_TYPES2["CHECKBOX"] = "checkbox";
+  INPUT_TYPES2["FILE"] = "file";
+  INPUT_TYPES2["RADIO"] = "radio";
+  INPUT_TYPES2["RANGE"] = "range";
+  INPUT_TYPES2["NUMBER"] = "number";
+  return INPUT_TYPES2;
+})(INPUT_TYPES || {});
+const SETTINGS = {
+  BODY_WIDTH: String(500),
+  // TODO restore to 800
+  // BODY_WIDTH: String(800),
+  BODY_WIDTHS: [200, 300, 400, 500, 640, 800, 1e3, 1200, 1500, 1920].map(
+    (i) => String(i)
+  )
+};
+const OPTIONS = {
+  LC_BODY_WIDTH_OPTIONS: [
+    {
+      id: "full-width",
+      name: BODY_WIDTH_OPTION_NAME,
+      value: BODY_WIDTH_OPTIONS.FULL,
+      checked: false,
+      labelText: BODY_WIDTH_LABELS.FULL
+    },
+    {
+      id: "fixed-width",
+      name: BODY_WIDTH_OPTION_NAME,
+      value: BODY_WIDTH_OPTIONS.FIXED,
+      checked: true,
+      labelText: BODY_WIDTH_LABELS.FIXED
+    }
+  ],
+  LC_BODY_ALIGNMENT_OPTIONS: [
+    {
+      id: "body-left",
+      name: UPDATE_BODY_ALIGN_OPTION_NAME,
+      value: "left",
+      checked: true,
+      labelText: ALIGNMENT_LABELS.LEFT,
+      style: {
+        margin: "2rem"
+      }
+    },
+    {
+      id: "body-center",
+      name: UPDATE_BODY_ALIGN_OPTION_NAME,
+      value: "center",
+      checked: false,
+      labelText: ALIGNMENT_LABELS.CENTER,
+      style: {
+        margin: "2rem auto"
+      }
+    }
+  ],
+  LC_UPDATE_TEXT_ALIGN_OPTIONS: [
+    {
+      id: "text-left",
+      name: UPDATE_TEXT_ALIGN_OPTION_NAME,
+      value: "LEFT",
+      checked: true,
+      labelText: ALIGNMENT_LABELS.LEFT
+    },
+    {
+      id: "text-center",
+      name: UPDATE_TEXT_ALIGN_OPTION_NAME,
+      value: "CENTER",
+      checked: false,
+      labelText: ALIGNMENT_LABELS.CENTER
+    },
+    {
+      id: "text-right",
+      name: UPDATE_TEXT_ALIGN_OPTION_NAME,
+      value: "RIGHT",
+      checked: false,
+      labelText: ALIGNMENT_LABELS.RIGHT
+    }
+  ]
+};
+const FlexAlignCssKeys = {
+  "flex-start": AlignOptions.LEFT,
+  center: AlignOptions.CENTER,
+  "flex-end": AlignOptions.RIGHT,
+  default: AlignOptions.DEFAULT
+};
+const TextAlignCssKeys = {
+  left: AlignOptions.LEFT,
+  center: AlignOptions.CENTER,
+  right: AlignOptions.RIGHT,
+  auto: AlignOptions.DEFAULT
+};
+const ALERT_ANIMATION_DELAY = 250;
+function getUniqueId(readableString = "element") {
+  return `${readableString}-${Math.random().toString(10).slice(2, 12)}`;
+}
+function createElement({
+  tag = ElementTag.DIV,
+  id = null,
+  giveUniqueId = false,
+  classList = [],
+  innerHTML,
+  value,
+  type,
+  name,
+  htmlFor,
+  imageSrc,
+  altText,
+  min,
+  max,
+  href
+} = {}) {
+  const element = document.createElement(tag);
+  const uniqueId = giveUniqueId ? `-${getUniqueId()}` : "";
+  if (uniqueId || id) {
+    element.id = `${id ?? ""}${uniqueId}`;
+  }
+  element.classList.add(...classList);
+  const elementProperties = {
+    innerHTML,
+    value,
+    type,
+    name,
+    htmlFor,
+    src: imageSrc,
+    alt: altText,
+    min,
+    max,
+    href
+  };
+  let elementKey;
+  for (elementKey in elementProperties) {
+    const value2 = elementProperties[elementKey];
+    if (value2) {
+      if (elementKey === "alt" || elementKey === "src") {
+        if (element instanceof HTMLImageElement)
+          element[elementKey] = String(value2);
+      } else if (elementKey === "value") {
+        if (element instanceof HTMLButtonElement || element instanceof HTMLInputElement || element instanceof HTMLLIElement || element instanceof HTMLOptionElement)
+          element[elementKey] = value2;
+      } else if (elementKey === "type" || elementKey === "name") {
+        if (element instanceof HTMLInputElement)
+          element[elementKey] = String(value2);
+      } else if (elementKey === "htmlFor") {
+        if (element instanceof HTMLLabelElement)
+          element[elementKey] = String(value2);
+      } else if (elementKey === "innerHTML") {
+        if (element instanceof HTMLHeadingElement || element instanceof HTMLParagraphElement || element instanceof HTMLButtonElement || element instanceof HTMLLabelElement || element instanceof HTMLSpanElement || element instanceof HTMLLegendElement || element instanceof HTMLElement)
+          element[elementKey] = String(value2);
+      } else if (elementKey === "min" || elementKey === "max") {
+        if (element instanceof HTMLInputElement) {
+          element[elementKey] = String(value2);
+        }
+      } else if (elementKey === "href") {
+        if (element instanceof HTMLAnchorElement) {
+          element[elementKey] = String(value2);
+        }
+      }
+    }
+  }
+  return element;
+}
+function insertElementToDOM(neighborId, element, position = InsertPosition.AFTER_BEGIN) {
+  const neighbor = document.getElementById(neighborId);
+  if (!neighbor) {
+    alert("Error: Invalid insertion point");
+  }
+  neighbor == null ? void 0 : neighbor.insertAdjacentElement(position, element);
+}
+function insertElementWithinElement(parent, element, position = InsertPosition.BEFORE_END) {
+  parent.insertAdjacentElement(position, element);
+}
+function showAlert(message) {
+  setTimeout(() => {
+    const alert2 = createElement({
+      tag: ElementTag.DIV,
+      id: "alert",
+      giveUniqueId: true
+    });
+    const now = /* @__PURE__ */ new Date();
+    const alertHeader = createElement({
+      tag: ElementTag.H3,
+      innerHTML: `Alert (${now.toLocaleTimeString()})`
+    });
+    const alertMessage = createElement({
+      tag: ElementTag.P,
+      innerHTML: `${message}`
+    });
+    const alertCloseButton = createElement({
+      tag: ElementTag.BUTTON,
+      innerHTML: "Close"
+    });
+    insertElementWithinElement(alert2, alertHeader, InsertPosition.AFTER_BEGIN);
+    insertElementWithinElement(alert2, alertMessage);
+    insertElementWithinElement(alert2, alertCloseButton);
+    alertCloseButton.addEventListener("click", closeAlertListener);
+    alert2.classList.add(ALERT_CLASS);
+    insertElementToDOM(ALERT_LIST, alert2);
+  }, 100);
+}
+function closeAlertListener(event) {
+  var _a, _b;
+  (_b = (_a = event.target) == null ? void 0 : _a.parentElement) == null ? void 0 : _b.classList.add(
+    ALERT_REMOVED_CLASS
+  );
+  setTimeout(() => {
+    var _a2, _b2;
+    (_b2 = (_a2 = event.target) == null ? void 0 : _a2.parentElement) == null ? void 0 : _b2.remove();
+  }, ALERT_ANIMATION_DELAY);
+}
+async function getDataURLFromFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+function isImageFile(file) {
+  if (!file.type.startsWith("image/")) {
+    return false;
+  }
+  return true;
+}
+async function saveFile(data) {
+  const newHandle = await window.showSaveFilePicker({
+    startIn: "desktop",
+    suggestedName: "index.html",
+    types: [{ description: "HTML", accept: { "text/markdown": [".html"] } }]
+  });
+  const writableStream = await newHandle.createWritable();
+  await writableStream.write(data);
+  await writableStream.close();
+}
+function getCurrentlyEditingElement() {
+  return document.getElementById(CURRENTLY_EDITING_ID);
+}
+function getCurrentlyEditingToolbar() {
+  return document.getElementById(CURRENTLY_EDITING_TOOLBAR_ID);
+}
+function getCurrentlyEditingLinkHandler() {
+  return document.getElementById(CURRENTLY_EDITING_LINK_HANDLER_ID);
+}
+function getEditableType() {
+  const element = getCurrentlyEditingElement();
+  let editableType = null;
+  if (element instanceof HTMLParagraphElement || element instanceof HTMLHeadingElement) {
+    editableType = EditableType.TEXT;
+  } else if (element instanceof HTMLImageElement) {
+    editableType = EditableType.IMAGE;
+  }
+  return editableType;
+}
+function promptForHref() {
+  let href = window.prompt(PROMPT_LINK_URL);
+  if (!href) {
+    alert(ERROR_NO_URL);
+    return;
+  }
+  if ((href == null ? void 0 : href.slice(0, 5)) !== "http") {
+    href = `http://${href}`;
+  }
+  return href;
+}
+function addLinkAroundElement(element) {
+  let href = promptForHref();
+  if (!href) return;
+  if (element.parentElement instanceof HTMLAnchorElement) {
+    element.parentElement.href = href;
+    return;
+  }
+  const anchor = createElement({
+    tag: ElementTag.A,
+    href
+  });
+  anchor.target = "_blank";
+  const listener = getAnchorEventListener();
+  anchor.addEventListener(EventType.CLICK, listener, { capture: true });
+  insertElementToDOM(CURRENTLY_EDITING_ID, anchor, InsertPosition.BEFORE_BEGIN);
+  insertElementWithinElement(anchor, element);
+}
+function addLinkAroundSelection(selectableInput) {
+  const currentHtml = selectableInput.innerHTML;
+  const selection = window.getSelection();
+  const selectionEmpty = !selection || selection.rangeCount === 0 || selection.isCollapsed;
+  if (selectionEmpty) {
+    alert(ERROR_NO_SELECTION);
+    return currentHtml;
+  }
+  if (!selection || selection.rangeCount === 0 || selection.isCollapsed) {
+    return currentHtml;
+  }
+  const range = selection.getRangeAt(0);
+  const selecitonOutsideParent = !selectableInput.contains(
+    range.commonAncestorContainer
+  );
+  if (selecitonOutsideParent) {
+    alert(ERROR_INVALID_SELECTION);
+    return currentHtml;
+  }
+  if (!selectableInput.contains(range.commonAncestorContainer)) {
+    return currentHtml;
+  }
+  if (isPartiallyOverlappingAnchor(range, selectableInput)) {
+    alert("Error: Selection overlaps an existing link.");
+    return currentHtml;
+  }
+  const fragment = range.extractContents();
+  stripNestedAnchors(fragment);
+  let href = promptForHref();
+  if (!href) return currentHtml;
+  const anchor = createElement({
+    tag: ElementTag.A,
+    href,
+    id: CURRENTLY_EDITING_NEW_ANCHOR_ID
+  });
+  anchor.target = "_blank";
+  anchor.appendChild(fragment);
+  range.insertNode(anchor);
+  selectableInput.normalize();
+  selection.removeAllRanges();
+  const newRange = document.createRange();
+  newRange.selectNodeContents(anchor);
+  selection.addRange(newRange);
+  return selectableInput.innerHTML;
+}
+function stripNestedAnchors(fragment) {
+  const anchors = fragment.querySelectorAll("a");
+  for (const anchor of anchors) {
+    const parent = anchor.parentNode;
+    while (anchor.firstChild) {
+      parent.insertBefore(anchor.firstChild, anchor);
+    }
+    parent.removeChild(anchor);
+  }
+}
+function isPartiallyOverlappingAnchor(range, container) {
+  const anchors = container.querySelectorAll(ElementTag.A);
+  for (const anchor of anchors) {
+    if (!range.intersectsNode(anchor)) continue;
+    const anchorRange = document.createRange();
+    anchorRange.selectNodeContents(anchor);
+    const startsAtOrBefore = range.compareBoundaryPoints(Range.START_TO_START, anchorRange) <= 0;
+    const endsAtOrAfter = range.compareBoundaryPoints(Range.END_TO_END, anchorRange) >= 0;
+    if (!(startsAtOrBefore && endsAtOrAfter)) {
+      return true;
+    }
+  }
+  return false;
+}
+function insertElementNextToElement(neighbor, element, position = InsertPosition.BEFORE_BEGIN) {
+  neighbor.insertAdjacentElement(position, element);
+}
+function setUnsavedChanges() {
+  if (!document.body.classList.contains(UNSAVED_CHANGES_BODY_CLASS)) {
+    document.body.classList += ` ${UNSAVED_CHANGES_BODY_CLASS}`;
+  }
+  const localControlsContainer = document.getElementById(
+    LOCAL_CONTROLS_CONTAINER_ID
+  );
+  if (!localControlsContainer) return;
+  const banner = createElement({
+    id: UNSAVED_CHANGES_BANNER_ID,
+    tag: ElementTag.DIV,
+    innerHTML: LC_UNSAVED_CHANGES_BANNER
+  });
+  insertElementWithinElement(
+    localControlsContainer,
+    banner,
+    InsertPosition.AFTER_BEGIN
+  );
+}
+async function actionDeleteElement(_event) {
+  const result = window.confirm(CONFIRM_DELETE);
+  if (!result) return;
+  const currentlyEditing = getCurrentlyEditingElement();
+  if (!currentlyEditing) return;
+  const toolbar = getCurrentlyEditingToolbar();
+  toolbar == null ? void 0 : toolbar.remove();
+  currentlyEditing.remove();
+}
+function exitEditMode(element) {
+  var _a;
+  const linkHandler = getCurrentlyEditingLinkHandler();
+  linkHandler == null ? void 0 : linkHandler.remove();
+  const toolbar = getCurrentlyEditingToolbar();
+  toolbar == null ? void 0 : toolbar.remove();
+  if (!element) return;
+  const editableType = getEditableType();
+  const isImage = editableType === EditableType.IMAGE && element instanceof HTMLImageElement;
+  const trimmedInnerHtml = element == null ? void 0 : element.innerHTML.replace(/<br\s*\/?>/gi, "").trim();
+  if (isImage && !element.src || !isImage && !trimmedInnerHtml) {
+    element.remove();
+    return;
+  }
+  const editableElement = element;
+  (_a = editableElement.pasteAbortController) == null ? void 0 : _a.abort();
+  delete editableElement.pasteAbortController;
+  element.removeAttribute("id");
+  element.removeAttribute("contentEditable");
+  element.removeAttribute(DATA_ORIGINAL_HTML);
+  element.removeAttribute(DATA_ORIGINAL_CSS);
+  element.removeAttribute(DATA_ORIGINAL_SRC);
+  element.removeAttribute(DATA_ORIGINAL_ALT);
+}
+function cancelEdit() {
+  const currentlyEditingLinkHandler = getCurrentlyEditingLinkHandler();
+  const currentlyEditing = getCurrentlyEditingElement();
+  if (!currentlyEditing) {
+    if (!currentlyEditingLinkHandler) return false;
+    exitEditMode(null);
+    return;
+  }
+  const editableType = getEditableType();
+  if (editableType === EditableType.TEXT) {
+    restoreInnerHtml(currentlyEditing);
+  }
+  const isImage = editableType === EditableType.IMAGE && currentlyEditing instanceof HTMLImageElement;
+  if (isImage) {
+    restoreImageAttributes(currentlyEditing);
+  }
+  restoreCss(currentlyEditing);
+  const currentlyEditingReplaced = restoreTagName(currentlyEditing);
+  exitEditMode(currentlyEditingReplaced);
+  return true;
+}
+function restoreTagName(element) {
+  const originalTagName = element.getAttribute(DATA_ORIGINAL_TAG_NAME);
+  if (element.tagName.toLowerCase() === originalTagName) return element;
+  if (originalTagName !== ElementTag.H1 && originalTagName !== ElementTag.H2 && originalTagName !== ElementTag.H3 && originalTagName !== ElementTag.H4 && originalTagName !== ElementTag.H5 && originalTagName !== ElementTag.H6) {
+    element.removeAttribute(DATA_ORIGINAL_TAG_NAME);
+    return element;
+  }
+  return updateTagName(element, originalTagName);
+}
+function restoreInnerHtml(element) {
+  const originalHtmlEscaped = element.getAttribute(DATA_ORIGINAL_HTML);
+  if (originalHtmlEscaped) {
+    const originalHtmlUnescaped = decodeURIComponent(originalHtmlEscaped);
+    element.innerHTML = originalHtmlUnescaped;
+    activateAnchorListeners(element);
+  }
+}
+function restoreImageAttributes(element) {
+  const originalSrc = element.getAttribute(DATA_ORIGINAL_SRC);
+  if (originalSrc) {
+    element.src = originalSrc;
+  }
+  const originalAlt = element == null ? void 0 : element.getAttribute(DATA_ORIGINAL_ALT);
+  if (originalAlt) {
+    element.alt = originalAlt;
+  } else {
+    element.removeAttribute("alt");
+  }
+}
+function restoreCss(element) {
+  const originalCssEscaped = element.getAttribute(DATA_ORIGINAL_CSS);
+  if (originalCssEscaped) {
+    const originalCssUnescaped = decodeURIComponent(originalCssEscaped);
+    const originalCssParsed = JSON.parse(originalCssUnescaped);
+    const keys = Object.keys(originalCssParsed);
+    for (const prop of keys) {
+      const value = originalCssParsed[prop];
+      if (value === "") {
+        element.style.removeProperty(prop);
+        continue;
+      }
+      element.style.setProperty(prop, value);
+    }
+  } else {
+    showAlert(`Error restoring CSS for ${element.tagName} element.`);
+  }
+  if ((element == null ? void 0 : element.parentElement) instanceof HTMLAnchorElement) {
+    restoreCss(element.parentElement);
+  }
+}
+async function actionCancelEdit(_event) {
+  cancelEdit();
+}
+async function actionSaveChanges(_event) {
+  const element = getCurrentlyEditingElement();
+  if (!element) return;
+  exitEditMode(element);
+  setUnsavedChanges();
+}
+async function actionCreateLink(_event) {
+  const element = getCurrentlyEditingElement();
+  const isImage = element instanceof HTMLImageElement;
+  if (!(element instanceof HTMLElement)) return;
+  if (isImage) {
+    addLinkAroundElement(element);
+  } else {
+    element.innerHTML = addLinkAroundSelection(element);
+    const anchor = document.getElementById(CURRENTLY_EDITING_NEW_ANCHOR_ID);
+    if (!anchor) return;
+    const listener = getAnchorEventListener();
+    anchor.addEventListener(EventType.CLICK, listener, { capture: true });
+  }
+}
+function closePanels(current) {
+  const panelIds = [
+    CURRENTLY_EDITING_ALT_TEXT_ID,
+    CURRENTLY_EDITING_FORMATTING_ID,
+    CURRENTLY_EDITING_UPLOAD_ID
+  ];
+  panelIds.forEach((id) => {
+    if (id !== current) {
+      const panel = document.getElementById(id);
+      panel == null ? void 0 : panel.remove();
+    }
+  });
+}
+async function actionOpenFormatPanel(_event) {
+  closePanels(CURRENTLY_EDITING_FORMATTING_ID);
+  openFormattingPanel();
+}
+async function actionOpenUploadPanel(_event) {
+  closePanels(CURRENTLY_EDITING_UPLOAD_ID);
+  openUploadPanel();
+}
+async function actionOpenAltTextPanel(_evnet) {
+  closePanels(CURRENTLY_EDITING_ALT_TEXT_ID);
+  openAltTextPanel();
+}
+async function actionHandleImageUpload(event) {
+  const target = event.currentTarget;
+  const element = getCurrentlyEditingElement();
+  if (!element) {
+    showAlert("Error: Invalid element");
+    return;
+  }
+  if (!(element instanceof HTMLImageElement)) {
+    showAlert("Error: Element not image.");
+    return;
+  }
+  const isInput = target instanceof HTMLInputElement;
+  if (!isInput) {
+    showAlert("Error: Invalid element.");
+    return;
+  }
+  const { files } = target;
+  if (!(files == null ? void 0 : files[0])) {
+    showAlert("Error: Invalid file.");
+    return;
+  }
+  const validFile = isImageFile(files[0]);
+  if (!validFile) {
+    showAlert("Error: Invalid file.");
+    return;
+  }
+  const url = await getDataURLFromFile(files[0]);
+  element.setAttribute("src", url);
+  const uploadPanel = document.getElementById(CURRENTLY_EDITING_UPLOAD_ID);
+  uploadPanel == null ? void 0 : uploadPanel.remove();
+}
+function actionHandleAltTextUpdate(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return null;
+  const value = (target == null ? void 0 : target.value) ?? "";
+  const element = getCurrentlyEditingElement();
+  if (!element || !(element instanceof HTMLImageElement)) {
+    showAlert("Invalid element.");
+    return;
+  }
+  element.alt = value;
+}
+function handleAlignUpdate(event) {
+  var _a;
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return null;
+  const value = (_a = target == null ? void 0 : target.value) == null ? void 0 : _a.toUpperCase();
+  if (value !== AlignOptions.LEFT && value !== AlignOptions.CENTER && value !== AlignOptions.RIGHT)
+    return null;
+  return value;
+}
+function handleHeadingLevelUpdate(event) {
+  var _a;
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return null;
+  const value = (_a = target == null ? void 0 : target.value) == null ? void 0 : _a.toLowerCase();
+  if (value !== ElementTag.H1 && value !== ElementTag.H2 && value !== ElementTag.H3 && value !== ElementTag.H4 && value !== ElementTag.H5 && value !== ElementTag.H6)
+    return null;
+  return value;
+}
+function actionUpdateTextAlign(event) {
+  const value = handleAlignUpdate(event);
+  if (!value) return;
+  const element = getCurrentlyEditingElement();
+  if (!element) {
+    showAlert("Error: Invlaid element");
+    return;
+  }
+  element.style.setProperty("text-align", TextAlignCssValues[value]);
+}
+function actionUpdateImageAlign(event) {
+  const value = handleAlignUpdate(event);
+  if (!value) return;
+  const element = getCurrentlyEditingElement();
+  if (!element) {
+    showAlert("Error: Invalid element");
+    return;
+  }
+  let wrapperElement = element;
+  if (element.parentElement instanceof HTMLAnchorElement) {
+    wrapperElement = element.parentElement;
+  }
+  wrapperElement.style.setProperty("align-self", FlexAlignCssValues[value]);
+}
+function actionUpdateHeadingLevel(event) {
+  const value = handleHeadingLevelUpdate(event);
+  if (!value) return;
+  const element = getCurrentlyEditingElement();
+  if (!element) {
+    showAlert("Error: Invalid element.");
+    return;
+  }
+  updateTagName(element, value);
+}
+function getActionOpenLink(anchor, _relatedElement, _relatedElementCallback, linkToolbar) {
+  return (event) => {
+    event.stopPropagation();
+    window.open(anchor.href, anchor.target || "_self");
+    linkToolbar.remove();
+  };
+}
+function getActionOpenEditor(_anchor, relatedElement, relatedElementCallback, linkToolbar) {
+  return (event) => {
+    event.stopPropagation();
+    relatedElementCallback(relatedElement);
+    linkToolbar.remove();
+  };
+}
+function updateTagName(element, newTagName) {
+  const replacement = createElement({
+    tag: newTagName
+  });
+  for (const attribute of element.attributes) {
+    replacement.setAttribute(attribute.name, attribute.value);
+  }
+  while (element.firstChild) {
+    replacement.appendChild(element.firstChild);
+  }
+  insertElementNextToElement(element, replacement, InsertPosition.AFTER_END);
+  element.remove();
+  replacement.addEventListener(EventType.CLICK, getElementEventListener());
+  return replacement;
+}
+function createLabel(editorId, type, text = "") {
+  return createElement({
+    tag: ElementTag.LABEL,
+    innerHTML: (EDITOR_LABELS == null ? void 0 : EDITOR_LABELS[type]) ?? text,
+    htmlFor: editorId
+  });
+}
+function getAltTextWidget() {
+  const element = getCurrentlyEditingElement();
+  if (!element || !(element instanceof HTMLImageElement)) {
+    showAlert("Error: Invalid element.");
+    return;
+  }
+  const altTextContent = (element == null ? void 0 : element.alt) ?? "";
+  const container = createElement({
+    tag: ElementTag.DIV
+  });
+  const id = CURRENTLY_EDITING_ALT_TEXT_INPUT_ID;
+  const altEditor = createElement({
+    tag: ElementTag.INPUT,
+    type: INPUT_TYPES.TEXT,
+    id,
+    value: altTextContent,
+    classList: [INPUT_TYPE_TEXT_CLASS]
+  });
+  altEditor.addEventListener(EventType.INPUT, actionHandleAltTextUpdate);
+  const altEditorLabel = createLabel(altEditor.id, EditorTypes.IMAGE_ALT_TEXT);
+  insertElementWithinElement(
+    container,
+    altEditorLabel,
+    InsertPosition.BEFORE_END
+  );
+  insertElementWithinElement(container, altEditor, InsertPosition.BEFORE_END);
+  return container;
+}
+const editorEditorButtonConfig = [
+  {
+    label: BUTTON_CANCEL,
+    eventListener: actionCancelEdit,
+    editableTypes: [EditableType.IMAGE, EditableType.TEXT],
+    className: NON_DESTRUCTIVE_BUTTON_CLASS
+  },
+  {
+    label: BUTTON_DELETE,
+    eventListener: actionDeleteElement,
+    editableTypes: [EditableType.IMAGE, EditableType.TEXT],
+    className: DESTRUCTIVE_BUTTON_CLASS
+  },
+  {
+    label: BUTTON_FORMAT,
+    eventListener: actionOpenFormatPanel,
+    editableTypes: [EditableType.IMAGE, EditableType.TEXT]
+  },
+  {
+    label: BUTTON_UPLOAD,
+    eventListener: actionOpenUploadPanel,
+    editableTypes: [EditableType.IMAGE]
+  },
+  {
+    label: BUTTON_ALT_TEXT,
+    eventListener: actionOpenAltTextPanel,
+    editableTypes: [EditableType.IMAGE]
+  },
+  {
+    label: BUTTON_LINK,
+    eventListener: actionCreateLink,
+    editableTypes: [EditableType.TEXT, EditableType.IMAGE]
+  },
+  {
+    label: BUTTON_SAVE,
+    eventListener: actionSaveChanges,
+    editableTypes: [EditableType.IMAGE, EditableType.TEXT],
+    className: SAVE_BUTTON_CLASS
+  }
+];
+function getEditorButtons(editableType) {
+  const buttonsContainerElement = createElement({
+    tag: ElementTag.DIV,
+    classList: [EDIT_BUTTONS_CLASS]
+  });
+  const buttons = editorEditorButtonConfig.filter(
+    (i) => {
+      var _a;
+      return (_a = i.editableTypes) == null ? void 0 : _a.includes(editableType);
+    }
+  );
+  for (const { label, eventListener, className } of buttons) {
+    const buttonElement = createElement({
+      tag: ElementTag.BUTTON,
+      innerHTML: label,
+      classList: className ? [className] : void 0
+    });
+    buttonElement.addEventListener(EventType.CLICK, eventListener);
+    buttonsContainerElement.appendChild(buttonElement);
+  }
+  return buttonsContainerElement;
+}
+const linkEditorButtonConfig = [
+  {
+    label: BUTTON_OPEN_LINK,
+    getEventListener: getActionOpenLink
+  },
+  {
+    label: BUTTON_OPEN_EDITOR,
+    getEventListener: getActionOpenEditor
+  }
+];
+function getLinkButtons(anchor, relatedElement, relatedElementCallback, linkToolbar) {
+  const buttonsContainerElement = createElement({
+    tag: ElementTag.DIV,
+    classList: [EDIT_BUTTONS_CLASS]
+  });
+  const buttons = linkEditorButtonConfig;
+  for (const { label, getEventListener } of buttons) {
+    const buttonElement = createElement({
+      tag: ElementTag.BUTTON,
+      innerHTML: label
+    });
+    buttonElement.addEventListener(
+      EventType.CLICK,
+      getEventListener(
+        anchor,
+        relatedElement,
+        relatedElementCallback,
+        linkToolbar
+      )
+    );
+    buttonsContainerElement.appendChild(buttonElement);
+  }
+  return buttonsContainerElement;
+}
+function createFieldset({
+  legendText,
+  options,
+  current,
+  listener
+}) {
+  const editAlignElement = createElement({
+    tag: ElementTag.FIELDSET,
+    id: getUniqueId()
+  });
+  const alignLegend = createElement({
+    tag: ElementTag.LEGEND,
+    innerHTML: legendText
+  });
+  insertElementWithinElement(
+    editAlignElement,
+    alignLegend,
+    InsertPosition.BEFORE_END
+  );
+  let foundCurrent = false;
+  options.forEach(({ value, label }) => {
+    const container = createElement({ id: "cont", giveUniqueId: true });
+    if (!options.map((i) => i.value).includes(value)) return;
+    const input = createElement({
+      tag: ElementTag.INPUT,
+      id: getUniqueId(),
+      type: INPUT_TYPES.RADIO,
+      name: editAlignElement.id,
+      value
+    });
+    if (!foundCurrent && current === value) {
+      input.checked = true;
+      foundCurrent = true;
+    }
+    const labelElement = createLabel(input.id, EditorTypes.OPTION, label);
+    insertElementWithinElement(
+      container,
+      labelElement,
+      InsertPosition.AFTER_BEGIN
+    );
+    insertElementWithinElement(container, input, InsertPosition.AFTER_BEGIN);
+    insertElementWithinElement(
+      editAlignElement,
+      container,
+      InsertPosition.AFTER_BEGIN
+    );
+  });
+  editAlignElement.addEventListener(EventType.CHANGE, listener);
+  if (!foundCurrent) {
+    const input = editAlignElement.children[0].children[0];
+    if (!(input instanceof HTMLInputElement)) return null;
+    input.checked = true;
+  }
+  return editAlignElement;
+}
+function getSubpanel(id) {
+  const subpanel = createElement({
+    tag: ElementTag.DIV,
+    id,
+    classList: [EDIT_UI_SUB_PANEL_CLASS]
+  });
+  const closeButton = createElement({
+    tag: ElementTag.BUTTON,
+    innerHTML: BUTTON_CLOSE_SUBPANEL,
+    classList: [NON_DESTRUCTIVE_BUTTON_CLASS]
+  });
+  insertElementWithinElement(subpanel, closeButton, InsertPosition.AFTER_BEGIN);
+  closeButton.addEventListener(EventType.CLICK, (_event) => {
+    subpanel.remove();
+  });
+  return subpanel;
+}
+function getFormattingPanel() {
+  const formattingPanel = getSubpanel(CURRENTLY_EDITING_FORMATTING_ID);
+  const alignmentWidget = getAlignmentWidget();
+  if (!alignmentWidget) {
+    showAlert("Error: Can't open formatting panel.");
+    return formattingPanel;
+  }
+  insertElementWithinElement(
+    formattingPanel,
+    alignmentWidget,
+    InsertPosition.AFTER_BEGIN
+  );
+  const headingTypeWidget = getHeadingTypeWidget();
+  if (headingTypeWidget) {
+    insertElementWithinElement(
+      formattingPanel,
+      headingTypeWidget,
+      InsertPosition.AFTER_BEGIN
+    );
+  }
+  return formattingPanel;
+}
+function getAlignmentWidget() {
+  var _a, _b;
+  const currentlyEditing = getCurrentlyEditingElement();
+  const isImage = currentlyEditing instanceof HTMLImageElement;
+  let current = null;
+  if (isImage) {
+    const alignSelf = (_a = currentlyEditing == null ? void 0 : currentlyEditing.style) == null ? void 0 : _a.alignSelf;
+    current = (FlexAlignCssKeys == null ? void 0 : FlexAlignCssKeys[alignSelf]) ?? AlignOptions.DEFAULT;
+  } else {
+    const textAlign = ((_b = currentlyEditing == null ? void 0 : currentlyEditing.style) == null ? void 0 : _b.textAlign) || TextAlignCssValues.DEFAULT;
+    current = (TextAlignCssKeys == null ? void 0 : TextAlignCssKeys[textAlign]) ?? AlignOptions.DEFAULT;
+  }
+  const alignOptions = Object.values(AlignOptions).map((i) => ({
+    value: i,
+    label: ALIGNMENT_LABELS[i]
+  }));
+  const editableType = getEditableType();
+  let listener = null;
+  if (editableType === EditableType.TEXT) {
+    listener = actionUpdateTextAlign;
+  }
+  if (editableType === EditableType.IMAGE) {
+    listener = actionUpdateImageAlign;
+  }
+  if (!listener) return;
+  const editAlignElement = createFieldset({
+    legendText: EDITOR_LABELS[EditorTypes.ALIGN],
+    options: alignOptions,
+    current,
+    listener
+  });
+  return editAlignElement;
+}
+function getHeadingTypeWidget() {
+  const currentlyEditing = getCurrentlyEditingElement();
+  const isHeading = currentlyEditing instanceof HTMLHeadingElement;
+  if (!isHeading) return;
+  const headerTags = [
+    ElementTag.H1,
+    ElementTag.H2,
+    ElementTag.H3,
+    ElementTag.H4,
+    ElementTag.H5,
+    ElementTag.H6
+  ];
+  const options = headerTags.map((i) => ({ value: i, label: i.toUpperCase() }));
+  const editHeadingTypeElement = createFieldset({
+    legendText: EDITOR_LABELS[EditorTypes.HEADING_LEVEL],
+    options,
+    current: currentlyEditing.tagName.toLowerCase(),
+    listener: actionUpdateHeadingLevel
+  });
+  return editHeadingTypeElement;
+}
+function getUploadWidget() {
+  const container = createElement({
+    tag: ElementTag.DIV
+  });
+  const id = CURRENTLY_EDITING_UPLOAD_IMAGE_INPUT_ID;
+  const imagePicker = createElement({
+    tag: ElementTag.INPUT,
+    id,
+    type: INPUT_TYPES.FILE
+  });
+  imagePicker.addEventListener(EventType.CHANGE, actionHandleImageUpload);
+  const imagePickerLabel = createLabel(id, EditorTypes.IMAGE);
+  insertElementWithinElement(
+    container,
+    imagePickerLabel,
+    InsertPosition.BEFORE_END
+  );
+  insertElementWithinElement(container, imagePicker, InsertPosition.BEFORE_END);
+  return container;
+}
+function getToolbar() {
+  const toolbar = createElement({
+    classList: [EDIT_UI_CONTAINER_CLASS],
+    id: CURRENTLY_EDITING_TOOLBAR_ID
+  });
+  const editableType = getEditableType();
+  if (!editableType) {
+    showAlert("Error: Invalid element. 2");
+    return;
+  }
+  const buttonsContainerElement = getEditorButtons(editableType);
+  insertElementWithinElement(toolbar, buttonsContainerElement);
+  return toolbar;
+}
+function openFormattingPanel() {
+  const existing = document.getElementById(CURRENTLY_EDITING_FORMATTING_ID);
+  if (existing) return;
+  const toolbar = getCurrentlyEditingToolbar();
+  if (!toolbar) {
+    showAlert("Error: Can't open formatting panel.");
+    return;
+  }
+  const formattingPanel = getFormattingPanel();
+  insertElementWithinElement(
+    toolbar,
+    formattingPanel,
+    InsertPosition.AFTER_BEGIN
+  );
+}
+function openUploadPanel() {
+  const existing = document.getElementById(CURRENTLY_EDITING_UPLOAD_ID);
+  if (existing) return;
+  const toolbar = getCurrentlyEditingToolbar();
+  if (!toolbar) {
+    showAlert("Error: Can't open upload panel.");
+    return;
+  }
+  const panel = getSubpanel(CURRENTLY_EDITING_UPLOAD_ID);
+  const widget = getUploadWidget();
+  insertElementWithinElement(panel, widget, InsertPosition.AFTER_BEGIN);
+  insertElementWithinElement(toolbar, panel, InsertPosition.AFTER_BEGIN);
+}
+function openAltTextPanel() {
+  const existing = document.getElementById(CURRENTLY_EDITING_ALT_TEXT_ID);
+  if (existing) return;
+  const toolbar = getCurrentlyEditingToolbar();
+  if (!toolbar) {
+    showAlert("Error: Can't open alt text panel.");
+    return;
+  }
+  const panel = getSubpanel(CURRENTLY_EDITING_ALT_TEXT_ID);
+  const widget = getAltTextWidget();
+  if (!widget) {
+    showAlert("Error: can't open alt text panel.");
+    return;
+  }
+  insertElementWithinElement(panel, widget, InsertPosition.AFTER_BEGIN);
+  insertElementWithinElement(toolbar, panel, InsertPosition.AFTER_BEGIN);
+}
+function validateElementForEditing(element) {
+  const isValidEditableElement = element instanceof HTMLHeadingElement || element instanceof HTMLParagraphElement || element instanceof HTMLImageElement;
+  if (!isValidEditableElement) {
+    showAlert("Invalid element for editor");
+    return false;
+  }
+  if (element.id === CURRENTLY_EDITING_ID) {
+    return false;
+  }
+  cancelEdit();
+  return true;
+}
+const ALLOWED_PASTE_TAGS = /* @__PURE__ */ new Set([ElementTag.A]);
+const LINE_BREAK_TAGS = /* @__PURE__ */ new Set([ElementTag.BR]);
+const BLOCK_TAGS_TO_LINE_BREAK = /* @__PURE__ */ new Set([
+  ElementTag.DIV,
+  ElementTag.P,
+  ElementTag.LI,
+  ElementTag.H1,
+  ElementTag.H2,
+  ElementTag.H3,
+  ElementTag.H4,
+  ElementTag.H5,
+  ElementTag.H6
+]);
+function activateEditor(element) {
+  var _a;
+  const valid = validateElementForEditing(element);
+  if (!valid) return;
+  element.id = CURRENTLY_EDITING_ID;
+  const editableType = getEditableType();
+  const originalTagName = element.tagName.toLowerCase();
+  element.setAttribute(DATA_ORIGINAL_TAG_NAME, originalTagName);
+  if (editableType === EditableType.TEXT) {
+    element.contentEditable = "true";
+    saveInnerHtml(element);
+    const editableElement = element;
+    (_a = editableElement.pasteAbortController) == null ? void 0 : _a.abort();
+    const controller = new AbortController();
+    editableElement.pasteAbortController = controller;
+    editableElement.addEventListener(EventType.PASTE, handlePaste, {
+      signal: controller.signal
+    });
+  }
+  if (editableType === EditableType.IMAGE && element instanceof HTMLImageElement) {
+    saveImageAttributes(element);
+  }
+  saveCss(element);
+  const toolbar = getToolbar();
+  if (!toolbar) {
+    showAlert("Error: Invalid element. 1");
+    return;
+  }
+  let domReference = element;
+  const isAnchorContent = element.parentElement instanceof HTMLAnchorElement;
+  if (isAnchorContent) {
+    domReference = element.parentElement;
+  }
+  insertElementNextToElement(domReference, toolbar, InsertPosition.AFTER_END);
+  element.focus();
+}
+function saveInnerHtml(element) {
+  const originalHtml = element.innerHTML;
+  const originalHtmlEscaped = encodeURIComponent(originalHtml);
+  element.setAttribute(DATA_ORIGINAL_HTML, originalHtmlEscaped);
+}
+function saveImageAttributes(element) {
+  const originalSrc = element.src;
+  element.setAttribute(DATA_ORIGINAL_SRC, originalSrc);
+  const originalAlt = element.alt;
+  element.setAttribute(DATA_ORIGINAL_ALT, originalAlt);
+}
+function saveCss(element) {
+  const editableProperties = Object.values(EDITABLE_STYLE_PROPERTIES);
+  const originalCss = editableProperties.reduce((acc, property) => {
+    const v = element.style.getPropertyValue(property);
+    acc[property] = v ?? void 0;
+    return acc;
+  }, {});
+  const originalCssEscaped = encodeURIComponent(JSON.stringify(originalCss));
+  element.setAttribute(DATA_ORIGINAL_CSS, originalCssEscaped);
+  if ((element == null ? void 0 : element.parentElement) instanceof HTMLAnchorElement) {
+    saveCss(element.parentElement);
+  }
+}
+function handlePaste(event) {
+  var _a, _b;
+  if (!(event instanceof ClipboardEvent)) return;
+  event.preventDefault();
+  const selection = window.getSelection();
+  if (!selection || selection.rangeCount === 0) return;
+  const html = ((_a = event.clipboardData) == null ? void 0 : _a.getData("text/html")) ?? "";
+  const text = ((_b = event.clipboardData) == null ? void 0 : _b.getData("text/plain")) ?? "";
+  const nodeToInsert = html ? sanitizeHtmlToFragment(html) : document.createTextNode(text);
+  const range = selection.getRangeAt(0);
+  range.deleteContents();
+  if (nodeToInsert instanceof DocumentFragment) {
+    const lastNode = nodeToInsert.lastChild;
+    range.insertNode(nodeToInsert);
+    if (lastNode) {
+      range.setStartAfter(lastNode);
+    }
+  } else {
+    range.insertNode(nodeToInsert);
+    range.setStartAfter(nodeToInsert);
+  }
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+}
+function sanitizeHtmlToFragment(html) {
+  const parsedHtml = new DOMParser().parseFromString(html, "text/html");
+  const cleanFragment = document.createDocumentFragment();
+  for (const child of Array.from(parsedHtml.body.childNodes)) {
+    const sanitizedNode = sanitizeNode(child);
+    if (sanitizedNode) {
+      cleanFragment.appendChild(sanitizedNode);
+    }
+  }
+  return cleanFragment;
+}
+function sanitizeNode(node) {
+  if (node.nodeType === Node.TEXT_NODE) {
+    return document.createTextNode(node.textContent ?? "");
+  }
+  if (!(node instanceof HTMLElement)) return null;
+  const tagName = node.tagName.toLowerCase();
+  if (LINE_BREAK_TAGS.has(tagName)) {
+    return document.createElement(ElementTag.BR);
+  }
+  if (!ALLOWED_PASTE_TAGS.has(tagName)) {
+    const nestedFragment = document.createDocumentFragment();
+    for (const child of Array.from(node.childNodes)) {
+      const sanitizedChild = sanitizeNode(child);
+      if (sanitizedChild) {
+        nestedFragment.appendChild(sanitizedChild);
+      }
+    }
+    if (BLOCK_TAGS_TO_LINE_BREAK.has(tagName)) {
+      appendLineBreakIfNeeded(nestedFragment);
+    }
+    return nestedFragment;
+  }
+  if (tagName === ElementTag.A) {
+    return sanitizeAnchor(node);
+  }
+  const unsupportedAllowedTag = document.createDocumentFragment();
+  for (const child of Array.from(node.childNodes)) {
+    const sanitizedChild = sanitizeNode(child);
+    if (sanitizedChild) {
+      unsupportedAllowedTag.appendChild(sanitizedChild);
+    }
+  }
+  return unsupportedAllowedTag;
+}
+function sanitizeAnchor(node) {
+  var _a;
+  const anchor = document.createElement(ElementTag.A);
+  const href = ((_a = node.getAttribute("href")) == null ? void 0 : _a.trim()) ?? "";
+  if (/^(https?:|mailto:|tel:|\/|#)/i.test(href)) {
+    anchor.setAttribute("href", href);
+  }
+  const target = node.getAttribute("target");
+  if (target === "_blank") {
+    anchor.setAttribute("target", "_blank");
+    anchor.setAttribute("rel", "noopener noreferrer");
+  }
+  for (const child of Array.from(node.childNodes)) {
+    const sanitizedChild = sanitizeNode(child);
+    if (sanitizedChild) {
+      anchor.appendChild(sanitizedChild);
+    }
+  }
+  return anchor;
+}
+function appendLineBreakIfNeeded(fragment) {
+  const lastNode = fragment.lastChild;
+  if (lastNode instanceof HTMLElement && lastNode.tagName.toLowerCase() === ElementTag.BR) {
+    return;
+  }
+  fragment.appendChild(document.createElement(ElementTag.BR));
+}
+function getLinkHandler(anchor, relatedElement) {
+  const currentlyEditing = getCurrentlyEditingElement();
+  const alreadyEditingParent = currentlyEditing === anchor.parentElement;
+  const alreadyEditingChild = (currentlyEditing == null ? void 0 : currentlyEditing.parentElement) === anchor;
+  if (alreadyEditingParent || alreadyEditingChild) {
+    return;
+  }
+  const linkToolbar = createElement({
+    tag: ElementTag.DIV,
+    classList: [EDIT_UI_CONTAINER_CLASS],
+    id: CURRENTLY_EDITING_LINK_HANDLER_ID
+  });
+  const buttonsContainerElement = getLinkButtons(
+    anchor,
+    relatedElement,
+    activateEditor,
+    linkToolbar
+  );
+  insertElementWithinElement(linkToolbar, buttonsContainerElement);
+  return linkToolbar;
+}
+function getElementEventListener() {
+  return function(event) {
+    const element = event.currentTarget;
+    if (!(element instanceof HTMLElement)) return;
+    activateEditor(element);
+  };
+}
+function getAnchorEventListener() {
+  return function(event) {
+    event.preventDefault();
+    const anchor = event.currentTarget;
+    if (!anchor || !(anchor instanceof HTMLAnchorElement)) return;
+    const editingToolbar = getCurrentlyEditingToolbar();
+    if (anchor.contains(editingToolbar)) {
+      return;
+    }
+    event.stopPropagation();
+    const relatedElement = anchor.closest(ElementTag.H1) ?? anchor.closest(ElementTag.H2) ?? anchor.closest(ElementTag.H3) ?? anchor.closest(ElementTag.H4) ?? anchor.closest(ElementTag.H5) ?? anchor.closest(ElementTag.H6) ?? anchor.closest(ElementTag.P) ?? anchor.querySelector(ElementTag.IMG);
+    if (!relatedElement) return;
+    validateElementForEditing(relatedElement);
+    const element = event.currentTarget;
+    if (!(element instanceof HTMLAnchorElement)) return;
+    const linkToolbar = getLinkHandler(anchor, relatedElement);
+    if (!linkToolbar) {
+      return;
+    }
+    insertElementNextToElement(element, linkToolbar, InsertPosition.AFTER_END);
+  };
+}
+const textElementTags = [
+  ElementTag.H1,
+  ElementTag.H2,
+  ElementTag.H3,
+  ElementTag.H4,
+  ElementTag.H5,
+  ElementTag.H6,
+  ElementTag.P
+];
+const textElementsSelector = textElementTags.join(", ");
+function activateElementListeners() {
+  const textElements = document.querySelectorAll(textElementsSelector);
+  const imageElements = document.querySelectorAll(ElementTag.IMG);
+  [...textElements, ...imageElements].forEach((element) => {
+    element.addEventListener(EventType.CLICK, getElementEventListener());
+  });
+}
+function activateAnchorListeners(parent = document) {
+  const anchorElements = parent.querySelectorAll(ElementTag.A);
+  anchorElements.forEach((element) => {
+    element.addEventListener(EventType.CLICK, getAnchorEventListener(), {
+      capture: true
+    });
+  });
+}
+function addListenerById(id, callback, type = EventType.CHANGE) {
+  var _a;
+  (_a = document.getElementById(id)) == null ? void 0 : _a.addEventListener(type, callback);
+}
+function addListenerToHtmlElementEditor(editorId, elementId, property) {
+  const editor = document.getElementById(editorId);
+  if (!(editor instanceof HTMLInputElement)) return;
+  const element = document.getElementById(elementId);
+  if (!(element instanceof HTMLHtmlElement)) {
+    return;
+  }
+  editor.value = element[property];
+  const onUpdateHtmlProperty = (_event) => {
+    const newValue = editor.value;
+    element[property] = newValue;
+    setUnsavedChanges();
+  };
+  editor.addEventListener(EventType.INPUT, onUpdateHtmlProperty);
+}
+function addListenerToMetaEditor(editorId, elementId, property, otherElementIds) {
+  const editor = document.getElementById(editorId);
+  if (!(editor instanceof HTMLInputElement) && !(editor instanceof HTMLTextAreaElement))
+    return;
+  const element = document.getElementById(elementId);
+  if (!(element instanceof HTMLMetaElement)) {
+    return;
+  }
+  editor.value = element[property];
+  const onUpdateMetaProperty = (_event) => {
+    const newValue = editor.value;
+    element[property] = newValue;
+    otherElementIds == null ? void 0 : otherElementIds.forEach((id) => {
+      const element2 = document.getElementById(id);
+      if (!(element2 instanceof HTMLMetaElement)) return;
+      element2[property] = newValue;
+    });
+    setUnsavedChanges();
+  };
+  editor.addEventListener(EventType.INPUT, onUpdateMetaProperty);
+}
+function addListenerToTitleEditor(editorId, elementId, property, otherElementIds) {
+  const editor = document.getElementById(editorId);
+  if (!(editor instanceof HTMLInputElement) && !(editor instanceof HTMLTextAreaElement))
+    return;
+  const element = document.getElementById(elementId);
+  if (!(element instanceof HTMLTitleElement)) {
+    return;
+  }
+  editor.value = element[property];
+  const onUpdateTitleProperty = (_event) => {
+    const newValue = editor.value;
+    element[property] = newValue;
+    otherElementIds == null ? void 0 : otherElementIds.forEach((id) => {
+      const element2 = document.getElementById(id);
+      if (!(element2 instanceof HTMLTitleElement)) return;
+      element2[property] = newValue;
+    });
+    setUnsavedChanges();
+  };
+  editor.addEventListener(EventType.INPUT, onUpdateTitleProperty);
+}
+function getHandleGlobalStyleChange(property) {
+  return (changeEvent) => {
+    const target = changeEvent.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    document.body.style[property] = target.value;
+    setUnsavedChanges();
+  };
+}
+function handleSaveChanges(_event) {
+  const uiIds = [
+    LOCAL_CONTROLS_CONTAINER_ID,
+    CURRENTLY_EDITING_LINK_HANDLER_ID,
+    CURRENTLY_EDITING_TOOLBAR_ID
+  ];
+  uiIds.forEach((i) => {
+    const element = document.getElementById(i);
+    element == null ? void 0 : element.remove();
+  });
+  document.body.removeAttribute("class");
+  const fullHtml = document.documentElement.outerHTML;
+  const doctype = document.doctype ? `<!DOCTYPE ${[
+    document.doctype.name,
+    document.doctype.publicId && `PUBLIC "${document.doctype.publicId}"`,
+    document.doctype.systemId && `"${document.doctype.systemId}"`
+  ].filter(Boolean).join(" ")}>` : "";
+  saveFile(`${doctype}${fullHtml}`).catch((error) => {
+    if ((error == null ? void 0 : error.name) !== "AbortError") {
+      showAlert(error);
+    }
+  }).finally(() => {
+    localEditingMode();
+  });
+}
+function handleUpdateBodyAlignment(_event) {
+  const selectedAlignmentElement = document.querySelector(
+    "input[type='radio'][name='body-align']:checked"
+  );
+  if (!(selectedAlignmentElement instanceof HTMLInputElement)) return;
+  const { value } = selectedAlignmentElement;
+  OPTIONS.LC_BODY_ALIGNMENT_OPTIONS.forEach((option) => {
+    if (value === option.value) {
+      Object.entries(option.style).forEach(([k, v]) => {
+        document.body.style.setProperty(k, v);
+      });
+    }
+  });
+  setUnsavedChanges();
+}
+function handleUpdateBodyTextAlign(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const { value } = target;
+  if (value !== AlignOptions.LEFT && value !== AlignOptions.CENTER && value !== AlignOptions.RIGHT)
+    return;
+  document.body.style.setProperty("text-align", TextAlignCssValues[value]);
+  document.body.style.setProperty("align-items", FlexAlignCssValues[value]);
+  setUnsavedChanges();
+}
+function handleUpdateBodyTextSize(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const value = parseInt(target.value);
+  if (isNaN(value)) return;
+  document.body.style.setProperty("font-size", `${value}%`);
+  setUnsavedChanges();
+}
+function getTypedElementById(id, ElementType) {
+  const element = document.getElementById(id);
+  if (!(element instanceof ElementType)) return null;
+  return element;
+}
+async function insertFavicon(file) {
+  var _a, _b;
+  const oldElement = document.querySelector(FAVICON_QUERY_SELECTOR);
+  if (oldElement) oldElement.remove();
+  const dataUrl = await getDataURLFromFile(file);
+  const newElement = createElement({ tag: ElementTag.LINK });
+  newElement.rel = "icon";
+  newElement.href = dataUrl;
+  const faviconPreviewElement = getTypedElementById(
+    CURRENT_FAVICON_PREVIEW_ID,
+    HTMLImageElement
+  );
+  if (!faviconPreviewElement) return;
+  faviconPreviewElement.src = dataUrl;
+  (_b = (_a = document.getElementsByTagName("head")) == null ? void 0 : _a[0]) == null ? void 0 : _b.appendChild(newElement);
+  setUnsavedChanges();
+}
+function handleUpdateFavicon(event) {
+  var _a;
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const file = (_a = target == null ? void 0 : target.files) == null ? void 0 : _a[0];
+  if (!file) {
+    showAlert(ERROR_NO_IMAGE);
+    return;
+  }
+  const validFile = isImageFile(file);
+  if (!validFile) {
+    showAlert(ERROR_IMAGE_ONLY);
+    return;
+  }
+  const imagePreviewImgId = `${IMAGE_PREVIEW_ID_PREFIX}${UPDATE_FAVICON_ID}`;
+  const imagePreviewImg = document.getElementById(imagePreviewImgId);
+  if (!(imagePreviewImg instanceof HTMLImageElement)) return;
+  const imagePreviewFigureId = `${IMAGE_PREVIEW_FIGURE_ID_PREFIX}${UPDATE_FAVICON_ID}`;
+  const imagePreviewFigure = document.getElementById(imagePreviewFigureId);
+  if (!(imagePreviewFigure instanceof HTMLElement)) return;
+  const updateButtons = [
+    {
+      id: CANCEL_FAVICON_UPDATE_ID,
+      onClick: (_event) => {
+        updateHandler(false, UpdateMethod.REMOVE);
+      }
+    },
+    {
+      id: CONFIRM_FAVICON_UPDATE_ID,
+      onClick: (_event) => {
+        updateHandler(false, UpdateMethod.REMOVE);
+        insertFavicon(file);
+      }
+    }
+  ];
+  const urlPromise = getDataURLFromFile(file);
+  const updateHandler = async (valid, method) => {
+    const target2 = event.target;
+    if (!(target2 instanceof HTMLInputElement)) return;
+    updateButtons.forEach((i) => {
+      const button = document.getElementById(i.id);
+      if (!(button instanceof HTMLButtonElement)) return;
+      button.disabled = !valid;
+      button[method]("click", i.onClick);
+    });
+    if (!valid) {
+      target2.value = "";
+      imagePreviewImg.src = "";
+      imagePreviewFigure.classList.add(HIDDEN_CLASS);
+    } else {
+      const url = await urlPromise;
+      imagePreviewImg.src = url;
+      imagePreviewFigure.classList.remove(HIDDEN_CLASS);
+    }
+  };
+  updateHandler(validFile, UpdateMethod.ADD);
+}
+function handleUpdateBodyWidthType(event) {
+  if (!(event.target instanceof HTMLInputElement)) return;
+  const fullWidth = event.target.value === BODY_WIDTH_OPTIONS.FULL;
+  const widthSlider = document.getElementById(BODY_WIDTH_RANGE_INPUT_ID);
+  if (!(widthSlider instanceof HTMLInputElement)) return;
+  widthSlider.disabled = fullWidth;
+  const alignmentFieldset = document.getElementById(UPDATE_BODY_ALIGN_ID);
+  if (!(alignmentFieldset instanceof HTMLFieldSetElement)) return;
+  alignmentFieldset.disabled = fullWidth;
+  const widthSliderContainer = document.getElementById(
+    WIDTH_SLIDER_CONTAINER_ID
+  );
+  if (!widthSliderContainer) return;
+  widthSliderContainer.style.setProperty(
+    "display",
+    fullWidth ? "none" : "block"
+  );
+  const widthSliderValueDisplay = document.getElementById(
+    BODY_WIDTH_NUMBER_INPUT_ID
+  );
+  if (!(widthSliderValueDisplay instanceof HTMLInputElement)) return;
+  if (fullWidth) {
+    widthSliderValueDisplay.disabled = true;
+    document.body.style.setProperty("width", "calc(100% - 4rem)");
+    document.body.style.setProperty("margin", "2rem");
+  } else {
+    widthSliderValueDisplay.disabled = false;
+    const widthPx = `${widthSlider.value}px`;
+    document.body.style.setProperty("width", widthPx);
+    widthSliderValueDisplay.value = widthSlider.value;
+    handleUpdateBodyAlignment();
+  }
+  setUnsavedChanges();
+}
+function handleUpdateSocialImageProperty(event, property) {
+  const propertyItems = {
+    [ImgElementProperty.SRC]: [
+      { id: CURRENT_SOCIAL_IMAGE_ID, property: MetaProperty.CONTENT },
+      { id: CURRENT_TWITTER_IMAGE_ID, property: MetaProperty.CONTENT },
+      { id: CURRENT_SOCIAL_IMAGE_PREVIEW_ID, property: ImgElementProperty.SRC }
+    ],
+    [ImgElementProperty.ALT]: [
+      { id: CURRENT_SOCIAL_IMAGE_ALT_ID, property: MetaProperty.CONTENT },
+      { id: CURRENT_TWITTER_IMAGE_ALT_ID, property: MetaProperty.CONTENT },
+      { id: CURRENT_SOCIAL_IMAGE_PREVIEW_ID, property: ImgElementProperty.ALT }
+    ]
+  };
+  const currentPreviewImageOrPlaceholder = document.getElementById(
+    CURRENT_SOCIAL_IMAGE_PREVIEW_ID
+  );
+  if (currentPreviewImageOrPlaceholder instanceof HTMLDivElement) {
+    const placeholderId = getUniqueId();
+    currentPreviewImageOrPlaceholder.id = placeholderId;
+    const newPreviewImage = createElement({
+      tag: ElementTag.IMG,
+      id: CURRENT_SOCIAL_IMAGE_PREVIEW_ID
+    });
+    insertElementToDOM(
+      placeholderId,
+      newPreviewImage,
+      InsertPosition.AFTER_END
+    );
+    currentPreviewImageOrPlaceholder.remove();
+  }
+  const items = propertyItems[property];
+  items.forEach((item) => {
+    var _a;
+    const element = document.getElementById(item.id);
+    const isMetaElementAndContent = element instanceof HTMLMetaElement && item.property === MetaProperty.CONTENT;
+    const isImageElement = element instanceof HTMLImageElement;
+    if (isMetaElementAndContent) {
+      if (event.target instanceof HTMLInputElement && item.property === MetaProperty.CONTENT) {
+        element[item.property] = (_a = event == null ? void 0 : event.target) == null ? void 0 : _a.value;
+      }
+    }
+    if (isImageElement) {
+      if (event.target instanceof HTMLInputElement) {
+        if (item.property === property) {
+          element[item.property] = event.target.value;
+        }
+      }
+    }
+  });
+  setUnsavedChanges();
+}
+function handleUpdateSocialImageSrc(event) {
+  handleUpdateSocialImageProperty(event, ImgElementProperty.SRC);
+}
+function handleUpdateSocialImageAlt(event) {
+  handleUpdateSocialImageProperty(event, ImgElementProperty.ALT);
+}
+function handleUpdateBodyWidth(event) {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  let value = parseInt(target.value);
+  const numberInput = document.getElementById(BODY_WIDTH_NUMBER_INPUT_ID);
+  const rangeInput = document.getElementById(BODY_WIDTH_RANGE_INPUT_ID);
+  if (!numberInput || !rangeInput) return;
+  if (!(numberInput instanceof HTMLInputElement)) return;
+  if (!(rangeInput instanceof HTMLInputElement)) return;
+  if (value < parseInt(SETTINGS.BODY_WIDTHS[0])) {
+    value = parseInt(SETTINGS.BODY_WIDTHS[0]);
+  } else if (value > parseInt(SETTINGS.BODY_WIDTHS[SETTINGS.BODY_WIDTHS.length - 1])) {
+    value = parseInt(SETTINGS.BODY_WIDTHS[SETTINGS.BODY_WIDTHS.length - 1]);
+  }
+  const valueString = `${value}px`;
+  document.body.style.setProperty("width", valueString);
+  numberInput.value = String(value);
+  rangeInput.value = String(value);
+  setUnsavedChanges();
+}
+function scrollToElement(id) {
+  const element = document.getElementById(id);
+  if (!element) return;
+  const elementTop = element.getBoundingClientRect().top;
+  if (elementTop < 0) {
+    const { scrollTop } = document.documentElement;
+    const scrollTo = elementTop + scrollTop - 20;
+    window.scrollTo(0, scrollTo < 0 ? 0 : scrollTo);
+  }
+}
+function onClickNewContentButton(_event) {
+  const newContentModal = getNewContentModal();
+  insertElementToDOM(
+    LOCAL_CONTROLS_CONTAINER_ID,
+    newContentModal,
+    InsertPosition.BEFORE_END
+  );
+  function clearAddItemModal() {
+    newContentModal.remove();
+  }
+  const addElementEditorOpitons = [
+    {
+      id: ADD_ITEM_HEADING_ID,
+      callback: () => addNewTextElementEditor(EditorTypes.HEADING)
+    },
+    {
+      id: ADD_ITEM_PARAGRAPH_ID,
+      callback: () => addNewTextElementEditor(EditorTypes.PARAGRAPH)
+    },
+    { id: ADD_ITEM_IMAGE_ID, callback: addNewImageEditor }
+  ];
+  addElementEditorOpitons.forEach((option) => {
+    const callback = (_event2) => {
+      option.callback();
+      clearAddItemModal();
+    };
+    addListenerById(option.id, callback, EventType.CLICK);
+  });
+  addListenerById(
+    ADD_ITEM_CANCEL_BUTTON_ID,
+    clearAddItemModal,
+    EventType.CLICK
+  );
+}
+function getNewContentModal() {
+  const wrapper = createElement({ id: NEW_CONTENT_MODAL_WRAPPER_ID });
+  const modal = createElement({ id: NEW_CONTENT_MODAL_ID });
+  const heading = createElement({
+    tag: ElementTag.H2,
+    innerHTML: NEW_CONTENT_HEADER
+  });
+  const list = createElement({ tag: ElementTag.UL });
+  const buttons = [
+    { id: ADD_ITEM_HEADING_ID, innerHTML: BUTTON_ADD_HEADING },
+    { id: ADD_ITEM_PARAGRAPH_ID, innerHTML: BUTTON_ADD_PARAGRAPH },
+    { id: ADD_ITEM_IMAGE_ID, innerHTML: BUTTON_ADD_IMAGE }
+  ];
+  buttons.forEach((buttonOptions) => {
+    const listItem = createElement({ tag: ElementTag.LI });
+    const button = createElement({ tag: ElementTag.BUTTON, ...buttonOptions });
+    insertElementWithinElement(listItem, button);
+    insertElementWithinElement(list, listItem);
+  });
+  const cancelButton = createElement({
+    tag: ElementTag.BUTTON,
+    id: ADD_ITEM_CANCEL_BUTTON_ID,
+    innerHTML: BUTTON_CANCEL,
+    classList: [NON_DESTRUCTIVE_BUTTON_CLASS]
+  });
+  insertElementWithinElement(modal, heading);
+  insertElementWithinElement(modal, list);
+  insertElementWithinElement(modal, cancelButton);
+  insertElementWithinElement(wrapper, modal);
+  return wrapper;
+}
+function addNewTextElementEditor(type = EditorTypes.PARAGRAPH) {
+  const tag = type === EditorTypes.HEADING ? ElementTag.H2 : ElementTag.P;
+  const innerHTML = "";
+  const newElement = createElement({ tag, innerHTML });
+  addNewEditorCleanup(newElement, () => activateEditor(newElement));
+  newElement.addEventListener(EventType.CLICK, getElementEventListener());
+}
+function addNewImageEditor() {
+  const tag = ElementTag.IMG;
+  const newElement = createElement({ tag });
+  addNewEditorCleanup(newElement, () => activateEditor(newElement));
+  newElement.addEventListener(EventType.CLICK, getElementEventListener());
+}
+function addNewEditorCleanup(newElement, editCallback) {
+  insertElementToDOM(END_OF_DOC_ID, newElement, InsertPosition.BEFORE_BEGIN);
+  scrollToElement(CURRENTLY_EDITING_ID);
+  editCallback();
+}
+function handleMinimize(_event) {
+  const localControls = document.getElementById(LOCAL_CONTROLS_ID);
+  const localControlsMinimized = document.getElementById(
+    LOCAL_CONTROLS_MINIMIZED_ID
+  );
+  const container = document.getElementById(LOCAL_CONTROLS_CONTAINER_ID);
+  if (!(localControls instanceof HTMLElement) || !(localControlsMinimized instanceof HTMLElement) || !(container instanceof HTMLElement)) {
+    return;
+  }
+  const currentlyMinimized = localControlsMinimized.style.display !== "none";
+  if (currentlyMinimized) {
+    localControls.style.setProperty("display", "block");
+    localControlsMinimized.style.setProperty("display", "none");
+    container.style.setProperty("margin-top", "25rem");
+  } else {
+    localControls.style.setProperty("display", "none");
+    localControlsMinimized.style.setProperty("display", "block");
+    container.style.setProperty("margin-top", "4rem");
+  }
+}
+function activatePageListeners() {
+  const listeners = [
+    {
+      id: MINIMIZE_BUTTON_ID,
+      eventHandler: handleMinimize,
+      type: EventType.CLICK
+    },
+    {
+      id: UNMINIMIZE_BUTTON_ID,
+      eventHandler: handleMinimize,
+      type: EventType.CLICK
+    },
+    {
+      id: ADD_ITEM_ID,
+      eventHandler: onClickNewContentButton,
+      type: EventType.CLICK
+    },
+    {
+      id: ADD_ITEM_MINIMIZED_ID,
+      eventHandler: onClickNewContentButton,
+      type: EventType.CLICK
+    },
+    {
+      id: UPDATE_BACKGROUND_COLOR_ID,
+      eventHandler: getHandleGlobalStyleChange(CSSProperties.BACKGROUND_COLOR)
+    },
+    {
+      id: UPDATE_TEXT_COLOR_ID,
+      eventHandler: getHandleGlobalStyleChange(CSSProperties.COLOR)
+    },
+    {
+      id: FULL_WIDTH_RADIO_ID,
+      eventHandler: handleUpdateBodyWidthType
+    },
+    {
+      id: BODY_WIDTH_NUMBER_INPUT_ID,
+      eventHandler: handleUpdateBodyWidth,
+      type: EventType.INPUT
+    },
+    {
+      id: BODY_WIDTH_RANGE_INPUT_ID,
+      eventHandler: handleUpdateBodyWidth,
+      type: EventType.INPUT
+    },
+    {
+      id: UPDATE_BODY_ALIGN_ID,
+      eventHandler: handleUpdateBodyAlignment
+    },
+    {
+      id: UPDATE_TEXT_ALIGN_ID,
+      eventHandler: handleUpdateBodyTextAlign
+    },
+    {
+      id: UPDATE_TEXT_SIZE_ID,
+      eventHandler: handleUpdateBodyTextSize
+    },
+    {
+      id: UPDATE_FAVICON_ID,
+      eventHandler: handleUpdateFavicon
+    },
+    {
+      id: UPDATE_SOCIAL_IMAGE_ID,
+      eventHandler: handleUpdateSocialImageSrc,
+      type: EventType.INPUT
+    },
+    {
+      id: UPDATE_SOCIAL_IMAGE_ALT_ID,
+      eventHandler: handleUpdateSocialImageAlt,
+      type: EventType.INPUT
+    },
+    {
+      id: SAVE_CHANGES_ID,
+      eventHandler: handleSaveChanges,
+      type: EventType.CLICK
+    },
+    {
+      id: SAVE_CHANGES_MINIMIZED_ID,
+      eventHandler: handleSaveChanges,
+      type: EventType.CLICK
+    }
+  ];
+  listeners.forEach((i) => addListenerById(i.id, i.eventHandler, i == null ? void 0 : i.type));
+  addListenerToTitleEditor(
+    PAGE_TITLE_INPUT_ID,
+    PAGE_TITLE_ID,
+    TitleProperty.INNER_HTML,
+    [PAGE_OG_TITLE_ID, PAGE_TWITTER_TITLE_ID]
+  );
+  addListenerToMetaEditor(
+    PAGE_DESC_INPUT_ID,
+    PAGE_DESC_ID,
+    MetaProperty.CONTENT,
+    [PAGE_TWITTER_DESC_ID, PAGE_OG_DESC_ID]
+  );
+  addListenerToHtmlElementEditor(
+    PAGE_LANG_INPUT_ID,
+    HTML_ELEMENT_ID,
+    HtmlProperty.LANG
+  );
+}
+function addControlsInput(id, _type, labelText, value = "", _classList = []) {
+  const label = createElement({
+    tag: ElementTag.LABEL,
+    innerHTML: labelText,
+    htmlFor: id
+  });
+  let classList = _classList;
+  if (_type === INPUT_TYPES.TEXT) classList.push(INPUT_TYPE_TEXT_CLASS);
+  let tag = ElementTag.INPUT;
+  let type = _type;
+  if (_type === INPUT_TYPES.TEXTAREA) {
+    tag = ElementTag.TEXTAREA;
+    type = void 0;
+  }
+  const input = createElement({ id, tag, type, value, classList });
+  return [label, input];
+}
+function addControlsSection(headerText, children, headerTag = ElementTag.H4, id = null) {
+  const section = createElement({
+    classList: [CONTROLS_SECTION_CLASS]
+  });
+  if (id) section.id = id;
+  const header = createElement({ tag: headerTag, innerHTML: headerText });
+  [header, ...children].forEach((element) => {
+    insertElementWithinElement(section, element);
+  });
+  return section;
+}
+function rgb2hex(rgb) {
+  const match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+  if (!match) {
+    showAlert(`Invalid color: ${rgb}`);
+    return null;
+  }
+  return `#${match.slice(1).map((n) => parseInt(n, 10).toString(16).padStart(2, "0")).join("")}`;
+}
+function getCurrentStyle(property, element = document.body) {
+  const currentStyle = element.style[property];
+  if (property === CSSProperties.BACKGROUND_COLOR || CSSProperties.COLOR)
+    return rgb2hex(currentStyle || "rgb(255, 255, 255)") ?? void 0;
+  return currentStyle;
+}
+function addControlsRadioInput(fieldsetId, legendText, options) {
+  const fieldset = createElement({ tag: ElementTag.FIELDSET, id: fieldsetId });
+  const legend = createElement({
+    tag: ElementTag.LEGEND,
+    innerHTML: legendText
+  });
+  const optionElements = options.map((option) => {
+    const { id, name, value, checked, labelText } = option;
+    const container = createElement();
+    const [label, input] = addControlsInput(
+      id,
+      INPUT_TYPES.RADIO,
+      labelText,
+      value
+    );
+    input.name = name;
+    if (input instanceof HTMLInputElement) {
+      input.checked = checked;
+    }
+    insertElementWithinElement(container, input);
+    insertElementWithinElement(container, label);
+    return container;
+  });
+  insertElementWithinElement(fieldset, legend);
+  optionElements.forEach(
+    (optionElement) => insertElementWithinElement(fieldset, optionElement)
+  );
+  return [fieldset];
+}
+const captions = {
+  [IMAGE_PREVIEW.IMAGE]: IMAGE_PREVIEW_CAPTION,
+  [IMAGE_PREVIEW.FAVICON]: FAVICON_PREVIEW_CAPTION
+};
+function createImagePreview(id, type = IMAGE_PREVIEW.IMAGE) {
+  const imagePreviewImg = createElement({
+    tag: ElementTag.IMG,
+    id: `${IMAGE_PREVIEW_ID_PREFIX}${id}`,
+    classList: [IMAGE_PREVIEW_CLASS]
+  });
+  const captionText = captions[type];
+  const imagePreviewCaption = createElement({
+    tag: ElementTag.FIGCAPTION,
+    innerHTML: captionText
+  });
+  const imagePreviewFigure = createElement({
+    tag: ElementTag.FIGURE,
+    id: `${IMAGE_PREVIEW_FIGURE_ID_PREFIX}${id}`,
+    classList: [HIDDEN_CLASS]
+  });
+  insertElementWithinElement(imagePreviewFigure, imagePreviewCaption);
+  insertElementWithinElement(imagePreviewFigure, imagePreviewImg);
+  return imagePreviewFigure;
+}
+function createFigureWithCaption(figureId, captionText, imageId, imageSrc, imageAlt, figureStyle = {}, imageStyle = {}) {
+  const figure = createElement({ tag: ElementTag.FIGURE, id: figureId });
+  const caption = createElement({
+    tag: ElementTag.FIGCAPTION,
+    innerHTML: captionText
+  });
+  let imageOrPlaceholder;
+  if (imageSrc) {
+    imageOrPlaceholder = createElement({
+      tag: ElementTag.IMG,
+      id: imageId,
+      imageSrc,
+      altText: imageAlt
+    });
+  } else {
+    imageOrPlaceholder = createElement({
+      tag: ElementTag.DIV,
+      classList: [IMAGE_PLACEHOLDER_CLASS],
+      id: imageId,
+      innerHTML: "No image"
+    });
+  }
+  insertElementWithinElement(figure, caption);
+  insertElementWithinElement(figure, imageOrPlaceholder);
+  Object.entries(figureStyle).forEach(([key, value]) => {
+    figure.style.setProperty(key, String(value ?? ""));
+  });
+  if (imageOrPlaceholder instanceof HTMLImageElement) {
+    Object.entries(imageStyle).forEach(([key, value]) => {
+      imageOrPlaceholder.style.setProperty(key, String(value ?? ""));
+    });
+  }
+  return figure;
+}
+function getCurrentFaviconURL() {
+  const faviconLink = document.querySelector(FAVICON_QUERY_SELECTOR);
+  if (!(faviconLink instanceof HTMLLinkElement)) return "";
+  return faviconLink.href;
+}
+function getCurrentSocialImage() {
+  const metaImageElement = document.getElementById(CURRENT_SOCIAL_IMAGE_ID);
+  const metaAltElement = document.getElementById(CURRENT_SOCIAL_IMAGE_ALT_ID);
+  if (!(metaImageElement instanceof HTMLMetaElement) || !(metaAltElement instanceof HTMLMetaElement))
+    return {
+      url: "",
+      alt: ""
+    };
+  return { url: metaImageElement.content, alt: metaAltElement.content };
+}
+function getLocalControls() {
+  const minimizeButton = createElement({
+    id: MINIMIZE_BUTTON_ID,
+    tag: ElementTag.BUTTON,
+    innerHTML: LC_MINIMIZE_BUTTON_TEXT
+  });
+  const addContent = addControlsSection(LC_CONTENT_SUBHEADER, [
+    createElement({
+      id: ADD_ITEM_ID,
+      tag: ElementTag.BUTTON,
+      innerHTML: LC_CONTENT_BUTTON
+    })
+  ]);
+  const generalMetaEditor = addControlsSection(LC_GENERAL_SUBHEADER, [
+    ...addControlsInput(
+      PAGE_TITLE_INPUT_ID,
+      INPUT_TYPES.TEXT,
+      LC_GENERAL_PAGE_TITLE_LABEL
+    ),
+    ...addControlsInput(
+      PAGE_DESC_INPUT_ID,
+      INPUT_TYPES.TEXTAREA,
+      LC_GENERAL_PAGE_DESC_LABEL
+    ),
+    ...addControlsInput(
+      PAGE_LANG_INPUT_ID,
+      INPUT_TYPES.TEXT,
+      LC_GENERAL_PAGE_LANG_LABEL
+    ),
+    createElement({
+      tag: ElementTag.LABEL,
+      htmlFor: PAGE_LANG_INPUT_ID,
+      classList: [INPUT_BELOW_LABEL_CLASS],
+      innerHTML: LC_GENERAL_PAGE_LANG_BELOW_LABEL
+    })
+  ]);
+  const backgroundColorEditor = addControlsSection(
+    LC_BG_COLOR_SUBHEADER,
+    addControlsInput(
+      UPDATE_BACKGROUND_COLOR_ID,
+      INPUT_TYPES.COLOR,
+      LC_COLOR_LABEL,
+      getCurrentStyle(CSSProperties.BACKGROUND_COLOR),
+      [COLOR_PICKER_CLASS]
+    )
+  );
+  const textColorEditor = addControlsSection(
+    LC_TEXT_COLOR_SUBHEADER,
+    addControlsInput(
+      UPDATE_TEXT_COLOR_ID,
+      INPUT_TYPES.COLOR,
+      LC_COLOR_LABEL,
+      getCurrentStyle(CSSProperties.COLOR),
+      [COLOR_PICKER_CLASS]
+    )
+  );
+  const bodyWidthFixedEditor = createElement({ id: WIDTH_SLIDER_CONTAINER_ID });
+  const bodyWidthFixedCurrentValue = createElement({
+    id: BODY_WIDTH_NUMBER_INPUT_ID,
+    tag: ElementTag.INPUT,
+    type: INPUT_TYPES.NUMBER,
+    value: `${SETTINGS.BODY_WIDTH}`,
+    min: SETTINGS.BODY_WIDTHS[0],
+    max: SETTINGS.BODY_WIDTHS[SETTINGS.BODY_WIDTHS.length - 1]
+  });
+  const bodyWidthFixedLabel = createElement({
+    tag: ElementTag.LABEL,
+    htmlFor: BODY_WIDTH_RANGE_INPUT_ID,
+    innerHTML: LC_BODY_WIDTH_FIXED_LABEL
+  });
+  insertElementWithinElement(bodyWidthFixedLabel, bodyWidthFixedCurrentValue);
+  const bodyWidthFixedInput = createElement({
+    id: BODY_WIDTH_RANGE_INPUT_ID,
+    tag: ElementTag.INPUT,
+    type: INPUT_TYPES.RANGE,
+    min: SETTINGS.BODY_WIDTHS[0],
+    max: SETTINGS.BODY_WIDTHS[SETTINGS.BODY_WIDTHS.length - 1]
+  });
+  bodyWidthFixedInput.min = SETTINGS.BODY_WIDTHS[0];
+  bodyWidthFixedInput.max = SETTINGS.BODY_WIDTHS[SETTINGS.BODY_WIDTHS.length - 1];
+  bodyWidthFixedInput.value = SETTINGS.BODY_WIDTH;
+  const bodyWidthFixedDataList = createElement({
+    id: WIDTH_SLIDER_DATALIST_ID,
+    tag: ElementTag.DATALIST
+  });
+  SETTINGS.BODY_WIDTHS.forEach((value) => {
+    const option = createElement({ tag: ElementTag.OPTION, value });
+    option.label = `${value}px`;
+    insertElementWithinElement(bodyWidthFixedDataList, option);
+  });
+  bodyWidthFixedInput.setAttribute("list", WIDTH_SLIDER_DATALIST_ID);
+  insertElementWithinElement(bodyWidthFixedEditor, bodyWidthFixedLabel);
+  insertElementWithinElement(bodyWidthFixedEditor, bodyWidthFixedInput);
+  insertElementWithinElement(bodyWidthFixedEditor, bodyWidthFixedDataList);
+  const bodyWidthEditor = addControlsSection(
+    LC_BODY_WIDTH_SUBHEADER,
+    [
+      // ...addControlsInput(
+      //   FULL_WIDTH_RADIO_ID,
+      //   INPUT_TYPES.RADIO,
+      //   LC_BODY_WIDTH_LABEL,
+      // ),
+      ...addControlsRadioInput(
+        FULL_WIDTH_RADIO_ID,
+        LC_BODY_WIDTH_LABEL,
+        OPTIONS.LC_BODY_WIDTH_OPTIONS
+      ),
+      bodyWidthFixedEditor
+    ],
+    ElementTag.H4
+  );
+  const bodyAlignmentEditor = addControlsSection(
+    LC_BODY_ALIGNMENT_SUBHEADER,
+    [
+      ...addControlsRadioInput(
+        UPDATE_BODY_ALIGN_ID,
+        LC_BODY_ALIGNMENT_LEGEND,
+        OPTIONS.LC_BODY_ALIGNMENT_OPTIONS
+      ),
+      createElement({
+        tag: ElementTag.LABEL,
+        innerHTML: LC_BODY_ALIGNMENT_RIGHT_MESSAGE
+      })
+    ],
+    ElementTag.H4,
+    UPDATE_BODY_ALIGN_CONTAINER_ID
+  );
+  const textAlignmentEditor = addControlsSection(
+    LC_TEXT_ALIGNMENT_SUBHEADER,
+    addControlsRadioInput(
+      UPDATE_TEXT_ALIGN_ID,
+      LC_TEXT_ALIGNMENT_LEGEND,
+      OPTIONS.LC_UPDATE_TEXT_ALIGN_OPTIONS
+    ),
+    ElementTag.H4
+  );
+  const textSizeControls = addControlsInput(
+    UPDATE_TEXT_SIZE_ID,
+    INPUT_TYPES.NUMBER,
+    LC_TEXT_SIZE_LABEL,
+    String(100)
+  );
+  if (textSizeControls[1] instanceof HTMLInputElement) {
+    textSizeControls[1].step = String(10);
+  }
+  const textStyleEditor = addControlsSection(LC_TEXT_STYLE_SUBHEADER, [
+    ...textSizeControls
+  ]);
+  const faviconImagePreview = createImagePreview(
+    UPDATE_FAVICON_ID,
+    IMAGE_PREVIEW.FAVICON
+  );
+  const faviconEditorButtons = createElement({
+    classList: [EDIT_BUTTONS_CLASS]
+  });
+  const faviconEditorCancelButton = createElement({
+    tag: ElementTag.BUTTON,
+    id: CANCEL_FAVICON_UPDATE_ID,
+    innerHTML: BUTTON_CANCEL
+  });
+  faviconEditorCancelButton.disabled = true;
+  const faviconEditorUpdateButton = createElement({
+    tag: ElementTag.BUTTON,
+    id: CONFIRM_FAVICON_UPDATE_ID,
+    innerHTML: BUTTON_UPDATE
+  });
+  faviconEditorUpdateButton.disabled = true;
+  insertElementWithinElement(faviconEditorButtons, faviconEditorCancelButton);
+  insertElementWithinElement(faviconEditorButtons, faviconEditorUpdateButton);
+  const faviconEditor = addControlsSection(
+    LC_FAVICON_SUBHEADER,
+    [
+      createFigureWithCaption(
+        CURRENT_FAVICON_PREVIEW_FIGURE_ID,
+        LC_CURRENT_FAVICON_CAPTION,
+        CURRENT_FAVICON_PREVIEW_ID,
+        getCurrentFaviconURL(),
+        LC_CURRENT_FAVICON_ALT_TEXT
+      ),
+      ...addControlsInput(
+        UPDATE_FAVICON_ID,
+        INPUT_TYPES.FILE,
+        LC_UPDATE_FAVICON_LABEL
+      ),
+      faviconImagePreview,
+      faviconEditorButtons
+    ],
+    ElementTag.H4
+  );
+  const { url: currentSocialImageURL, alt: currentSocialImageAlt } = getCurrentSocialImage();
+  const socialImageEditor = addControlsSection(
+    LC_SOCIAL_IMAGE_SUBHEADER,
+    [
+      createFigureWithCaption(
+        SOCIAL_IMAGE_PREVIEW_FIGURE_ID,
+        LC_SOCIAL_IMAGE_LABEL,
+        CURRENT_SOCIAL_IMAGE_PREVIEW_ID,
+        currentSocialImageURL ?? "",
+        currentSocialImageAlt ?? (currentSocialImageURL ? "" : MISSING_SOCIAL_IMAGE_ALT)
+      ),
+      ...addControlsInput(
+        UPDATE_SOCIAL_IMAGE_ID,
+        INPUT_TYPES.TEXT,
+        LC_SOCIAL_IMAGE_INPUT_LABEL,
+        currentSocialImageURL
+      ),
+      createElement({
+        tag: ElementTag.LABEL,
+        htmlFor: UPDATE_SOCIAL_IMAGE_ID,
+        classList: [NOTE_CLASS],
+        innerHTML: LC_SOCIAL_IMAGE_INPUT_BELOW_LABEL
+      }),
+      ...addControlsInput(
+        UPDATE_SOCIAL_IMAGE_ALT_ID,
+        INPUT_TYPES.TEXT,
+        LC_SOCIAL_IMAGE_ALT_INPUT_LABEL,
+        currentSocialImageAlt
+      )
+    ],
+    ElementTag.H4
+  );
+  const saveChanges = addControlsSection(LC_SAVE_CHANGES_SUBHEADER, [
+    createElement({
+      tag: ElementTag.BUTTON,
+      id: SAVE_CHANGES_ID,
+      innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL
+    })
+  ]);
+  const wrapper = createElement({ id: LOCAL_CONTROLS_ID });
+  const children = [
+    minimizeButton,
+    createElement({ id: ALERT_LIST }),
+    createElement({ tag: ElementTag.H2, innerHTML: LC_HEADER }),
+    createElement({ tag: ElementTag.P, innerHTML: LC_INSTRUCTIONS }),
+    createElement({ tag: ElementTag.HR }),
+    addContent,
+    createElement({ tag: ElementTag.H3, innerHTML: LC_METADATA_SUBHEADER }),
+    generalMetaEditor,
+    createElement({ tag: ElementTag.H3, innerHTML: LC_STYLES_SUBHEADER }),
+    backgroundColorEditor,
+    textColorEditor,
+    bodyWidthEditor,
+    bodyAlignmentEditor,
+    textAlignmentEditor,
+    textStyleEditor,
+    faviconEditor,
+    socialImageEditor,
+    saveChanges
+  ];
+  children.forEach((element) => {
+    insertElementWithinElement(wrapper, element);
+  });
+  return wrapper;
+}
+function getMinimizedLocalControls() {
+  const minimizeButton = createElement({
+    id: UNMINIMIZE_BUTTON_ID,
+    tag: ElementTag.BUTTON,
+    innerHTML: LC_EXPAND_BUTTON_TEXT
+  });
+  const addContentButton = createElement({
+    id: ADD_ITEM_MINIMIZED_ID,
+    tag: ElementTag.BUTTON,
+    innerHTML: LC_CONTENT_BUTTON
+  });
+  const saveChangesButton = createElement({
+    tag: ElementTag.BUTTON,
+    id: SAVE_CHANGES_MINIMIZED_ID,
+    innerHTML: LC_SAVE_CHANGES_BUTTON_LABEL
+  });
+  const wrapper = createElement({ id: LOCAL_CONTROLS_MINIMIZED_ID });
+  const children = [minimizeButton, addContentButton, saveChangesButton];
+  children.forEach((element) => {
+    insertElementWithinElement(wrapper, element);
+  });
+  wrapper.style.setProperty("display", "none");
+  return wrapper;
+}
+function isDevEnv() {
+  const { hostname, protocol } = window.location;
+  if (protocol === "file:") return true;
+  return hostname === "localhost" || hostname === "127.0.0.1" || hostname === "[::1]" || hostname.endsWith(".local");
+}
+function enableLocalControls() {
+  const localControlsContainer = createElement({
+    id: LOCAL_CONTROLS_CONTAINER_ID
+  });
+  insertElementToDOM(
+    END_OF_DOC_ID,
+    localControlsContainer,
+    InsertPosition.AFTER_END
+  );
+  const localControls = getLocalControls();
+  const localControlsMinimized = getMinimizedLocalControls();
+  insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControls);
+  insertElementToDOM(LOCAL_CONTROLS_CONTAINER_ID, localControlsMinimized);
+  document.body.classList.add("local-controls-enabled");
+  const devEnv = isDevEnv();
+  if (devEnv) showAlert("Test alert");
+  if (window.screen.width < 900) {
+    showAlert(ALERT_PHONE_SCREEN_SIZE);
+  }
+  window.addEventListener("beforeunload", function(e) {
+    if (!devEnv) {
+      e.preventDefault();
+    }
+  });
+}
+function localEditingMode() {
+  console.log("Local editing mode enabled");
+  boilerplateSetup();
+  activateElementListeners();
+  activateAnchorListeners();
+  enableLocalControls();
+  activatePageListeners();
+}
+function boilerplateSetup() {
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0) return;
+      const range = selection.getRangeAt(0);
+      range.deleteContents();
+      const br = createElement({ tag: ElementTag.BR });
+      range.insertNode(br);
+      range.setStartAfter(br);
+      range.setEndAfter(br);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  });
+}
+const isLocal = window.location.protocol === "file:" || window.location.hostname === "doodles.patrickweaver.net" || isDevEnv() || window.navigator.userAgent.includes("jsdom");
+if (isLocal) localEditingMode();</script>
+    <style rel="stylesheet" crossorigin="">:root {
+  --warning-bg-a: #ffbfbf;
+  --warning-highlight-a: #ff0000;
+  --lc-bg: rgba(245, 245, 240, 0.9);
+  --lc-bg-2: #f8f8ff;
+  --lc-bg-3: #f4f4f4;
+  --lc-bg-4: rgba(250, 250, 245, 0.95);
+  --lc-bg-5: rgba(250, 250, 230, 0.6);
+  --lc-color: #000000;
+  --lc-border: #717067;
+  --modal-shadow-bg: #4f4f4fdf;
+  --note-border: #ffe8b8;
+  --note-bg: #fffce8;
+  --scroll-bar: #9f9f9f;
+  --scroll-bar-hover: #6f6f6f;
+  --scroll-bar-bg: #e1e1e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 2rem;
+  line-height: 1.4;
+  z-index: 5;
+}
+
+body.local-controls-enabled::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  z-index: 5;
+}
+
+body.local-controls-enabled::-webkit-scrollbar-track {
+  background: var(--scroll-bar-bg);
+}
+
+body.local-controls-enabled::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar);
+  border-right: none;
+  border-left: none;
+}
+
+body.local-controls-enabled::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-bar-hover);
+}
+
+body.local-controls-enabled::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 25rem;
+}
+
+body.local-controls-enabled::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+}
+
+body.unsaved-changes {
+  /* 2rem is default */
+  margin-top: Calc(2rem + 25px);
+}
+
+#unsaved-changes-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 100%;
+  background-color: var(--note-bg);
+  text-align: center;
+  color: var(--lc-color);
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  width: 100%;
+}
+
+input.text-input {
+  width: Calc(100% - 1rem - 4px);
+  /* padding 0.5rem, border 2px */
+}
+
+textarea {
+  width: Calc(100% - 1rem - 2px);
+  min-height: 6rem;
+  font-family: "Arial", sans-serif;
+}
+
+img {
+  display: block;
+  margin: 1rem 0;
+  max-width: Calc(100vw - 4rem);
+}
+
+.color-picker {
+  height: 2rem;
+  padding: 2px;
+}
+
+.edit-ui-container {
+  background-color: var(--lc-bg-5);
+  width: 100%;
+  border-radius: 20px;
+  padding: 0 0.5rem;
+  margin-left: -1rem;
+}
+
+.editor-sub-container {
+  text-align: center;
+}
+
+.edit-buttons {
+  line-height: 3rem;
+  margin: 0 0.5rem 0.5rem;
+  display: inline-block;
+}
+
+#currently-editing {
+  padding: 1rem;
+  margin-left: -1rem;
+  background-color: var(--lc-bg-5);
+  border-radius: 4px;
+}
+
+.edit-ui-container label,
+.edit-ui-container input,
+.edit-ui-container fieldset {
+  width: Calc(100% - 1rem);
+}
+
+.edit-ui-container fieldset > div {
+  line-height: 1.5rem;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+.edit-ui-container fieldset > div > label {
+  margin: 0 5px;
+}
+
+.edit-ui-container select {
+  padding: 0.25rem;
+  min-width: 4rem;
+}
+
+.edit-ui-container label,
+.edit-ui-container input,
+.edit-ui-container select,
+.edit-ui-container fieldset {
+  margin-bottom: 0.5rem;
+}
+
+#local-controls-container {
+  width: Calc(100% + 4rem);
+  margin-top: 25rem;
+  position: relative;
+  left: -2rem;
+}
+
+#local-controls,
+#local-controls-minimized {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25rem;
+  background-color: var(--lc-bg);
+  color: var(--lc-color);
+  text-align: left;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem 1rem;
+  outline: 1px dashed var(--lc-border);
+  overflow-y: scroll;
+  font-size: 16px;
+  z-index: 10;
+}
+
+#local-controls-minimized {
+  height: 4rem;
+}
+
+#local-controls::-webkit-scrollbar {
+  width: 20px;
+}
+
+#local-controls::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar);
+}
+
+#local-controls::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-bar-hover);
+}
+
+#local-controls::-webkit-scrollbar-track {
+  background-color: var(--scroll-bar-bg);
+}
+
+.local-controls-alert {
+  border: 2px solid var(--warning-highlight-a);
+  background-color: var(--warning-bg-a);
+  padding: 0rem 1rem 1rem;
+  margin: 1rem 0;
+  position: relative;
+  transform: scaleY(1);
+}
+
+.local-controls-alert button {
+  position: absolute;
+  top: 6px;
+  right: 2px;
+}
+
+.local-controls-alert.alert-removed {
+  display: none;
+}
+
+#local-controls fieldset label,
+#local-controls fieldset input {
+  display: inline-block;
+}
+
+#local-controls figure {
+  margin: 0 0 1rem;
+}
+
+#local-controls figure figcaption,
+#local-controls figure img {
+  display: inline;
+  margin: 0;
+}
+
+#local-controls figure img#current-favicon-preview {
+  width: 16px;
+  position: relative;
+  top: 3px;
+}
+
+#local-controls figure#social-image-preview {
+  width: 100%;
+}
+
+#local-controls figure img#current-social-image-preview {
+  object-fit: contain;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+
+#local-controls-container button,
+.edit-buttons button {
+  margin: 0 0.25rem;
+  display: inline-block;
+}
+
+.controls-section {
+  background-color: var(--lc-bg-4);
+  padding: 0 0.5rem 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  margin: 0.5em 0 2rem;
+  border: 2px solid var(--lc-border);
+}
+
+.controls-section label.note {
+  border: 1px solid var(--note-border);
+  background-color: var(--note-bg);
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.controls-section label,
+.controls-section input,
+.controls-section textarea,
+.controls-section button {
+  display: block;
+}
+
+.controls-section input,
+.controls-section textarea,
+.controls-section button {
+  margin: 0.5rem 0 1rem;
+}
+
+.controls-section label {
+  margin: 0.25rem 0.5rem;
+}
+
+.controls-section .below-label {
+  margin: -0.5rem 0 1rem;
+}
+
+#update-favicon {
+  margin-bottom: 0.25rem;
+}
+
+#new-content-modal-wrapper {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: var(--modal-shadow-bg);
+}
+
+#new-content-modal {
+  margin: 5rem 10% 0;
+  background-color: var(--lc-bg-2);
+  padding: 1rem 2rem;
+  width: Calc(80% - 2rem - 2rem);
+  border-radius: 1rem;
+  /* 2rem is body margin */
+}
+
+#new-content-modal li {
+  margin: 0.5rem;
+}
+
+.image-preview {
+  border: 1px dashed var(--lc-border);
+  background-color: white;
+  max-width: 150px;
+}
+
+.image-placeholder {
+  border: 1px dashed var(--lc-border);
+  background-color: var(--lc-bg-3);
+  color: var(--lc-border);
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  height: 5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* https: //makeaero.com/ */
+#local-controls-container button,
+.edit-ui-container button {
+  /* OKLCH Color System for accurate colors */
+  --hue: 200;
+  --sat: 0.48;
+  --glow-intensity: 0.45;
+
+  /* Color Variables */
+  --fg: oklch(15% calc(var(--sat) * 0.5) var(--hue));
+  --bg: oklch(75% var(--sat) var(--hue) / 0.8);
+  --bg-dark: oklch(45% var(--sat) var(--hue) / 0.75);
+  --bottom-glow: radial-gradient(
+    farthest-corner at bottom center,
+    rgba(255, 255, 255, var(--glow-intensity)),
+    transparent
+  );
+
+  /* Base Styling */
+  background-color: var(--bg);
+  background:
+    var(--bottom-glow), linear-gradient(to bottom, var(--bg-dark), var(--bg));
+
+  border: 1px solid var(--bg);
+  border-radius: 9999px;
+
+  /* Shadows and Effects */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  color: var(--fg);
+  font-family: "Arial", sans-serif;
+  font-weight: 600;
+  text-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.2);
+
+  /* Layout */
+  cursor: pointer;
+  position: relative;
+  transition: all 300ms ease;
+
+  /* Prevent text selection */
+  user-select: none;
+  -webkit-user-select: none;
+
+  /* Size */
+  padding: 0.3em 1em;
+  font-size: 0.875rem;
+}
+
+#local-controls-container button.non-destructive,
+.edit-ui-container button.non-destructive {
+  --hue: 295;
+}
+
+#local-controls-container button.destructive,
+.edit-ui-container button.destructive {
+  --hue: 92;
+}
+
+#local-controls-container button.save,
+.edit-ui-container button.save {
+  --hue: 154;
+}
+
+/* Top Highlight Effect */
+#local-controls-container button::after,
+.edit-ui-container button::after {
+  content: "";
+  position: absolute;
+  top: 4%;
+  left: 0.75em;
+  width: calc(100% - 1.5em);
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: inherit;
+  transition: background 400ms ease;
+  pointer-events: none;
+}
+
+/* Hover State */
+#local-controls-container button:hover,
+#local-controls-container button:focus,
+.edit-ui-container button:hover,
+.edit-ui-container button:focus {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Active State */
+#local-controls-container button:active,
+.edit-ui-container button:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translateY(1px);
+}</style>
+  <link class="" rel="icon" href="data:image/png;base64,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ERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERHF0f8CY1RW+JnT8c4AAAAASUVORK5CYII="></head>
+
+  <body style="background-color: rgb(246, 229, 237); color: rgb(0, 0, 0); text-align: center; align-items: center; width: 800px; display: flex; flex-direction: column; justify-content: flex-start; margin: 2rem auto;">
+    <h1 data-original-tag-name="h1">One Pager Example Gallery 🎨</h1>
+
+    <h2 data-original-tag-name="h2">The web pages below were created with One Pager</h2>
+
+    
+
+    
+
+    <h3 class="" data-original-tag-name="h2">How do I try it?</h3>
+
+    <p data-original-tag-name="p">1. <a id="new-anchor" class="" href="http://https://doodles.patrickweaver.net/one-pager/examples/oat-dog/" target="_blank">Oat Dog Speaks</a></p>
+
+    <p data-original-tag-name="p">2. <a id="new-anchor" class="" href="http://https://doodles.patrickweaver.net/one-pager/examples/20s-kids/" target="_blank">20s Kids Know Playlist</a></p>
+
+    
+
+    
+
+    
+    
+
+    
+
+    <h2 data-original-tag-name="h2">Have one to share?</h2>
+    <p data-original-tag-name="p">Send Patrick links to your One Pager web pages, or send him an index.html file and he'll add the link here.</p>
+
+    <hr id="end-of-document" style="display: none">
+  
+
+</body></html>
