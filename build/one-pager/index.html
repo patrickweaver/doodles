@@ -168,6 +168,10 @@ var ImgElementProperty = /* @__PURE__ */ ((ImgElementProperty2) => {
   ImgElementProperty2["STYLE"] = "style";
   return ImgElementProperty2;
 })(ImgElementProperty || {});
+var MetaElementProperty = /* @__PURE__ */ ((MetaElementProperty2) => {
+  MetaElementProperty2["CONTENT"] = "content";
+  return MetaElementProperty2;
+})(MetaElementProperty || {});
 const ALIGNMENT_LABELS = {
   LEFT: "Left",
   CENTER: "Center",
@@ -1671,10 +1675,10 @@ function addListenerToTitleEditor(editorId, elementId, property, otherElementIds
   const onUpdateTitleProperty = (_event) => {
     const newValue = editor.value;
     element[property] = newValue;
-    otherElementIds == null ? void 0 : otherElementIds.forEach((id) => {
+    otherElementIds == null ? void 0 : otherElementIds.forEach(({ id, property: property2 }) => {
       const element2 = document.getElementById(id);
-      if (!(element2 instanceof HTMLTitleElement)) return;
-      element2[property] = newValue;
+      if (!(element2 instanceof HTMLMetaElement)) return;
+      element2[property2] = newValue;
     });
     setUnsavedChanges();
   };
@@ -2135,7 +2139,10 @@ function activatePageListeners() {
     PAGE_TITLE_INPUT_ID,
     PAGE_TITLE_ID,
     TitleProperty.INNER_HTML,
-    [PAGE_OG_TITLE_ID, PAGE_TWITTER_TITLE_ID]
+    [
+      { id: PAGE_OG_TITLE_ID, property: MetaElementProperty.CONTENT },
+      { id: PAGE_TWITTER_TITLE_ID, property: MetaElementProperty.CONTENT }
+    ]
   );
   addListenerToMetaEditor(
     PAGE_DESC_INPUT_ID,
