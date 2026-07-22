@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cranban</title>
+    <script>
+      // Apply the stored theme before first paint, so a refresh doesn't flash
+      // the default theme before React mounts. Key matches THEME_STORAGE_KEY
+      // in src/themes.ts; an unknown value is left to the app to sort out.
+      try {
+        var t = localStorage.getItem("kanban.theme");
+        if (t) document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="./assets/index-BFaMzAXs.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BztU0iNv.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
