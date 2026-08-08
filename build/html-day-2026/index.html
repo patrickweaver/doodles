@@ -28,6 +28,13 @@ sometimes it's fun to write like a spongebob
 </diagonal>
 
 
+<h2><pre>&lt;grass&gt;</pre></h2>
+<grass>
+  writing HTML in the park!
+</grass>
+
+
+
 <script defer>
 
 console.log("hello HTML Day")
@@ -79,6 +86,75 @@ whenReady(() => {
   if (document.fonts) document.fonts.ready.then(() => diagonalize());
 });
 
+function grassify(root = document) {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  const over = 0.5 * rem;
+
+  root.querySelectorAll('grass').forEach(el => {
+    const h = parseFloat(el.getAttribute('height')) || 12;
+    const color = el.getAttribute('color') || '#4a9d3f';
+
+    // reset first: offsetWidth includes padding, so a re-run would compound it
+    Object.assign(el.style, { padding: '0', margin: '0', display: 'inline-block' });
+
+    const w = el.offsetWidth;
+    const total = w + over * 2;
+    const svg = grassSVG(total, h, color, seedFrom(el.textContent));
+
+    Object.assign(el.style, {
+      paddingLeft: `${over}px`,
+      paddingRight: `${over}px`,
+      paddingBottom: `${h}px`,
+      marginLeft: `${-over}px`,
+      marginRight: `${-over}px`,
+      backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(svg)}")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left bottom',
+      backgroundSize: `${total}px ${h}px`
+    });
+  });
+}
+
+function grassSVG(w, h, color, rand) {
+  const base = h - 0.75;
+  const n = x => x.toFixed(1);
+
+  let ground = `M0 ${n(base)}`;
+  for (let x = 0; x < w; x += 14) {
+    const nx = Math.min(x + 14, w);
+    ground += ` Q${n(x + 7)} ${n(base + (rand() - 0.5) * 3)} ${n(nx)} ${n(base + (rand() - 0.5) * 2)}`;
+  }
+
+  let blades = '';
+  for (let x = 1; x < w; x += 2.5 + rand() * 4) {
+    const tip = h * (0.35 + rand() * 0.65);
+    const lean = (rand() - 0.5) * h * 0.7;
+    blades += `M${n(x)} ${n(base)} Q${n(x + lean * 0.3)} ${n(base - tip * 0.55)} ${n(x + lean)} ${n(base - tip)}`;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
+    `<g fill="none" stroke="${color}" stroke-linecap="round">` +
+    `<path d="${blades}" stroke-width="1.4" opacity=".85"/>` +
+    `<path d="${ground}" stroke-width="2"/>` +
+    `</g></svg>`;
+}
+
+function seedFrom(str) {
+  let s = 0;
+  for (let i = 0; i < str.length; i++) s = (s * 31 + str.charCodeAt(i)) >>> 0;
+  let a = s || 1;
+  return () => {
+    a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+whenReady(() => {
+  grassify();
+  if (document.fonts) document.fonts.ready.then(() => grassify());
+});
 
 
 </script>
