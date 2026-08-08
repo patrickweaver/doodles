@@ -9,12 +9,29 @@
 
 
 <h2><pre><spongebob></pre></h2>
-
+<spongebob>
+sometimes it's fun to write like a spongebob
+</spongebob>
 
 
 <script defer>
 
 console.log("hello HTML Day")
+
+function spongebobify(root = document) {
+  root.querySelectorAll('spongebob').forEach(el => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let i = 0, node;
+    while ((node = walker.nextNode())) {
+      node.nodeValue = node.nodeValue.replace(/\p{L}/gu, ch =>
+        i++ % 2 ? ch.toUpperCase() : ch.toLowerCase()
+      );
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => spongebobify());
+
 
 
 </script>
