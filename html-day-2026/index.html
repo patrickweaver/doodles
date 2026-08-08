@@ -18,6 +18,11 @@
 sometimes it's fun to write like a spongebob
 </spongebob>
 
+<h2><pre>&lt;diagonal&gt;</pre></h2>
+<diagonal>
+  text that is too straight is boring
+</diagonal>
+
 
 <script defer>
 
@@ -37,6 +42,24 @@ function spongebobify(root = document) {
 
 document.addEventListener('DOMContentLoaded', () => spongebobify());
 
+function diagonalize(root = document) {
+  root.querySelectorAll('diagonal').forEach(el => {
+    if (el.dataset.diagonal) return;
+    el.dataset.diagonal = '';
+
+    const deg = parseFloat(el.getAttribute('deg')) || 30;
+    const rad = deg * Math.PI / 180;
+
+    el.style.display = 'inline-block';
+
+    // measure untransformed layout box first
+    const w = el.offsetWidth, h = el.offsetHeight;
+    const bw = Math.abs(w * Math.cos(rad)) + Math.abs(h * Math.sin(rad));
+    const bh = Math.abs(w * Math.sin(rad)) + Math.abs(h * Math.cos(rad));
+
+    el.style.transform = `rotate(${deg}deg)`;
+    el.style.transformOrigin = 'center';
+    el.style.margin = `${(bh - h) / 2}px ${(bw - w) / 
 
 
 </script>
