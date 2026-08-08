@@ -42,6 +42,12 @@ sometimes it's fun to write like a spongebob
 </sigh>
 <p>Contributed by Leslie</p>
 
+<h2><pre>&lt;flower&gt;</pre></h2>
+<p>
+  Every <flower>t</flower>ag is <flower>a</flower> uni<flower>q</flower>ue flower 
+</p>
+<p>Contributed by Leslie</p>
+
 <script defer>
 
 console.log("hello HTML Day")
@@ -257,6 +263,103 @@ function groupLines(spans) {
 whenReady(() => {
   sighify();
   if (document.fonts) document.fonts.ready.then(() => sighify());
+});
+
+function asciiColor(c) {
+  // reverse the 7 bits: a bijection on 0-127, so every ASCII code
+  // gets a distinct hue, and neighboring codes land far apart
+  let r = 0;
+  for (let i = 0; i < 7; i++) r = (r << 1) | ((c >> i) & 1);
+  return {
+    h: +(r * 360 / 128).toFixed(2),  // 2.8125 deg apart, evenly spread
+    s: 62 + (c % 4) * 9,             // 62 71 80 89
+    l: 50 + (c % 3) * 7              // 50 57 64
+  };
+}
+
+function flowerify(root = document) {
+  root.querySelectorAll('flower').forEach(el => {
+    const raw = el.textContent.charCodeAt(0);
+    const code = isNaN(raw) ? 32 : raw & 127;
+    const col = asciiColor(code);
+    const rand = seedFrom('flower' + code);
+
+    // reset first: offsetWidth includes padding, so a re-run would compound it
+    Object.assign(el.style, { padding: '0', margin: '0', display: 'inline-block' });
+
+    const em = parseFloat(getComputedStyle(el).fontSize);
+    const w = el.offsetWidth, h = el.offsetHeight;
+    const glyph = Math.max(w, h, em * 0.6);
+    const R = glyph * (parseFloat(el.getAttribute('size')) || 0.9);
+    const stemLen = em * (parseFloat(el.getAttribute('stem')) || 1.8);
+
+    const padX = Math.max(0, R - w / 2);
+    const padT = Math.max(0, R - h / 2);
+    const padB = padT + stemLen;
+
+    const box = {
+      w: w + padX * 2, h: h + padT + padB,
+      cx: padX + w / 2, cy: padT + h / 2,
+      R, stemLen, discR: glyph / 2, col, rand,
+      petals: 5 + (code % 4)
+    };
+
+    Object.assign(el.style, {
+      padding: `${padT}px ${padX}px ${padB}px`,
+      margin: `0 ${-padX}px`,
+      color: `hsl(${col.h}, ${col.s}%, 24%)`,
+      backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(flowerSVG(box))}")`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'left top',
+      backgroundSize: `${box.w}px ${box.h}px`
+    });
+  });
+}
+
+function flowerSVG(o) {
+  const n = v => v.toFixed(1);
+  const { cx, cy, R, rand, col } = o;
+
+  const fill = `hsl(${col.h}, ${col.s}%, ${col.l}%)`;
+  const edge = `hsl(${col.h}, ${col.s}%, ${Math.max(col.l - 18, 12)}%)`;
+  const disc = `hsl(${col.h}, ${Math.min(col.s + 12, 92)}%, 93%)`;
+  const green = `hsl(${n(88 + rand() * 42)}, 44%, 33%)`;
+
+  // stem: quadratic from behind the disc down past the bottom edge
+  const ex = cx + (rand() - 0.5) * R * 0.6;
+  const ey = cy + R * 0.3 + o.stemLen;
+  const bx = (cx + ex) / 2 + (rand() - 0.5) * R * 1.3;
+  const by = (cy + ey) / 2;
+
+  // leaf, placed on the curve itself
+  const t = 0.5 + rand() * 0.2, u = 1 - t;
+  const px = u * u * cx + 2 * u * t * bx + t * t * ex;
+  const py = u * u * cy + 2 * u * t * by + t * t * ey;
+  const side = rand() < 0.5 ? -1 : 1;
+  const lx = px + side * R * 0.38, ly = py - R * 0.05;
+
+  const rot = rand() * 360;
+  let ring = '';
+  for (let i = 0; i < o.petals; i++) {
+    ring += `<ellipse cx="0" cy="${n(-R * 0.62)}" rx="${n(R * 0.26)}" ry="${n(R * 0.38)}"`
+          + ` transform="rotate(${n(rot + i * 360 / o.petals)})"/>`;
+  }
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${n(o.w)}" height="${n(o.h)}"`
+    + ` viewBox="0 0 ${n(o.w)} ${n(o.h)}">`
+    + `<path d="M${n(cx)} ${n(cy)} Q${n(bx)} ${n(by)} ${n(ex)} ${n(ey)}" fill="none"`
+    + ` stroke="${green}" stroke-width="${n(Math.max(R * 0.11, 1.5))}" stroke-linecap="round"/>`
+    + `<ellipse cx="${n(lx)}" cy="${n(ly)}" rx="${n(R * 0.4)}" ry="${n(R * 0.15)}"`
+    + ` fill="${green}" transform="rotate(${n(side * 26)} ${n(lx)} ${n(ly)})"/>`
+    + `<g transform="translate(${n(cx)} ${n(cy)})" fill="${fill}" stroke="${edge}"`
+    + ` stroke-width="1">${ring}</g>`
+    + `<circle cx="${n(cx)}" cy="${n(cy)}" r="${n(o.discR)}" fill="${disc}" stroke="${edge}" stroke-width="1"/>`
+    + `</svg>`;
+}
+
+whenReady(() => {
+  flowerify();
+  if (document.fonts) document.fonts.ready.then(() => flowerify());
 });
 
 
