@@ -34,6 +34,11 @@ sometimes it's fun to write like a spongebob
 </grass>
 
 
+<h2><pre>&lt;rickroll&gt;</pre></h2>
+<rickroll>
+  I wonder where this link leads to?
+</rickroll>
+<p>Contributed by Idrees</p>
 
 <script defer>
 
@@ -155,6 +160,35 @@ whenReady(() => {
   grassify();
   if (document.fonts) document.fonts.ready.then(() => grassify());
 });
+
+const RICK = 'https://youtube.com/watch?v=dQw4w9WgXcQ&ra=m';
+
+function rickrollify(root = document) {
+  root.querySelectorAll('rickroll').forEach(el => {
+    if (el.querySelector('a[data-rickroll]')) return;
+
+    const a = document.createElement('a');
+    a.dataset.rickroll = '';
+    a.href = el.getAttribute('href') || '#';
+    if (el.hasAttribute('target')) a.target = el.getAttribute('target');
+    while (el.firstChild) a.appendChild(el.firstChild);
+    el.appendChild(a);
+
+    const go = e => {
+      e.preventDefault();
+      const newTab = e.button === 1 || e.metaKey || e.ctrlKey ||
+                     e.shiftKey || a.target === '_blank';
+      if (newTab) window.open(RICK, '_blank', 'noopener');
+      else window.location.href = RICK;
+    };
+
+    a.addEventListener('click', go);
+    a.addEventListener('auxclick', e => { if (e.button === 1) go(e); });
+  });
+}
+
+whenReady(() => rickrollify());
+
 
 
 </script>
