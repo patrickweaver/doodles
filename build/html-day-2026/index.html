@@ -48,22 +48,37 @@ document.addEventListener('DOMContentLoaded', () => spongebobify());
 
 function diagonalize(root = document) {
   root.querySelectorAll('diagonal').forEach(el => {
-    if (el.dataset.diagonal) return;
-    el.dataset.diagonal = '';
-
     const deg = parseFloat(el.getAttribute('deg')) || 30;
     const rad = deg * Math.PI / 180;
 
+    // reset so re-runs measure the untransformed box
     el.style.display = 'inline-block';
+    el.style.transform = 'none';
+    el.style.margin = '0';
 
-    // measure untransformed layout box first
     const w = el.offsetWidth, h = el.offsetHeight;
     const bw = Math.abs(w * Math.cos(rad)) + Math.abs(h * Math.sin(rad));
     const bh = Math.abs(w * Math.sin(rad)) + Math.abs(h * Math.cos(rad));
 
     el.style.transform = `rotate(${deg}deg)`;
     el.style.transformOrigin = 'center';
-    el.style.margin = `${(bh - h) / 2}px ${(bw - w) / 
+    el.style.margin = `${(bh - h) / 2}px ${(bw - w) / 2}px`;
+  });
+}
+
+function whenReady(fn) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fn, { once: true });
+  } else {
+    fn();
+  }
+}
+
+whenReady(() => {
+  diagonalize();
+  if (document.fonts) document.fonts.ready.then(() => diagonalize());
+});
+
 
 
 </script>
