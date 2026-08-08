@@ -36,6 +36,12 @@ sometimes it's fun to write like a spongebob
 </rickroll>
 <p>Contributed by Idrees</p>
 
+<h2><pre>&lt;sigh&gt;</pre></h2>
+<sigh>
+  writing HTML can be tiring, time for a nap
+</sigh>
+<p>Contributed by Leslie</p>
+
 <script defer>
 
 console.log("hello HTML Day")
@@ -185,6 +191,73 @@ function rickrollify(root = document) {
 
 whenReady(() => rickrollify());
 
+function sighify(root = document) {
+  root.querySelectorAll('sigh').forEach(el => {
+    // restore original markup so re-runs measure clean
+    if (el.dataset.sighSrc != null) el.innerHTML = el.dataset.sighSrc;
+    else el.dataset.sighSrc = el.innerHTML;
+
+    const start = parseFloat(el.getAttribute('start')) || 0.6;
+    const peak  = parseFloat(el.getAttribute('peak'))  || 2.5;
+    let at = parseFloat(el.getAttribute('at'));
+    at = isNaN(at) ? 2 / 3 : Math.min(Math.max(at, 0.02), 0.98);
+
+    // split every text node into per-character inline spans
+    const spans = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    let n;
+    while ((n = walker.nextNode())) nodes.push(n);
+
+    nodes.forEach(node => {
+      const frag = document.createDocumentFragment();
+      for (const ch of node.nodeValue) {
+        const s = document.createElement('span');
+        s.textContent = ch;
+        frag.appendChild(s);
+        spans.push(s);
+      }
+      node.parentNode.replaceChild(frag, node);
+    });
+
+    // two passes: scaling changes where lines break
+    for (let pass = 0; pass < 2; pass++) {
+      groupLines(spans).forEach(line => {
+        const l = Math.min(...line.map(c => c.rect.left));
+        const r = Math.max(...line.map(c => c.rect.right));
+        const w = r - l || 1;
+        line.forEach(c => {
+          const t = ((c.rect.left + c.rect.right) / 2 - l) / w;
+          c.span.style.fontSize = sighScale(t, start, peak, at).toFixed(3) + 'em';
+        });
+      });
+    }
+  });
+}
+
+function sighScale(t, start, peak, at) {
+  const ease = u => (1 - Math.cos(Math.PI * Math.min(Math.max(u, 0), 1))) / 2;
+  return t <= at
+    ? start + (peak - start) * ease(t / at)
+    : peak  - (peak - start) * ease((t - at) / (1 - at));
+}
+
+function groupLines(spans) {
+  const lines = [];
+  let cur = null, prevLeft = Infinity;
+  spans.forEach(span => {
+    const rect = span.getBoundingClientRect();
+    if (!cur || rect.left < prevLeft - 1) { cur = []; lines.push(cur); }
+    cur.push({ span, rect });
+    prevLeft = rect.left;
+  });
+  return lines;
+}
+
+whenReady(() => {
+  sighify();
+  if (document.fonts) document.fonts.ready.then(() => sighify());
+});
 
 
 </script>
